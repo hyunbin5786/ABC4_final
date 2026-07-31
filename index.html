@@ -134,21 +134,71 @@
   /* ---------- 상세(스토리보드) 뷰 ---------- */
   .detail-overlay {
     position: fixed; inset: 0; z-index: 100;
-    background: rgba(20,20,18,.35);
+    background: rgba(20,20,18,.45);
     opacity: 0; pointer-events: none;
     transition: opacity .2s ease;
   }
   .detail-overlay.open { opacity: 1; pointer-events: auto; }
-  .detail-panel {
-    position: fixed; top: 0; right: 0; bottom: 0; z-index: 101;
-    width: min(800px, 100%);
-    background: var(--surface);
-    box-shadow: -12px 0 40px rgba(0,0,0,.12);
-    transform: translateX(100%);
-    transition: transform .28s cubic-bezier(.32,.72,.28,1);
-    display: flex; flex-direction: column;
+
+  /* 중앙 팝업 래퍼 */
+  .detail-modal-wrap {
+    position: fixed; inset: 0; z-index: 101;
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s ease;
   }
-  .detail-panel.open { transform: translateX(0); }
+  .detail-modal-wrap.open { opacity: 1; pointer-events: auto; }
+
+  .detail-panel {
+    position: relative;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(0,0,0,.28);
+    display: flex; flex-direction: row;
+    width: min(880px, 100%);
+    max-height: calc(100vh - 64px);
+    overflow: hidden;
+    transform: scale(.96);
+    transition: transform .22s cubic-bezier(.32,.72,.28,1), width .28s ease;
+  }
+  .detail-modal-wrap.open .detail-panel { transform: scale(1); }
+  .detail-panel.viewer-open { width: min(1360px, 100%); }
+
+  .detail-main {
+    display: flex; flex-direction: column;
+    flex: 1 1 0; min-width: 0;
+    max-height: calc(100vh - 64px);
+  }
+
+  /* 옆에 열리는 뷰어 컬럼 */
+  .viewer-col {
+    flex: 0 0 0; width: 0;
+    border-left: 1px solid var(--line);
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .detail-panel.viewer-open .viewer-col { flex: 0 0 56%; width: 56%; }
+  .viewer-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 16px 13px 20px; border-bottom: 1px solid var(--line);
+    flex: 0 0 auto;
+  }
+  .viewer-head .vtitle {
+    font-size: 12px; font-weight: 700; letter-spacing: .06em;
+    color: var(--ink-faint); text-transform: uppercase;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .viewer-head .viewer-newtab {
+    margin-left: auto; text-decoration: none; color: var(--ink-soft);
+    font-size: 15px; line-height: 1; padding: 4px 6px; border-radius: 8px;
+  }
+  .viewer-head .viewer-newtab:hover { color: var(--accent); background: var(--line); }
+  .viewer-body { flex: 1 1 auto; min-height: 0; background: #525659; }
+  .viewer-body object, .viewer-body iframe {
+    width: 100%; height: 100%; border: 0; display: block;
+  }
 
   .detail-top {
     padding: 20px 32px 0;
@@ -175,9 +225,15 @@
     font-size: 13px; font-weight: 500; text-decoration: none;
     border: 1px solid var(--line); border-radius: 999px;
     padding: 6px 14px; color: var(--ink-soft);
-    transition: border-color .15s, color .15s;
+    background: var(--surface); font-family: inherit; cursor: pointer;
+    transition: border-color .15s, color .15s, background .15s;
   }
   .link-pill:hover { border-color: var(--accent); color: var(--accent); }
+  .link-pill.active {
+    border-color: var(--accent); color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+  .viewer-head .btn-close { margin-left: 0; width: 30px; height: 30px; font-size: 14px; }
 
   /* 한눈에 보기 */
   .highlights {
@@ -209,12 +265,6 @@
   .sb-label {
     font-size: 12px; font-weight: 700; letter-spacing: .08em;
     color: var(--ink-faint); text-transform: uppercase; margin-bottom: 22px;
-  }
-  .slide-embed { padding: 32px 32px 8px; }
-  .pdf-frame {
-    width: 100%; height: 70vh; min-height: 420px;
-    border: 1px solid var(--line); border-radius: 12px;
-    background: var(--surface); display: block; margin-bottom: 16px;
   }
   .scene {
     position: relative;
@@ -366,6 +416,9 @@
     td.col-tags, td.col-links { width: auto; padding-top: 8px; }
     .storyboard, .detail-head, .detail-top { padding-left: 20px; padding-right: 20px; }
     .qna { padding-left: 20px; padding-right: 20px; }
+    .detail-modal-wrap { padding: 12px; }
+    .detail-panel, .detail-panel.viewer-open { flex-direction: column; width: 100%; }
+    .detail-panel.viewer-open .viewer-col { flex: 0 0 60vh; width: 100%; border-left: none; border-top: 1px solid var(--line); }
     .flow { flex-direction: column; }
     .flow-arrow { transform: rotate(90deg); align-self: center; }
   }
@@ -407,22 +460,34 @@
 
 <!-- 상세 패널 -->
 <div class="detail-overlay" id="overlay"></div>
-<aside class="detail-panel" id="panel" aria-hidden="true">
-  <div class="detail-top">
-    <span class="no" id="dNo"></span>
-    <button class="btn-close" id="btnClose" aria-label="닫기">✕</button>
-  </div>
-  <div class="detail-scroll" id="detailScroll">
-    <div class="detail-head">
-      <h2 id="dName"></h2>
-      <div class="affil" id="dAffil"></div>
-      <div class="topic" id="dTopic"></div>
-      <div class="detail-links" id="dLinks"></div>
-      <div id="dHighlights"></div>
+<div class="detail-modal-wrap" id="modalWrap">
+  <aside class="detail-panel" id="panel" aria-hidden="true">
+    <div class="detail-main">
+      <div class="detail-top">
+        <span class="no" id="dNo"></span>
+        <button class="btn-close" id="btnClose" aria-label="닫기">✕</button>
+      </div>
+      <div class="detail-scroll" id="detailScroll">
+        <div class="detail-head">
+          <h2 id="dName"></h2>
+          <div class="affil" id="dAffil"></div>
+          <div class="topic" id="dTopic"></div>
+          <div class="detail-links" id="dLinks"></div>
+          <div id="dHighlights"></div>
+        </div>
+        <div id="dBody"></div>
+      </div>
     </div>
-    <div id="dBody"></div>
-  </div>
-</aside>
+    <div class="viewer-col" id="viewerCol">
+      <div class="viewer-head">
+        <span class="vtitle" id="viewerTitle"></span>
+        <a class="viewer-newtab" id="viewerOpenNew" href="#" target="_blank" rel="noopener" title="새 탭에서 열기">↗</a>
+        <button class="btn-close" id="viewerClose" aria-label="뷰어 닫기">✕</button>
+      </div>
+      <div class="viewer-body" id="viewerBody"></div>
+    </div>
+  </aside>
+</div>
 
 <script>
 /* =========================================================
@@ -702,6 +767,7 @@ searchInput.addEventListener("input", () => {
 
 /* ---------- 상세 패널 ---------- */
 const overlay = document.getElementById("overlay");
+const modalWrap = document.getElementById("modalWrap");
 const panel = document.getElementById("panel");
 const detailScroll = document.getElementById("detailScroll");
 
@@ -749,9 +815,10 @@ function openDetail(no) {
   document.getElementById("dAffil").textContent = p.affil || "";
   document.getElementById("dTopic").textContent = p.topic;
 
-  document.getElementById("dLinks").innerHTML = p.links.map(l => `
-    <a class="link-pill" href="${l.url}" target="_blank" rel="noopener">${LINK_ICON}${l.label}</a>
-  `).join("");
+  document.getElementById("dLinks").innerHTML = p.links.map(l => {
+    const isPdf = /\.pdf(\?|#|$)/i.test(l.url);
+    return `<button class="link-pill" data-url="${l.url}" data-label="${l.label}" data-pdf="${isPdf}">${LINK_ICON}${l.label}</button>`;
+  }).join("");
 
   document.getElementById("dHighlights").innerHTML = (p.highlights && p.highlights.length) ? `
     <div class="highlights">
@@ -761,18 +828,6 @@ function openDetail(no) {
 
   const body = document.getElementById("dBody");
   let html = "";
-
-  const pdfLink = p.links && p.links.find(l => /\.pdf(\?|#|$)/i.test(l.url));
-  if (pdfLink) {
-    html += `
-      <div class="slide-embed">
-        <div class="sb-label">발표 슬라이드</div>
-        <object class="pdf-frame" data="${pdfLink.url}#view=FitH" type="application/pdf">
-          <iframe class="pdf-frame" src="${pdfLink.url}" title="발표 슬라이드"></iframe>
-        </object>
-        <a class="link-pill" href="${pdfLink.url}" target="_blank" rel="noopener">${LINK_ICON}새 탭에서 PDF 열기</a>
-      </div>`;
-  }
 
   if (p.scenes && p.scenes.length) {
     html += `
@@ -798,24 +853,55 @@ function openDetail(no) {
   if (!html) html = `<div class="empty-detail">아직 정리된 발표 내용이 없습니다.</div>`;
   body.innerHTML = html;
 
+  closeViewer();
   detailScroll.scrollTop = 0;
   overlay.classList.add("open");
-  panel.classList.add("open");
+  modalWrap.classList.add("open");
   panel.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
 
 function closeDetail() {
+  closeViewer();
   overlay.classList.remove("open");
-  panel.classList.remove("open");
+  modalWrap.classList.remove("open");
   panel.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
+}
+
+/* ---------- 옆에 열리는 뷰어 (토글) ---------- */
+let currentViewer = null;
+
+function toggleViewer(url, label, isPdf) {
+  if (currentViewer === url) { closeViewer(); return; }
+  currentViewer = url;
+  document.getElementById("viewerTitle").textContent = label;
+  document.getElementById("viewerOpenNew").href = url;
+  document.getElementById("viewerBody").innerHTML = isPdf
+    ? `<object data="${url}#toolbar=1&view=FitH" type="application/pdf"><iframe src="${url}" title="${label}"></iframe></object>`
+    : `<iframe src="${url}" title="${label}"></iframe>`;
+  panel.classList.add("viewer-open");
+  document.querySelectorAll("#dLinks .link-pill").forEach(b =>
+    b.classList.toggle("active", b.dataset.url === url));
+}
+
+function closeViewer() {
+  currentViewer = null;
+  panel.classList.remove("viewer-open");
+  document.getElementById("viewerBody").innerHTML = "";
+  document.querySelectorAll("#dLinks .link-pill").forEach(b => b.classList.remove("active"));
 }
 
 tbody.addEventListener("click", e => {
   const row = e.target.closest("tr");
   if (row) openDetail(Number(row.dataset.no));
 });
+document.getElementById("dLinks").addEventListener("click", e => {
+  const btn = e.target.closest(".link-pill");
+  if (!btn) return;
+  toggleViewer(btn.dataset.url, btn.dataset.label, btn.dataset.pdf === "true");
+});
+document.getElementById("viewerClose").addEventListener("click", closeViewer);
 overlay.addEventListener("click", closeDetail);
 document.getElementById("btnClose").addEventListener("click", closeDetail);
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeDetail(); });
