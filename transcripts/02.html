@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속기록 — 02. 조경식 · AI Trading Assistant Platform for IPOs</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 36px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+  .head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .head p { font-size: 14.5px; color: var(--ink-faint); }
+  .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--ink-faint);
+    margin: 44px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .block {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 14px;
+  }
+  .block .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .block .speaker { font-size: 13.5px; font-weight: 700; }
+  .block .speaker.presenter { color: var(--accent); }
+  .block .time { font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .block p { font-size: 15px; color: var(--ink-soft); }
+  .note {
+    font-size: 13px; color: var(--ink-faint); background: var(--accent-soft);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../index.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">TRANSCRIPT · NO. 02</div>
+    <h1>AI Trading Assistant Platform for IPOs 발표 속기록</h1>
+    <p>조경식 (4기 · SJM인베스트먼트) · 발표 및 질의응답 전문</p>
+  </div>
+
+  <div class="note">자동 속기록을 기반으로 하며, 화자 표기와 문단만 정리했습니다. 발언 내용은 원문 그대로입니다.</div>
+
+  <div class="section-title">발표</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">28:08</span></div>
+    <p>네 안녕하십니까? 이번에 두 번째 발표를 맡게 될 조경식입니다. 저는 이제 코서 수업을 들으면서 도희 교수님 때 과제에 IPO에 관련된 플랫폼 분석 플랫폼을 주제로 발표를 했었고요. 그다음에 중간 과제는 플랫폼에서 조금 더 업그레이드된 매매 트레이딩 시스템을 좀 더 작품화해서 발표를 했었고, 그때 두 번째 중간 발표할 때는 장현수 교수님도 오셔서 심사평을 하셨습니다. 오늘의 최종 발표도 같은 맥락으로, 트레이딩 그러니까 우리가 IPO에 관련된 종목에 특화된 트레이딩 어시스턴트 시스템을 개발을 해서 저희 사내용으로 쓰려고 생각을 하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">28:44</span></div>
+    <p>저희 회사는 벤처캐피탈인데 조금 다른 게, 금융위 소속으로 하는 일은 비상장·상장 기업에 투자를 하고 M&amp;A 펀드들을 결성하는 일을 하는데요. 저희 자기자본도 공모주 수요예측에 참여를 해서 공모주와 관련된 매매를 통해 수익을 창출하는 것도 일정 부분 수익원으로 가지고 있습니다. 이 플랫폼의 지향점은 딱 두 가지입니다. 하나는 IPO 리포트를 트레이딩하기 위해서 또는 수요예측에 참여하기 위해서 생성하게 되는데, 그 부분을 AI를 통해서 자동 생성하는 엔진을 개발하겠다는 것이고요. 두 번째는 이런 리포트를 통해 의사결정을 하게 되는데, 공모주 특화 AI 트레이딩 시스템을 개발하겠다는 것입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">30:00</span></div>
+    <p>중간 평가 때 지적하신 부분에 대해서 잠깐 피드백을 했는데요. 일단 괴리율과 관련된 주요 변수에 대해서 그때 장현수 교수님께서 여쭤보셨고 그 부분을 이 장표에 포함을 했고요. 멀티 에이전트 도입에 대한 당위성을 또 교수님께서 질의하셔서 그 부분도 장표에 포함을 했습니다. 그리고 HITL 구조하에서의 사람의 역할을 구체화하는 부분도 그때 박은진 교수님께서 지적을 하셔서 프로세스에 시각화가 되었고, PoC 결과물을 시연했으면 좋겠다고 박지영 연구원께서 말씀하셔서 뒤에 제가 지금까지 개발했던 앱에 대해서 시연을 하도록 하겠습니다. 전반적으로 시각화하는 것들이 좀 부족하다고 하셔서 시각화하려고 노력을 많이 했습니다. 항목은 과제와 시장에 대해서 얘기하고, 그다음에 시스템 구조 그리고 AI의 적용 기술에 대해서 말씀드리고, 우리 회사가 만든 비즈니스 모델 혁신과 실행안에 대해서 말씀드리도록 하겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">31:28</span></div>
+    <p>저희가 IPO에 대한 얘기를 했는데요. 이 IPO는 기업이 상장하기 위해서 거치는 절차입니다. 이거를 이해를 해야 저희 업에 대해서 어느 정도 이해가 되고, 그래야 이 플랫폼에 대한 가치에 대해서 이해를 하실 수가 있겠습니다. 기업이 상장 심사를 하게 되면 거래소에서 심사를 하게 되고요. 보통 1년에 한 90개에서 110개 정도가 IPO를 통해 거래소 또는 코스닥에 상장을 합니다. 그러면 저희 같은 금융투자 기관 투자가들이 수요예측 빌딩을 하게 되는데, 이때 우리가 공모주 받은 것을 확약을 하느냐 — 이 확약의 의미는, 상장되자마자 주식을 바로 파느냐 아니면 15일 후에 파느냐 또는 6개월 후에 파느냐에 따라서 배정 물량이 다릅니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">32:15</span></div>
+    <p>예를 들어서 미확약을 했을 경우에 100주를 받는다고 치면, 확약을 하게 되면 6개월 확약하면 500주, 3개월 하면 한 300주 이런 식으로 배정 물량이 달라지기 때문에 분석에 대한 부분들이 굉장히 중요하다고 말씀드릴 수 있겠습니다. 상장 후 매각을 하게 되는데요. 미확약을 하면 바로 당일날 변동성이 굉장히 크지만 그런 주가의 흐름을 이용해서 매각을 하게 되고, 상장 후에는 보통 1개월부터 6개월까지 의무 확약 기간이 있기 때문에 수급에 대한 불균형에 따라서 주가의 변동성이 굉장히 큽니다. 그래서 상장 후 1개월부터 6개월 사이에는 펀더멘탈이 반영되기 전까지는 주가의 변동성이 크다 — 이런 점을 우리가 이용해서 주식 매매하는 어시스턴트 플랫폼을 만들게 된 하나의 계기가 됐습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">33:11</span></div>
+    <p>시장을 보면, 보통 우리가 리서치를 할 때 IR 자료라든가 공시 자료 이런 내부의 리포트들이 굉장히 산개가 돼 있고, 양식도 표준화가 안 돼 있죠. 그리고 심사역들이 반복적인 질의를 하기 때문에 고부가가치 영역에 손을 대기 어렵다, 그런 문제점이 있고요. 근거라든가 채널이 분산돼 있고, 결과물과 근거의 연결 관계가 부족하기 때문에 의사결정하는 데 굉장히 취약하다고 설명드릴 수가 있습니다. 기존에 나와 있는 리포트들도 굉장히 많은데 증권사 앱이라든가 포털, 증권사 전문 리서치, AI 같은 경우에도 이런 문제점들이 있어서 실질적으로 트레이딩에 활용하기에는 굉장히 부족하다는 것입니다. 이런 시장 환경에 따라서 기회 요인이 발생하는데, 결국 IPO를 통해 시장에 상장하게 되면 수급과 가격의 변동성이 발생하고, 이런 수익 창출 기회가 발생한다는 거죠. 이런 기회 요인이 발생함에도 불구하고 현실은 데이터 부족으로 경험과 직관에 의존하는 경우가 많다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">34:28</span></div>
+    <p>그래서 여기서 우리의 솔루션을 제시하게 되고, 이 솔루션을 통해서 수익을 창출할 수 있는 기회를 가질 수 있다는 것입니다. 서두에서도 말씀드렸듯이 두 가지 가치입니다. 저희는 AI 리포트를 자동 생성하는 엔진을 모듈로 붙이고, 이걸 기반으로 트레이딩 어시스턴트 시스템을 개발하고자 합니다. 시스템 아키텍처는 데이터를 수집하고, 구조화된 투자 데이터를 AI를 통해서 자동 생성한 다음에, 웹 플랫폼을 통해서 결과를 조회하고 분석하고 관리를 하게 됩니다. 그 이후에 실시간 알림을 하게 되는데, 이따 시연을 해 보여드리겠지만 플랫폼 내에서가 아니라 텔레그램하고 연동을 해서 어느 장소에서든 실시간으로 알람을 접할 수 있고, 플랫폼에 언제든지 접할 수 있는 환경을 가지고 개발을 했습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">35:35</span></div>
+    <p>이게 대시보드인데, 기본적으로 메인 랜딩 페이지고요. 시연할 때 다시 말씀을 드리겠습니다. 그리고 텔레그램을 통해서 실시간 알림을 받게 됩니다. (기업 조회를 하게 되면 네이버 금융하고 KRX 데이터를 끌어옵니다.)</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">37:11</span></div>
+    <p>이게 현재까지 개발된 앱인데요. 일단 기업을 조회하게 되면, 공모주만 한정을 해서 저희가 끌어왔기 때문에 최근에 상장된 공모주만 조회를 하고 분석을 할 수가 있습니다. 최근에 막 마키나스라는 기업이 지금 리얼타임으로 주가가 반영이 되고 있는데요. 이 공모주를 클릭하면 공모가보다 현재 거의 떠 있는 주가 현황을 볼 수가 있고요. 예를 들어서 센스메디컬 같은 경우에는 공모가가 1만 1천 원인데 현재 상당히 위에 있죠. 이런 주가에 대한 괴리율과 관련해서, 상장 후 3년 6개월 동안 펀더멘탈이 충분히 반영되기 전에 비율에 따라서, 공모가보다 현재가가 높으면 고평가돼 있다고 일반적으로 생각할 수가 있고 — 물론 여러 가지 변수는 있지만요 — 공모가보다 현재가가 낮으면 저평가돼 있다고 볼 수가 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">38:20</span></div>
+    <p>이 앱에서는 공모 정보를 알 수가 있는데요. 기관 경쟁률이 얼마다, 그리고 38커뮤니케이션이라는 데서 API를 접근해서 가져오고 있고요. 기업 개열을 알 수 있고, 다트(DART)를 통해서 재무제표를 끌어서 자료를 볼 수가 있습니다. 매뉴얼 분석은 주가가 현재가보다 공모가가 높은 순서부터 쭉 해서, 지금 어떤 종목이 공모가 대비해서 괴리율이 저평가되어 있나, 어떤 종목이 고평가되어 있나 이렇게 볼 수가 있습니다. 공모주 리포트는 우리 직원들이 작성을 하는데, 템플릿을 AI를 통해서 만들어놓고 직원들이 입력을 하게 되는데 이거는 AI라고 할 수 없는 그냥 자동화된 폼이고, 새로 개발된 거는 AI 리포트입니다. AI 리포트로 가면 여기에 'AI 리폼'이라는 게 나오는데요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">39:27</span></div>
+    <p>이게 웹을 통해서 예를 들어서 최신 뉴스를 클릭한다고 하면, 현재 리얼타임으로 앱을 통해서 자료를 끌어와서 이 부분과 관련해서 최신 목록들이 분석이 되는 겁니다. 실험을 제가 직접 해보니까 다 잘 되더라고요. 지금은 자료 분석을 통해서 최신 입수가 이렇게 나오게 돼 있고요. 알림 서비스는 제가 통곗값을 설정하게 되면 이거에 따라서 기준값이 정해져서 저한테 텔레그램으로 자동 리포트가 됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">40:13</span></div>
+    <p>그리고 거버넌스 이런 것들이 구성이 돼 있는데, 저희가 1단계에서 하고자 하는 앱 개발은 거의 다 된 것 같아요. 그래서 2단계에서는 조금 더 고도화된 버전으로 하려고 하고 있습니다. 장현수 교수님께서 말씀하신 그 변수에 대해서는, 지금 의무보유 현황이 제일 한 70% 정도 될 거고, 이거는 제가 예상하는 수치이기 때문에 검증에 대해서는 테스트를 한번 해보면 될 것 같고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">41:06</span></div>
+    <p>AI 생성 원리는 기본적으로 LLM으로 미흡한 부분을 구조화하고 RAG를 도입해서 분석 정확도를 향상시키겠다, 그리고 할루시네이션을 최소화시키겠다는 거고요. 기본적으로 매매와 관련해서 금전이 왔다 갔다 하는 것이기 때문에 현재 수준으로서는 리스크가 커질 수밖에 없어서, 중요한 시점에서 매매 시그널이 나오면 우리가 여러 데이터를 분석해서 사람이 승인을 해야지 매매가 되는 구조로 가려고 하고 있습니다. 멀티 에이전트 시스템인데요. 리서치라든가 작성·검토·운영과 관련된 에이전트를 따로 개발을 해서 등록을 하고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">41:53</span></div>
+    <p>그때 말씀하신 싱글 에이전트하고 멀티 에이전트의 차이인데, 기본적으로 멀티 에이전트를 도입함으로써 기능별로 독립을 고도화해서 추후에 확장성을 높이고자 하고 있습니다. Human-in-the-Loop, 인간이 개입하는 부분에 대해서는 AI로 분석을 하고, 그런 시그널을 받으면 심사에 들어가고, 금액이 낮은 부분들은 심사위원이 매매를 하고, 대량 매매 같은 경우에는 대표이사 승인을 받아서 매매를 할 수 있도록 하고 있습니다. 거버넌스고요. 기본적으로 수익 모델은 저희가 흩어져 있는 IR 또는 공시 자료라든가 시세 정보 자료를 매개를 고도화시켜서 표준화시키고, 자료를 만들어 AI로 구성을 해서 의사결정을 하는 프라임 구조를 가지고 있습니다. 혁신 성과에 대해서는 앞으로 기대 효과는 속도적인 측면이다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">42:56</span></div>
+    <p>그리고 자료의 표준화, 일관성 있는 것, 그리고 수익성·효율성을 다 저희가 잡고자 하고 있습니다. 1단계는 저번에 중간 발표까지는 결국 IPO 분석 플랫폼이었고, 지금 발표하는 이 시점에서는 AI 트레이딩 어시스턴트 시스템 형식으로 가고 있습니다. 그리고 언제 될지 모르지만, 그때 장현수 교수님 강의를 들으면서 저도 질문을 했던 부분인데, AI 에이전트가 이러한 자본시장의 트레이더로서, 시장 참여자로서 올 수 있는 날이 올 수 있을 것이다라고 생각을 하고, 그런 점들을 고려해서 저희는 자금 특화된 부분이나마 에이전트 트레이딩 시스템을 도입을 하고자 합니다. 세부 실행 계획이고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (발표자)</span><span class="time">43:44</span></div>
+    <p>조직 운영은, 우리도 작은 조직이지만 저희 그룹에서 지금 캡스톤을 하고 있는데 그중에 한 분을 채용할 수도 있지만, 굉장히 똑똑한 분들이 많이 있더라고요. 우리 내부에서는 굉장히 만족을 하고 있는데, 그분이 아니더라도 AI 관련된 전문 인력을 채용할 계획이 있습니다. 그리고 그동안 배웠던 교과 내용을 토대로 해서 이 프로젝트를 접목시켜서 만들었습니다. 네 감사합니다.</p>
+  </div>
+
+  <div class="section-title">질의응답</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 1</span><span class="time">44:26</span></div>
+    <p>발표 너무 재미있게 잘 들었습니다. 중간 발표 때도 재미있게 들었는데 코멘트 잘 반영해 주셔서 감사드리고, 크게 두 가지가 궁금한데요. 저도 시장의 알파를 에이전트가 찾을 수 있냐 이런 게 궁금한데, 여기서 투자 분석 리포트를 AI로 만들면 제가 느끼기에는 항상 좀 중립적인 의견을 많이 주는 것 같은데, 이 리포트를 만약에 백테스팅에 직접 활용해 보셨다면 AI 에이전트가 진짜 쓸모 있는 리포트를 만드는지가 궁금했고요. 또 하나는, 공시 데이터 같은 것들로 RAG 시스템을 만들 때 — 저도 논문 쓰면서 고민인 부분인데 — 어떤 임베딩 방식을 썼을 때 가장 효율적이냐가 궁금하더라고요. 그냥 임베딩하고 쿼리랑 코사인 유사도를 봤을 때 딱 튀는 데이터 없이 다 중간에 좀 모이는 경향이 있어서, 혹시 의미 있는 게 있었다면 어떤 임베딩 방식을 썼는지가 궁금했습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (답변)</span><span class="time">45:42</span></div>
+    <p>지금 수준에서는 AI 리포트에 의존하는 것을 굉장히 낮추고 있습니다. AI 리포트를 생성하는 것은 웹이라든가 공시 자료를 끌어와서 하고 있는데, 매매 시그널이 오잖아요 — 괴리율이 내가 설정한 수준에 왔다 그러면, 그 시그널이 오면 그 회사를 매매할 것인지 고민을 하는데, 그럴 때 AI 리포트를 통해서 최신 정보라든가 기업의 우리사주와의 내용이라든가 이런 것들을 분석을 해서 매매를 결정하는 거죠. 그래서 AI 에이전트가 직접 매매를 하는 것처럼 리포트를 매매에 바로 연결시키는 것이 아니기 때문에, 지금은 약간 휴먼이 개입돼 있는 수준일 수밖에 없고요. 튀는 자료의 성격은 — 제가 커서(Cursor)라든가 클로드 코드를 가지고 이걸 작업했는데, 제가 생각을 하고 구현하려고 했던 것이 너무나 잘 나오더라고요. 사실 기술적인 부분도 잘 모르겠어요. 그냥 우리가 소프트를 짜고 이런 것들이 화면에 추가됐으면 좋겠다고 문의하면, 제가 생각하는 게 100이라고 하면 한 20 나오는 거예요. 그래서 여전히 잘 하고 있다고 생각합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 2</span><span class="time">47:33</span></div>
+    <p>이번에도 너무 재밌게 잘 들었습니다. 데모까지 만드셨어요, 너무 대단하다고 생각이 들었고요. 이게 지금 한국의 데이터를 활용해서 하신 거잖아요. 근데 확장 가능성은 해외나 이런 데도 당연히 가능할 것 같은데, 제가 잘 몰라서 그러는데 이 공모주 관련한 부분에 대한 수요라고 해야 되나 그런 것들이 전체 규모에서 어느 정도 되며, 한국과 해외를 다룰 때 좀 더 어려운 점 같은 것들이 있을 수 있는가 이런 것들이 궁금했습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (답변)</span><span class="time">48:12</span></div>
+    <p>제가 보기에는 시장의 규모는, 자본시장이 지금 7천 조 8천 조 이 정도 있는 상황이기 때문에 이 공모주 시장은 정말 미미합니다. 근데 제가 이거를 제가 아는 심사위원이나 자본시장에 있는 이사한테 보여줬더니, 저보다도 AI를 더 모르는 그런 분들은 이거를 돈 주고 팔면 되겠다, 그 정도로 얘기를 하더라고요. 그만큼 저는 이게 부풀려져 있는 부분이 아니기 때문에 그런 생각이 되고요. 기본적으로는 저는 3인용으로만 사용할 예정이 있고, 사내에서 우리가 잘 먹고 잘 살자 하는 거고요. 해외 쪽은 API만 접근이 가능하면 다 되지 않을까 그런 식으로 생각을 하고 있습니다. API를 우리가 연결해 달라는 대로, 이쪽 의견들은 다 알아서 해주기 때문에 가능하다고 말씀드릴 수 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 2</span><span class="time">49:16</span></div>
+    <p>추가적으로, 저도 돈을 좀 벌고 싶어서 여쭤본 건데 괴리율을 기반으로 지금 매매 타이밍을 잡는 거잖아요. 괴리율이 굉장히 중요한 변수로 사용을 하신 것 같은데 그게 거의 절대적이라고 할 수 있나요, 몇 퍼센트 정도라고 보시는 거예요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (답변)</span><span class="time">49:33</span></div>
+    <p>제가 생각하는 건 한 70%를 보고 있는데요. 왜냐하면 가장 호재성 재료는 가격이다. 가격이 수요에 기반하기도 하기 때문에, 공모주라는 거는 임의로 누가 정하는 게 아니잖아요. 공모 절차를 통해서 구체적 구조가 결정이 되고, 그게 기본적으로 펀더멘탈보다 더 낮아야 수요예측에 기관들이 참여를 할 것이고요. 그래서 공모가하고 현재가하고의 비율이, 현재가가 아주 높다 그러면 이거는 내가 가지고 있다고 하면 매도 시그널이 되는 거고, 공모가가 한 2만 원인데 지금 한 5천 원이다 그러면 회사가 엉뚱한 방향으로 갈 수도 있지만 가격 자체가 호재성이기 때문에 그렇게 판단할 수 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 2</span><span class="time">50:23</span></div>
+    <p>여쭤보고 싶은 게, 기존에 이런 공모주 사례들이 이미 있잖아요. 이런 걸 했을 때 돈을 벌었을 때, 돈을 잃었을 때가 있을 텐데, 그런 데이터를 다 분석을 한 상태에서 지금 이 70% 이렇게 얘기를 하시는 건가요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (답변)</span><span class="time">50:37</span></div>
+    <p>예상치라고 해놨는데, 그거는 제가 직관적으로 판단하는 겁니다. (질문자: 그 부분이 데이터로 검증되어 있으면 훨씬 더 좋을 것 같습니다.) 네 알겠습니다. 감사합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 3</span><span class="time">50:50</span></div>
+    <p>저도 정말 재미있게 잘 들었는데, 제가 궁금한 부분은, 결국에 의사 결정은 사람이 하게 되어 있는데 그럼 사람이 뭘 보고 하느냐 — 아까 강현수 교수님 질문에 대답을 조금 해 주셨던 것 같아요. 연관돼서 궁금한 게, 첫 번째로 공모주 거래를 하실 때 트레이딩 프리퀀시는 어느 정도를 생각하고 계신 거예요? 데일리로 하시는 건지, 아니면요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (답변)</span><span class="time">51:15</span></div>
+    <p>저희 자본금도 100억밖에 안 되고, 결국 100억 내에서 자기자본을 운영하려고 하기 때문에 규모 자체는 높지 않고요. 이거는 저희 회사 내에서의 수익원을 확보하려고 하는 부분이기 때문에, 만약에 시장이 굉장히 선진화가 돼서 정말 AI 에이전트가 참여하는 시장이 된다고 하면 같은 로직이기 때문에 이걸 확장성 있게 쓰면 규모도 늘어나겠지만, 지금은 공모주가 1년에 한 100개 정도 나오고, 코스닥 시장이 굉장히 건전한 방향으로 가면서 기업들을 아웃시키는 분위기, 심사 과정이 까다로워져서 금년에 상장된 게 한 30여 개가 안 됩니다. 그래서 유통물량 수가 낮은 종목을 우리가 분석해서 개입을 해야 되고, 6개월이 지나면 기준점을 찾는다고 했잖아요, 6개월이 지나면 공모주는 사실상 대상에서 (제외됩니다.)</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 3</span><span class="time">52:20</span></div>
+    <p>제가 아까 질문드렸던 거, 저도 옛날에 — 요즘은 좀 바빠서 그렇지만 — 공모주 한참 난리가 났을 때 있었잖아요. 그때는 저 같은 경우 상장 당일에만 거래를 하니까 프리퀀시가 굉장히 높았었는데, 그 부분에서 사람이 이걸 보고 판단하기엔 너무 촉박하지 않을까 생각해서 질문을 드렸던 거였고요. 두 번째로는 괴리율 — 앞에서 이종희 교수님도 질문을 주셨는데, 공모를 하다 보면 수요조사에 의해서 공모가가 결정되는데, 그전에 리포트 같은 게 나와서 비교 기업들하고 가격을 비교한 다음에 거기서 몇 퍼센트 차감하고 이러잖아요. 근데 그거랑 공모가랑 상관이 없는 경우들도 종종 발생을 하더라고요. 그러면 그 앞에 가격보다 공모가가 더 정확하다고 보시는 건지요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (답변)</span><span class="time">53:10</span></div>
+    <p>이 주관사에서 피어 노트를 구성을 해서 밸류를 제시하는데, 수요예측 기관들이 수요예측을 해서 가격이 결정되잖아요. 그런 과정에서 상장이 되기 바로 직전에 금감원한테 증권신고서를 또 신청을 합니다. 그 과정에서 정정하면서 일반 청약 대상으로 해서 시장에 나오는 거잖아요. 굉장히 예민합니다. 그래서 가격에 대한 부분에 대해서도 추정 매출이라든가 이런 것들을 충분히 본 다음에 가격 설정을 보려고 합니다. 제가 보기에는 처음에 주관사가 전면에 내놓을 때하고 비교하면, 수요예측을 거친 공모가가 상당히 합리적으로 시장 참여자들이 인정하기 때문에 어디가 더 정확한 가격이냐는 여러 가지 있을 것 같아요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">조경식 (답변)</span><span class="time">54:04</span></div>
+    <p>지금은 상장 과정이 굉장히 케이스가 다양해 있어서, 밴드는 수요예측을 하면서 상단과 하단이 있고 하단보다 더 낮춰서 하기도 하는데, 요새는 공모 시장이 좋은 경우에는 상단에서 결정이 안 될 종목들이 생기기도 하고, 그럴 때는 완전히 바뀌는 경우가 있는데, 일반적으로 시장이 개화가 될 때는 (판단이) 힘든 경우도 있습니다. (질문자: 감사합니다.) 네 감사합니다.</p>
+  </div>
+
+</div>
+</body>
+</html>
