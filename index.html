@@ -210,6 +210,12 @@
     font-size: 12px; font-weight: 700; letter-spacing: .08em;
     color: var(--ink-faint); text-transform: uppercase; margin-bottom: 22px;
   }
+  .slide-embed { padding: 32px 32px 8px; }
+  .pdf-frame {
+    width: 100%; height: 70vh; min-height: 420px;
+    border: 1px solid var(--line); border-radius: 12px;
+    background: var(--surface); display: block; margin-bottom: 16px;
+  }
   .scene {
     position: relative;
     padding: 0 0 40px 34px;
@@ -755,6 +761,18 @@ function openDetail(no) {
 
   const body = document.getElementById("dBody");
   let html = "";
+
+  const pdfLink = p.links && p.links.find(l => /\.pdf(\?|#|$)/i.test(l.url));
+  if (pdfLink) {
+    html += `
+      <div class="slide-embed">
+        <div class="sb-label">발표 슬라이드</div>
+        <object class="pdf-frame" data="${pdfLink.url}#view=FitH" type="application/pdf">
+          <iframe class="pdf-frame" src="${pdfLink.url}" title="발표 슬라이드"></iframe>
+        </object>
+        <a class="link-pill" href="${pdfLink.url}" target="_blank" rel="noopener">${LINK_ICON}새 탭에서 PDF 열기</a>
+      </div>`;
+  }
 
   if (p.scenes && p.scenes.length) {
     html += `
