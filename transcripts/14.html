@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속기록 — 14. 김지은 · AI를 통한 증권사 백오피스 업무 혁신</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 36px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+  .head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .head p { font-size: 14.5px; color: var(--ink-faint); }
+  .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--ink-faint);
+    margin: 44px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .block {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 14px;
+  }
+  .block .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .block .speaker { font-size: 13.5px; font-weight: 700; }
+  .block .speaker.presenter { color: var(--accent); }
+  .block .time { font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .block p { font-size: 15px; color: var(--ink-soft); }
+  .note {
+    font-size: 13px; color: var(--ink-faint); background: var(--accent-soft);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../index.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">TRANSCRIPT · NO. 14</div>
+    <h1>AI를 통한 증권사 백오피스 업무 혁신 발표 속기록</h1>
+    <p>김지은 (4기 · 코리아에셋투자증권 전무) · 발표 및 질의응답 전문 · 2026. 7. 4</p>
+  </div>
+
+  <div class="note">자동 속기록을 기반으로 하며, 발표 슬라이드와 대조해 명백한 음성인식 오류(코리아에셋투자증권·원우회·진일보·엑싯·딜 던·IM·슬랙·알파라이저·할루시네이션·포지티브섬 등)만 바로잡아 정리했습니다. 인명 표기는 음성인식 특성상 정확하지 않을 수 있습니다.</div>
+
+  <div class="section-title">발표</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">00:00</span></div>
+    <p>'백오피스 업무 혁신'이라는 주제로 오늘 발표를 담당하게 된 코리아에셋투자증권의 김지은 전무라고 합니다. 반갑습니다. 다들 요즘 너무 진지하신 것 같습니다 — 크게 박수 쳐주시고 응원 부탁드리겠습니다. (웃음) 제가 원우회에서 부회장 직함으로 활동을 하다 보니, 제가 어떤 일을 하고 왜 이 빅데이터 AI CEO 과정에 왔는지 모르시는 분들이 있을 텐데요. 이 자리를 빌려 제가 증권사에서 어떤 일을 하는지 간략히 설명드리고, 왜 이 과정에 왔는지 말씀드리겠습니다.<br><br>순서는 — 각 증권사들이 어떤 AI를 도입해 사용하고 있는지, 증권사 백오피스 업무의 흐름도, 제가 왜 백오피스에 AI를 도입해야 하는지의 배경, 그리고 이 과정에서 열심히 공부한 결과를 업무에 어떻게 활용하고 있는지의 사례 순입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">01:01</span></div>
+    <p>제가 증권사에 입사한 지 30년이 됐습니다. 모든 증권사 업무를 다 해봤다고 해도 과언이 아닌데요 — 30년이 지난 지금, 증권사 업무가 과연 많이 AI화되고 진일보했을까 생각해 보면 사실상 그렇지 않습니다. 최첨단 금융 상품에 투자하고 기업에 투자하는 부분은 매우 많이 진일보했는데, 이상하게도 '업무'에 있어서는 실질적으로 AI나 자동화가 된 부분이 많이 없습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">01:54</span></div>
+    <p>30년 전에 텔렉스나 팩스 머신으로 업무를 처리했다면 지금은 PC나 각각의 단말로 처리하고 있는 정도 — 생각해 보면 증권사는 매우 보수적인 단체가 아닐까 싶습니다. 그래서 AI가 어딘가에 들어간다면 가장 큰 마켓이 될 수 있는 곳이 어쩌면 증권사가 아닐까 생각합니다.<br><br>지금 AI가 도입된 부분들을 보시면 — 대부분 대고객 업무와 관계된 프론트 오피스에 집중되어 있고(한국투자증권 AI 시황분석, 미래에셋 로보어드바이저, 삼성증권 AI 실적브리핑, KB증권 Stock AI 등), 리서치나 트레이딩 같은 미들 오피스에 일부 들어와 있고 — 제가 하려는 백오피스는 아예 전무한 상황입니다. 코리아에셋투자증권이 백오피스 AI를 한다면 업계 최초의 사례가 될 수 있지 않을까 생각합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">02:51</span></div>
+    <p>코리아에셋투자증권을 간략히 소개드리면 — 2000년 1월에 설립됐고 2019년 11월에 코스닥에 상장됐습니다. 원우님들이 보통 거래하시는 증권사와 달리, 코리아에셋은 주식·채권·ELS·ETF·펀드 같은 리테일 비즈니스가 없는 특징이 있습니다. 대부분 IB — 기업 투자, 부동산 개발, 채권 운용, 홀세일 — 을 취급합니다. 이런 일에 제일 중요한 것은 우수한 인재 영입이라, 성과보상 체계가 그 어떤 조직보다 확실하게 되어 있습니다 — 성과가 있는 조직·개인에게는 파격적인 인센티브가 지급되고, 성과가 없을 때는 파격적으로 책상이 치워지는 조직입니다. (웃음)</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">03:50</span></div>
+    <p>제가 하는 일은 — 기업에 투자하고, 그 기업이 M&A나 IPO를 통해 엑싯되면 수익을 창출하는 일입니다. 5년 전부터 집중하고 있는 마켓이 있는데 바로 세컨더리입니다. 세컨더리는 — 투자한 VC 등 투자사에게는 조기에 엑싯할 기회가 주어지고, 세컨더리 투자를 원하는 분들에게는 IPO 직전에 많은 수익을 창출할 좋은 기회가 됩니다.<br><br>이 일에 가장 중요한 것은 좋은 종목의 발굴입니다. 발굴된 종목을 LP나 투자자에게 제안하고, 제안이 확정되어 딜 던(deal done)이 되는데 — 여기까지가 프론트 오피스의 업무입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">04:49</span></div>
+    <p>이렇게 메이드된 딜은 컴플라이언스팀으로 와서 문제가 없는지 사전 검토를 하고, 이상이 없으면 내부 시스템에 입력하고 기안을 타고 계약서 딜리버리 등을 통해 완료됩니다. 완료된 딜은 마지막 백오피스로 오는데 — 비상장 주식을 매매하면 유가증권의 이동이 일어나고 자금이 움직이므로, 결제업무팀·회계팀·자금팀이 모두 백오피스이고, 그 외 인사팀·IT지원팀도 백오피스 대상이라고 보시면 되겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">05:51</span></div>
+    <p>실질적으로 비상장 주식이 어떻게 매매되는지 업무 흐름을 보여드리겠습니다. 초록색이 주식이 이동하는 경로, 빨간색이 자금이 흐르는 경로입니다. 어떤 비상장 주식의 매도할 곳과 매수할 곳을 매칭합니다 — 매도 측은 S증권사를 통해, 매수 측은 Y증권사를 통해 하겠다고 합니다. 먼저 매수 측이 주식 자금을 한국은행 BOK 와이어를 통해 코리아에셋투자증권으로 입금합니다. 저희가 확인하고 이상이 없으면 다시 BOK 와이어 혹은 은행전금을 통해 S증권사로 송금합니다. S증권사가 확인하면 증권예탁원의 예탁시스템(SAFE)을 통해 주식이 출고되어 코리아에셋으로 입고됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">06:55</span></div>
+    <p>저희가 또 확인하고 이상이 없으면 역시 예탁시스템을 통해 매수하고자 하는 Y증권사로 주식이 출고되며 모든 업무가 마감됩니다. 여기에 백오피스에 필요한 예탁시스템, 한국은행 BOK 와이어, 그리고 내부 원장인 코스콤 파워베이스 — 이런 연동 프로그램들이 있는 것을 보실 수 있습니다.<br><br>이렇게 보면 업무가 비교적 루틴해 보이고 거의 반복적으로 이루어집니다. 반복되는 업무라면 정형화되고 정확해지고 프로세스화되어야 할 텐데 — 여전히 수작업으로 모든 업무가 반복 처리되는 비효율이 발생하고 있습니다. 사람이 하다 보니 사람에 따라 산출물이 매우 다르게 나오고 있고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">07:56</span></div>
+    <p>또 한 본부나 한 팀에서 끝나는 업무가 아니기 때문에 부서 간 이기주의가 발생하고 사일로 구조가 고착되면서 '이게 네 일이니 내 일이니' 하며 서로 책임지지 않으려는 일들이 발생합니다. 그리고 많은 시스템들이 하나로 통합되어 있지 않다 보니 시스템 비연동의 불필요함이 생기고 — 결국 불필요한 페이퍼가 남발되고, 시간과 비용이 많이 드는 비효율이 계속 반복되더라는 것을 알게 됐습니다.<br><br>이걸 해결할 수 있는 게 뭘까 — 결국 AI를 이용해 프로세스화하고 자동화하는 것이 반드시 필요하다는 결론을 내렸습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">08:47</span></div>
+    <p>대부분의 증권사는 프론트 오피스에서 AI를 하고 있으니 — 코리아에셋에서 (백오피스 AI가) 된다면 업계 최초 사례로서 벤치마크를 확보할 좋은 기회가 되겠다고 생각했습니다.<br><br>이런 일을 할 때 제일 중요한 것이 효율성인데, 증권사에서 가장 중요하게 여기는 건 역시 비용입니다. 러프하게 계산해 보니 — 백오피스에 해당하는 팀이 8개 정도이고 팀당 3~4명 정도로 구성되어 있는데, 자동화·프로세스화가 되면 아주 보수적으로 잡아도 연간 10억 정도는 절약되더라는 결론을 얻었습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">09:51</span></div>
+    <p>AI 도입의 리스크와 해결책도 고민했습니다. 가장 큰 리스크는 조직의 저항입니다 — 모두가 자발적으로 참여하는 것이 아니기 때문에, 본인이 가진 노하우를 뺏긴다는 생각이 들 수 있어서요. 그리고 보여드린 주식 매매는 아주 간단한 하나의 예시일 뿐 — 매우 다양한 금융 상품이 있어 많은 경우의 수가 생기는 기술 리스크가 있고, 증권사는 대고객 업무와 내부 정보를 다루니 보안 리스크도 있습니다. 또 하나는 AI가 됐을 때 정량적으로 어느 정도의 성과가 있었는지 측정의 어려움이 리스크로 존재합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">10:39</span></div>
+    <p>조직 저항에 대해서는 — AI화·프로세스화되면 더 고부가가치 업무를 할 수 있다는 것을 단계별로 교육하는 것이 필요하고, 기술 리스크는 케이스 바이 케이스의 꼼꼼한 실무 인터뷰와 전문가 집단이 반드시 필요해서 캡스톤 프로젝트의 도움을 받으면 좋겠습니다. 보안 리스크는 컨트롤 타워를 세워 되고 안 되고의 명확한 정의가 필요하고, 측정의 어려움은 외부 컨설턴트의 도움을 얻어 해결하면 좋겠습니다.<br><br>2025년 12월 아주 추운 날 오리엔테이션을 했고, 다음 주면 모든 교육이 끝납니다. 아무것도 몰랐던 제가 어떻게 업무에 활용하고 있는지 잠깐 보여드리겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">11:40</span></div>
+    <p>저에게 되게 중요한 것은 IPO입니다. IPO가 어떤 프로세스로 진행되고 어떤 종목들이 있는지를 서머리하는 것이 중요해서 매일 자료를 취득해 정리하는 데 많은 시간을 썼었는데 — 지금은 클로드 코드와 커서를 이용해 매일 아침 메일로 해당 내용을 받고 있습니다. 두 번째로 — 저희가 투자한 종목들이 IPO 되기 전까지 어떤 이슈가 있는지 매일 체크해야 하는데, 이벤트가 있을 때마다 이메일로 전송되는 시스템을 마련해 편하게 자료를 받고 있습니다.<br><br>그리고 중요한 성과물이 IM(투자설명서)이나 티저입니다. LP나 투자자에게 세일즈하기 위해 반드시 필요한 작업인데 — 과거에는 사람이 다 해서 보통 2~3일 걸리는 경우도 많았는데, LLM의 도움으로 약 3배 정도 시간이 단축됐습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">12:42</span></div>
+    <p>또 도움이 된 부분은 — 제가 사람을 많이 만나고, 그 안에서 이루어지는 딜 얘기가 되게 많습니다. 네트워크가 되게 중요한 자리이고 회의도 많고 엄청난 사람들을 만나는데 — 어떨 때는 어떤 분을 만나 어떤 얘기를 했는지 믹스될 때가 있었는데, DB를 구축하고 LLM의 도움을 받으면서 이런 부분이 많이 없어졌습니다.<br><br>처음에는 3개년 계획으로 짰는데 의미가 없는 것 같고요. 캡스톤 프로젝트에 4기 때는 도전하지 않았습니다 — 정말 가능할지 자신도 없었고, 회사를 설득할 자신도 없었고, 원론적인 고민이 많았습니다. 그런데 5월 20일 중간 발표에서 지금과 같은 내용을 발표했고, 그날 교수님 두 분과 박 연구원님께서 좋은 말씀을 많이 해주셨습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">13:42</span></div>
+    <p>가장 기억에 남는 것이 — 박 연구원님이 '혹시 회사에서 업무 관련 플랫폼을 쓰는 게 있냐'고 물으셨는데, 당시 저희 회사는 하나도 쓰는 게 없었습니다. '슬랙 같은 플랫폼을 쓰면 DB화하는 데 많은 도움이 될 거다'라고 하셔서 — 제가 바로 실행했습니다. 회사에 가서 '슬랙을 써야 됩니다'라고 주장했고, 슬랙은 아니지만 웍스AI를 전사적으로 도입하기로 결정되어 다음 주부터 모든 직원이 웍스AI를 쓰게 됐습니다.<br><br>그리고 백오피스에서 자동화가 필요한 팀이 딱 보이는데 — 대표적으로 회계팀입니다. 회계팀은 방대한 양의 자료를 아직도 엑셀로 수작업하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">14:38</span></div>
+    <p>얼마 전 원우님을 통해 알파라이저(Alphalyzer)라는 것이 있다는 걸 알게 돼서 — 이런 것들을 하나하나 단계별로 도입한다면, 몇 년 계획이 중요한 게 아니라 필요한 부분부터 자동화가 될 수 있지 않을까 생각합니다.<br><br>그래서 지금까지 자신이 없었던 캡스톤 프로젝트를 5기 때는 도전해서 지원해 볼 생각이고요. 백오피스 업무 혁신이 코리아에셋투자증권에서 이루어진다면 업계 최초가 되는 것이고, 저 스스로에게도 회사에도 매우 좋은 기회가 되지 않을까 생각합니다.<br><br>제가 이루려는 자동화는 단순한 비용 절감을 위한 AI가 아닙니다. 반복되는 업무가 정확하고 실수 없이 이루어지는 프로세스를 정립하는 일입니다. 그 프로세스가 정립되면 직원들은 더 고부가가치 업무에 투입될 수 있을 것입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (발표자)</span><span class="time">15:42</span></div>
+    <p>증권업계 최초 AI 기반 백오피스 혁신을 코리아에셋투자증권이 시작합니다. 그 가운데에 김지은이 서 있고요, 열심히 하겠습니다. 지금까지 발표는 저 김지은 전무였습니다. 좋은 고견 부탁드립니다. 감사합니다.</p>
+  </div>
+
+  <div class="section-title">질의응답</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 1</span><span class="time">16:07</span></div>
+    <p>좋은 발표 잘 들었고, 코리아에셋투자증권이 백오피스 AI 도입을 적극적으로 하실 거라 생각이 드는데 — 아직은 계획 단계고 조금씩 시작하시는 단계인 것 같습니다. 지금까지 해오신 걸 봤을 때는 — 임원부터 시작해서 한 팀의 인건비를 절약한다는 종류보다는, 오히려 전무님의 업무를 도와주는 식으로 개개인의 역량이 강화되어 — 한 명이 100% 하던 것을 150%까지 하는 확장이 어쩌면 더 자연스러운 방향일 수 있겠다는 생각이 들고요.<br><br>또 반복적인 업무는 굳이 AI 기반이 아니라도 현재 할 수 있는 도구들이 있습니다 — 룰 기반 자동화를 회계 쪽에서는 더 좋아하실 수도 있어요. 데이터를 크게 다루고 연동해서 룰로 검증하는 단계들은 LLM을 썼을 때 오히려 불확실성과 할루시네이션이 있기 때문에, 룰 기반 자동화도 검토하시면 좋겠습니다. 리포트(IPO 브리핑) 같은 건 저도 되게 감동받아서 학생들한테도 추천해야겠다는 생각이 드네요. 잘 들었습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 2</span><span class="time">17:45</span></div>
+    <p>저도 잘 들었습니다. 처음 들었던 순간 — AI 도입의 계기가 대부분 비용 절감에서 동기부여가 되니, 수용성을 어떻게 늘려야 할까를 함께 고민해야 한다는 생각이 들었습니다. 백오피스에서 어떤 분이 하시던 일을 AI로 대체했을 때, 그분이 다른 업무에 재배치되면 짧은 시간에 충실히 수행할 노하우를 쌓을 수 있을까 — 이런 부분도 같이 고민해 보시면 좋겠습니다. 앞서 공명현 원우님 발표 때 드린 코멘트와 비슷한데 — 대한민국 노동시장에서 하던 일을 계속하기보다 '다른 일을 하려면 어디로 가야 하는지'의 아이디어를 얻는 게 중요해지고 있어서, 재배치 문제를 같이 고민하면 포지티브섬 게임으로 수용성이 계속 올라갈 수 있을 것 같습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (답변)</span><span class="time">18:58</span></div>
+    <p>네, 맞습니다. 제일 어려운 문제인 것 같습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 3</span><span class="time">19:03</span></div>
+    <p>증권사 백오피스 업무를 잘 설명해 주셔서 잘 파악하게 됐습니다. 짧게 세 가지만 — 첫째, 인맥 관리·명함 관리는 지난번 발표하신 정재기 대표님과 상의해서 협업하셔도 좋겠다는 생각이 들었고요. 둘째, ABS 다음 캡스톤 프로젝트에 참여하시겠다는 말씀이신 거죠? (발표자: 도전하겠습니다.) 좋은 것 같습니다. 셋째 — 아까 예로 드셨던 것이 증권사 2개가 관여되고 한국은행 시스템과 예탁결제원을 왔다 갔다 하며 트래픽이 많은 것 같은데, 이걸 블록체인을 써서 심플리파이할 여지가 있을까 — 교수님 말씀도 들어보고 싶습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 2 (블록체인·전략 조언)</span><span class="time">20:10</span></div>
+    <p>그걸 보면서 — 향후 코리아에셋투자증권이 가야 할 길은 무엇인가 생각했습니다. 중개업에 해당하는 것들, 소싱을 하고 딜을 완성하는 중개자 역할을 하시다 보니 — 창의적인 딜 소싱 부분은 대체 가능하지 않을 거라고 생각합니다. 대신 프로세스 측면에서는 마진이 줄거나 딜 사이즈가 축소될 거라고 보는데요. AI로 '하던 일의 비용 절감'보다는 — AI를 통해 더 잘할 수 있는 정보를 만들어내거나 기회를 찾는 쪽으로 추구하는 것이 회사의 가치 상승 측면에서 다릅니다. 백단이 단조로워지는 자본시장 인프라 재편이 온다면 — 딜 소싱이나 창의적으로 할 수 있는 부분, 특히 비상장 주식은 토큰증권(STO)이 타기팅하는 대표적 시장이기도 하니, 그쪽에서 발 빠르게 소싱할 수 있는 방향으로 AI를 활용하는 것을 이번 캡스톤에서 발굴해 보시는 것도 좋겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김지은 (답변)</span><span class="time">21:23</span></div>
+    <p>제가 하는 일에 약간 안일하게 생각했던 게 있습니다 — 딜 소싱이나, 사람을 만나 회의하고 골프 치고 릴레이션십을 가져가는 것, 그 안에서만 공유되는 딜들이 상당히 많거든요. 소싱과 딜을 발굴해 셀렉하는 것은 아무리 AI가 발달해도 반드시 휴먼이 해야 하는 부분이라 — 제가 편리하게 도구화만 해놓으면 저는 되게 안전할 것이라고 생각한 부분이 없지 않았습니다. 그런데 교수님 말씀처럼 STO화해서 그쪽이 발전한다면 그 부분에도 많은 것이 들어올 거라는 위기의식을 갖고 있습니다.<br><br>1차적으로는 — 증권사가 굉장히 보수적인 조직이다 보니 자동화에 매우 배타적인 백오피스부터 먼저 정리하는 것이 순서상 맞다고 생각하고, 말씀하신 부분들은 개인적으로 여쭤봐서 좋은 의견을 듣도록 하겠습니다. 고맙습니다. 이상으로 발표 마치겠습니다.</p>
+  </div>
+
+</div>
+</body>
+</html>
