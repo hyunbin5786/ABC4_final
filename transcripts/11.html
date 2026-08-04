@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속기록 — 11. 정경록 · AI 기반 법률 서비스 DX 및 혁신 전략</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 36px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+  .head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .head p { font-size: 14.5px; color: var(--ink-faint); }
+  .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--ink-faint);
+    margin: 44px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .block {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 14px;
+  }
+  .block .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .block .speaker { font-size: 13.5px; font-weight: 700; }
+  .block .speaker.presenter { color: var(--accent); }
+  .block .time { font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .block p { font-size: 15px; color: var(--ink-soft); }
+  .note {
+    font-size: 13px; color: var(--ink-faint); background: var(--accent-soft);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../index.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">TRANSCRIPT · NO. 11</div>
+    <h1>AI 기반 법률 서비스 DX 및 혁신 전략 발표 속기록</h1>
+    <p>정경록 (4기 · 법무법인 대륙아주 경영총괄변호사) · 발표 및 질의응답 전문</p>
+  </div>
+
+  <div class="note">자동 속기록을 기반으로 하며, 발표 슬라이드와 대조해 명백한 음성인식 오류(대륙아주·정경록·Harvey·슈퍼로이어·엘박스·LLM·RAG·베드락·VPC·듀딜리전스·동형 암호·엑사원·파인튜닝·컷오프 등)만 바로잡아 정리했습니다.</div>
+
+  <div class="section-title">발표</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">55:47</span></div>
+    <p>안녕하십니까? 법무법인 대륙아주의 정경록 변호사라고 합니다. 빨리 잘 마무리하도록 하겠습니다. 지난 중간 발표 때 코멘트 주신 사항들이 있는데 — 그때 말씀드린 것처럼 아직 결론을 못 내린 상황이지만, 대략적으로 시장의 추세가 어느 정도인지 방향은 정해져 있어서 저희도 그 방향으로 갈 수밖에 없지 않을까 고민하고 있는 중입니다. 그 방향은 마지막 장표에서 설명드리겠습니다.<br><br>저희가 이 과정을 신청했던 가장 큰 이유는 — 사무실에 있는 엄청나게 많은 자체 내부 데이터를 AI를 활용해 어떻게 잘 활용할 수 있을까, 그게 가장 첫 번째 출발점이자 가장 고민하는 지점이거든요. 그리고 업무 효율화를 위해 내부 자료와 외부 자료를 한꺼번에 모아 한 번에 답을 얻을 수 있으면 얼마나 편할까 — 이 두 가지에서 출발하게 됐습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">56:44</span></div>
+    <p>위에 있는 일반적인 사항들은 따로 설명드릴 필요는 없을 것 같고요. 가장 주목하고 있는 것은 — 내부 문서의 지식 베이스화를 어떻게 할 것이며, 외부와 내부 자료를 어떻게 효율적으로 쓸 것이냐, 이게 가장 큰 문제였습니다.<br><br>현재 해외에서 가장 각광받고 잘 쓰이고 있는 게 하비(Harvey)라는 프로그램이 있는데 — 설립된 지 얼마 되지도 않았습니다. 2022년에 만들어졌는데 외국에서 가장 많이 사용되고 있고, 국내에서도 여러 로펌들이 쓰고 있습니다. 국내에서는 일반 범용 AI 말고 법률 AI로는 슈퍼로이어와 엘박스가 사실상 쌍두마차 격입니다. 이걸 쓰는 가장 큰 이유는 — 하급심 판례들이 대부분, 500만 건 이상 들어가 있기 때문입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">57:45</span></div>
+    <p>대법원이 법 개정으로 하급심 판례를 다 공개해 버리면 그만큼 밸류가 떨어지겠지만, 그걸 보완하기 위해 논문, 주석서 같은 것도 다 포함시켜서 — 변호사들이라면 대부분 유상으로 이걸 사용하고 있습니다.<br><br>'그래서 대륙아주는 뭘 할 건데?'라고 물으시면 — 현재 하고 있는 AI 활용 사업들은 자동 뉴스스크랩 앱, 사내 행정 챗봇, 업무 매뉴얼 챗봇 등이고, 가장 중요한 것이 방금 말씀드린 내부 자료 이용과 내부·외부 자료를 효율적으로 이용하는 방법 — 그것이 저희에게 주어진 태스크입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">58:31</span></div>
+    <p>법률 업무의 가장 큰 축은 소송 업무와 자문 업무 두 가지로 구분되는데, 각각 AI를 어떻게 활용할 수 있느냐를 보면 — 소송의 경우 기록이 굉장히 많으니까, 그 많은 기록들을 사건 시간대별·당사자별·일자별로 잘 정리해 주는 것이 현재 AI가 굉장히 잘하는 업무입니다. 소송 기록이 두꺼우면 두꺼울수록 AI 도움이 많이 되는 상황인데 — 문제는 그 자료가 외부 LLM 업체로 넘어가서 고객의 비밀 정보 이슈가 되지 않느냐, 이게 가장 큰 문제점입니다.<br><br>자문 업무도 마찬가지입니다 — 계약서 독소 조항 판단이나 M&A 듀딜리전스 같은 것에 AI 도움이 굉장히 많이 되는데, 아직까지 저희 상거래팀에서도 M&A 듀딜리전스를 할 때 AI 사용을 못 하게 하고 있습니다. 고객 이슈 때문에요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">59:27</span></div>
+    <p>그래서 개인정보와 고객 비밀유지의무라는 두 가지 큰 허들이 있는데, 그걸 어떻게 넘으면서 효율적으로 구축하느냐가 가장 큰 문제입니다.<br><br>법률 자료는 세 가지 카테고리로 구분됩니다 — 공공 자료(법령·판례·유권해석), 외부 법률 AI 데이터, 그리고 로펌 내부 축적 문서. 이걸 변호사들이 개별적으로 리서치하고 있다 보니 — 저희의 목표는, 한 번 질문을 던졌을 때 이 3개의 데이터가 한꺼번에 통합된 답변으로 나오게 하는 것이 가장 큰 지향점입니다.<br><br>다만 그 목표의 가장 큰 문제가 — 정보 유출 방지와 개인정보 보호 최대화라는 두 개의 한계 때문에 일반 프런티어 LLM 모델들을 그대로 사용할 수 없다는 것입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">1:00:21</span></div>
+    <p>두 번째는 변호사가 고객과 맺은 비밀유지의무가 있는데, 고객 동의가 없는 상황에서 그런 정보를 외부 업체에 보낼 수 있느냐 — 결국 우리나라 개인정보보호법상 목적 외 이용이냐, 제3자 처리위탁이냐, 국내 정보가 해외로 넘어가는 국외 이전 문제냐, 그리고 데이터 서버와 백업 서버가 한국에 있어야 하는 이슈 등 여러 파생 쟁점이 있습니다.<br><br>제일 중요한 것은 해당 고객이 동의하지 않는 문제입니다. 예를 들어 세간에 시끄러운 이혼 사건들을 하고 있는데 — 이름을 지운다고 해도 사건 내용을 보다 보면 누구나 그 사건인지 알 수 있거든요. 그런 자료를 LLM에 올릴 수가 없는 겁니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">1:01:13</span></div>
+    <p>그걸 어떻게 할 것이냐가 가장 큰 고민이고 — 결국 RAG 시스템을 이용할 수밖에 없을 것 같습니다. 이 두 가지 문제를 최소화하려면, RAG를 하더라도 LLM 자체는 필요하니까 — 외부 범용 LLM을 쓰지 않고 오픈소스 LLM을 우리 서버 자체 내에서 돌리는 방법이 가장 문제가 없다고 생각할 수 있습니다.<br><br>오픈소스 LLM으로는 라마(Llama)보다 큐원(Qwen)이 그나마 가장 적합하다는 여러 AI의 답변들이 있었고, 엑사원(EXAONE)은 상업 라이선스 이슈 때문에 사용이 안 될 것 같습니다. 그러면 결국 Qwen 계열 정도로 돌릴 수밖에 없지 않을까 하는 고민이 있는 겁니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">1:02:01</span></div>
+    <p>다만 그 결과물이 과연 우리가 원하는 만큼 나올까 — 그게 고민입니다. 그래서 개인정보 보호 이슈의 대안으로 — 교수님께서 얼마 전 수업 때 말씀해 주신 동형 암호, 또는 H100·H200 같은 반도체 내에서 물리적으로 보호하는 컨피덴셜 컴퓨팅 방법도 고민해 봤는데, 저희가 전문 지식은 없고 AI에 물어본 결과로는 아직은 사실상 크게 도움이 되지 않을 것 같다는 생각이 들었습니다.<br><br>그러면 어떻게 해야 될까 — 오픈소스 LLM을 통한 온프레미스가 가장 좋을 것 같긴 한데, 반면 로컬 서버에 두고 잘 관리하면 좋겠지만 잘 관리하지 못하면 모든 책임을 오롯이 저희가 져야 하거든요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">1:02:55</span></div>
+    <p>그 반대급부로 — 현재 시장의 추세이자 저희도 고민하고 있는 것이 첫 번째 방법, 폐쇄망을 이용하는 방법을 쓸 가능성이 가장 높을 것으로 예측하고 있습니다. 아마존의 베드락(Bedrock)이나 마이크로소프트의 애저(Azure) 같은 클라우드를 쓰되, 그 안에 버추얼 프라이빗 클라우드(VPC) — 일종의 사설망 — 를 따로 이용해서, 베드락·애저가 제공하는 서비스와 기밀 보호력은 그대로 쓰면서 실질적으로 자료 유출이 최소화되도록 하는 방안 — 그걸 현재 가장 유력한 대안으로 보고 있습니다.<br><br>현재 대한민국 로펌 중에 빅펌은 아니지만 두 군데 펌이 이 방식으로 진행하고 있는 상황이고, 저희를 비롯한 몇 군데 로펌은 고민하고 있는 중입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">1:03:55</span></div>
+    <p>구체적인 방법은 — 베드락 자체에도 시스템적인 혜택이 있어 이용할 수 있다는 장점이 있고요. 결론적으로 온프레미스와 베드락을 비교했을 때 차이점들이 있는데 — 온프레미스라고 해서 100% 아무런 문제가 없는 것은 아니라는 게 현재까지의 생각입니다.<br><br>방식은 대략 이렇습니다 — 아마존 베드락을 저희 이름으로 빌려서 저희 로펌 전용 사설 VPC를 만듭니다. 개인정보 국외 이전 이슈 때문에 반드시 서울 리전의 데이터센터를 이용해야 하고요. 다만 AWS 내부 정책상 이슈가 있을 때 강제로 리전을 옮길 수 있게 돼 있는데, 그런 것을 어떻게 조정할 것인가는 테크니컬한 문제이고, 백업은 현재 아마존은 무조건 서울로 돼 있어서 해결이 됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">1:04:54</span></div>
+    <p>그러면 — 법률 AI인 슈퍼로이어나 엘박스도 다 베드락을 쓰는데, 그들도 자체 VPC가 있고 그 안에 법률 데이터들이 많이 들어 있습니다. 이 업체들이 저희가 만든 사설 VPC 안에 자기네 서비스를 이용할 수 있는 애플리케이션을 심어줍니다 — 하비도 마찬가지고요. 그러면 저희 사무실 변호사가 그 애플리케이션에 질문(쿼리)을 던지고, 저희 로펌의 자체 자료도 AWS에 올립니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">1:05:46</span></div>
+    <p>질문을 던지면 — 해당 내용이 마스킹 등을 통해 정보가 유출되지 않는 형태로 법률 AI 쪽에 넘어가고, 거기 있는 데이터에서 질문에 가장 적합한 답변들이 모아져 이쪽으로 넘어옵니다. 그러면 베드락에 있는 LLM 모델을 저희가 선택할 수 있는데 — 클로드든 제미나이든 — 하나를 선택하면, 그 LLM이 저희 질문에 대해 법률 AI에서 넘어온 답변 내용과 저희 로펌 자체 자료를 다 종합해서 답변이 나오도록 구현되어 있습니다. 저희 사무실이 구현한 것은 아니고, 구조가 그렇다는 말씀입니다.<br><br>'베드락 안의 LLM을 쓰면 똑같이 외부로 나가는 것 아니냐'는 질문이 있을 수 있는데 — 그 부분은 아마존과 애저가 '넘어가지 않는다'고 답변하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">1:06:49</span></div>
+    <p>실질적으로도 — 요리에 비유하면, 저희 자체 재료와 전문가들의 재료가 있고 그 재료로 우리 입맛에 맞는 요리를 만들어내는 '요리사' 역할을 LLM이 하는 건데, 저희는 요리사만 갖다 쓰는 거니까 재료들이 밖으로 나가지는 않는다 — 그런 설명을 하더라고요. 다만 한 가지 리스크는 — 가장 최근 데이터를 확보하기 위해 외부 웹 검색 자료를 집어넣는다면 그때는 문제가 있을 수 있다는 것이 현재까지의 답변이자 리서치 결과입니다.<br><br>말씀드린 방식으로 실제 운영되는 곳도 있고, 고민하는 로펌들도 굉장히 많고, 저희도 같은 고민을 하고 있으며 — 실질적으로 이 방식으로 갈 가능성이 굉장히 많다는 것입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (발표자)</span><span class="time">1:07:54</span></div>
+    <p>다만 구체적으로 집행하려면 여러 법률 검토 요소들이 있어서 실제 실행까지는 많은 시간이 걸릴 것 같습니다만, 대략적인 방향은 이와 같다는 말씀을 드리고요.<br><br>마지막으로 — 'AI가 변호사를 대체할 거냐'고 물으시면, 대체한다고 말하기는 어렵지만 상당 부분은 AI가 많은 역할을 할 것으로 보입니다. 그렇지만 그 답변이 정확한지, 다른 대안은 없는지를 판단할 수 있는 것은 경력과 경험이 많은 변호사 — 그리고 AI를 잘 활용할 수 있는 변호사만이 살아남지 않을까 생각합니다. 그렇다 하더라도 변호사 고유의 영역은 있을 것입니다. 다만 그것이 갈수록 축소되고 작아질 것이라는 게 대부분의 의견이긴 합니다. 이상으로 발표를 마치겠습니다. 감사합니다.</p>
+  </div>
+
+  <div class="section-title">질의응답</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 1</span><span class="time">1:08:55</span></div>
+    <p>잘 들었습니다. 보안까지 많이 고려하셔서 설계가 굉장히 복잡하지만 잘 하셨는데요. 이런 설계에서도 하나 걸리는 것은 — 얼마 전에 한 로펌이 소송을 당한 사례가 있죠. AI가 추천한 법 조항을 잘못 써서요. 그건 변호사가 디테일하게 봐야 하는 부분인데 — 이런 사설 VPC나 RAG를 쓰더라도 로컬 LLM의 파인튜닝이 안 되기 때문에 그 문제를 피하기는 어려울 것 같습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (답변)</span><span class="time">1:09:34</span></div>
+    <p>결과물은 무조건 변호사가 보고 체크합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 1 (추가)</span><span class="time">1:09:37</span></div>
+    <p>조금 오래 걸릴 수는 있는데 — 정부가 데이터센터에 수천억을 투자한다고 발표한 것을 보면, 그런 데이터센터의 보안 체계를 잘 이용하고, 법조계 차원에서 LLM 자체에 파인튜닝을 하면 좀 낫지 않을까 생각합니다. 사람이 — 변호사들이 본다고 해도 바쁘면 한 사람만 보다가 넘기는 경우도 있으니까, 에러들을 다시 교정하는 프로세스가 필요해 보이거든요. 특히 잘못 적용했을 때는 사고가 꽤 크잖아요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (답변)</span><span class="time">1:10:17</span></div>
+    <p>변호사법상 변호사의 법률 조언 결과는 반드시 변호사가 봐야 합니다. 저희가 'AI 대륙아주'라는 챗봇 프로그램을 대외적으로 무상으로 쓰게 해줬는데, 그때도 광고 규정 위반으로 징계를 받았거든요 — 그때도 '마지막에 변호사가 이걸 반드시 보는 거냐'가 굉장히 중요한 쟁점 중 하나였습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 2</span><span class="time">1:10:41</span></div>
+    <p>저도 방금 말씀하신 부분이 궁금했습니다 — 데이터를 RAG로 하는 것만으로 충분한 효과가 있을 것이냐, 아니면 파인튜닝을 하는 것이 성능이 좋을 것이냐. 만일 해외 법률 AI들이 파인튜닝했을 때 훨씬 좋아진다면 다시 생각하셔야 할 것 같고요.<br><br>또 하나, 보안에 대해 조언을 드리면 — 이런 모델의 가장 위험한 점은 단일 보안이라는 겁니다. 이런 시나리오가 가능합니다: 직원 중 한 명이 패스워드를 잃어버리면, 그 패스워드를 가진 사람이 클라우드에서 데이터를 다 가져갑니다. 회사가 심각한 상황이 될 수 있는데요. 지금 이 구조는 경계망(퍼리미터) 보안이거든요 — 베드락은 바깥에서의 해킹을 막아준다는 얘기지, 정당한 사용자(로 위장한 침입)가 들어오는 것은 막아주지 않고, 실제로는 보안 책임도 지지 않습니다. 검토해 보시면 그런 내용이 전혀 없습니다. 실제로 AWS에 올렸던 데이터가 유출된 사고들이 계속 있거든요 — 원인이 끝내 규명되지 않은 경우도 있고요.<br><br>그래서 저는 — 한 사람의 패스워드 하나가 유출되어도 전체 정보를 다 빼갈 수 없도록, 해킹이 일어난다고 가정하고 피해가 최소화되도록 구역화하고 양을 조절하는 작업이 일단 있어야 할 것 같습니다. 아니면 데이터가 바깥에 나가 있다는 것 자체가 상당히 위험해 보입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (답변)</span><span class="time">1:12:58</span></div>
+    <p>내부적으로 그런 게 있는 것 같습니다 — 사용자별로 권한 등급을 조절하고, 팀별로 나눠서 다른 자료를 쉽게 못 보게 하는 권한 부여가 가능하다고 하더라고요. 베드락에서 그런 프로그램을 심어줄 수 있다고요. 그리고 저희는 아직 도입 결정을 못 했습니다 — 기술 발전 속도가 너무 빨라서 이게 맞을지 틀릴지 검증을 못 했기 때문에 추세만 보고 있는 것인데요. 사용도 사무실 내 IP에서만 가능하게 한다든가, 사용 컴퓨터(데스크톱·노트북)를 사전에 등록시켜 놓는 조치들을 취해야 하지 않을까 생각하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 2 (추가)</span><span class="time">1:13:45</span></div>
+    <p>제로 트러스트라고 하는데 — 한 가지 보안 정책이 아니라 네다섯 겹 정도를 두라고 합니다. 여러 가지를 다 같이 검토하시는 게 좋을 것 같습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 3</span><span class="time">1:14:05</span></div>
+    <p>저는 제가 코멘트 드릴 분야가 아닌 것 같아서 궁금한 것만 — 그 '비밀 마스킹'이 궁금한데요. 마스킹해서 보내면, 기밀이 다 마스킹된 것을 가지고 법률 AI 업체 사설 VPC에서 뭘 할 수 있는 거죠?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (답변)</span><span class="time">1:14:26</span></div>
+    <p>예를 들어 사해행위 취소 소송에 대해 질문한다면 — 그건 법률 요건이라 소송 자체에서는 비밀 정보가 넘어갈 게 전혀 없는데, 질문하는 과정에서 A사, B사처럼 특정이 되는 것들을 마스킹해서 넘기면 — 일반적인 법률 관련 자료들만 찾아서 넘겨준다는 겁니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 3 (추가)</span><span class="time">1:14:45</span></div>
+    <p>근데 그 마스킹을 벗기는 게 그렇게 어려운 일인가요? 누군가가 벗기고자 한다면요. — 동형 암호 같은 걸 쓰시면 될 것 같아요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (답변)</span><span class="time">1:14:54</span></div>
+    <p>동형 암호를 쓰려고 제가 열심히 검색을 해봤는데 — 저는 아주 조금밖에 모르니까 — AI의 답변들을 쭉 보면, 그걸 하게 되면 용량이 너무 커진다, LLM 모델을 돌리는 데 (부담이 커서) 어렵다고 하더라고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 2 (동형 암호 관련)</span><span class="time">1:15:14</span></div>
+    <p>그 답변 좀 보내주세요 — 틀린 얘기입니다. 3% 정도 커집니다. 아마 AI는 100배 커진다고 알고 있을 텐데 — AI가 가진 (지식의) 시차가 있거든요. 특히 빨리 발전하는 분야에서는요. 옛날 자료·논문 기반으로 사람들이 한 얘기를 하니까, 신기술에 대해서는 그렇습니다. VC 하시는 분이 AI한테 물어보면 크립토 투자는 할 수가 없을 겁니다. (발표자: AI의 지식 컷오프가 너무 빨랐던 거겠죠. 수업 끝나고 교수님 명함을 받아왔습니다 — 여쭤보려고요.) (참석자: 천정희 교수님이 이 스킴을 가지고 동형 암호를 어떻게 쓸 수 있는지 한번 발표해 주시면 —) (발표자: 그러시면 대한민국 로펌들이 다 모실 겁니다.)</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 4</span><span class="time">1:16:07</span></div>
+    <p>아마존 베드락에 — 법적인 걸 제가 몰라서 여쭤보는데 — 다른 회사가 고객 데이터를 이렇게 올린다면, 고객 데이터가 외부에만 유출이 안 되면 법적으로 문제가 없는 건가요? 아마존 쪽에서는 알고 있어도요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (답변)</span><span class="time">1:16:25</span></div>
+    <p>그들은 '학습에 쓰지 않고 유출하지 않겠다'고 하는데 — 그건 그들의 공약이고요. 법적으로는 아까 말씀드린 개인정보의 국외 이전 문제, 그리고 개인정보를 취득해서 제3자에게 넘기는 것이 '제3자 제공'이냐 '처리 위탁'이냐 — 이 두 가지 판단에 따라 적용되는 법이 달라지거든요. 그 이슈가 남아 있고요.<br><br>그와 상관없는 별도 이슈는 — 고객이 저한테 이혼 소송을 맡겨서 기록을 가지고 있는데, 이 기록을 여기 올리는 것 자체를 (고객이) 허용할 거냐, 허용을 받고 올려야 하는 게 아니냐 하는 문제가 별도로 있습니다. 아직 해결책을 못 찾았습니다. 과거 자료가 아니라 앞으로 들어올 사건은 계약서에 그런 조항을 넣어 동의를 받고 올릴 것이냐 — 이런 여러 해결책을 찾아야 하는 거죠.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 4 (추가)</span><span class="time">1:17:22</span></div>
+    <p>이미 선택한 로펌은 그 법률 이슈를 다 검토했다는 얘기인가요? 그리고 — 이건 기본적으로 처리 위탁이잖아요. 처리 위탁은 기본적으로 가능합니까?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (답변)</span><span class="time">1:17:29</span></div>
+    <p>당연히 검토하고 했어야 하는데, 했는지는 제가 잘 모르겠습니다. 개인정보의 처리 위탁 자체는 — 제3자 제공은 동의를 받아야 하는 것이고, 처리 위탁은 제 편의를 위해 제 책임 하에 하는 것이라 (동의 요건이 다릅니다).<br><br>참고로 — 대한민국 로펌 10위 안에 있는 로펌 한 군데도 이 방식(베드락 VPC)을 현재 쓰고 있다고 들었고 — 어딘지는 말씀 못 드리겠고 — 10위 안의 또 다른 로펌 하나는 이 방식이 아니라, 그런 이슈 때문에 일부러 로펌 자체 자료 데이터를 별도 서버로 빼서 구축해 놓고 API로 연결해 쓰고 있다는 것까지는 확인했습니다. GPU도 다 샀다고 하더라고요, 서버도 새로 증설하고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문 2 (조언)</span><span class="time">1:18:32</span></div>
+    <p>일반적으로 그게 오히려 낫습니다. 보안은 0도 100도 아니고 중간인데 — 데이터를 내부에 벡터 데이터베이스로 두고 외부의 LLM을 쓰는 것이 위험이 더 적습니다. 한 번에 해킹으로 나갈 수 있는 양이 통신을 모니터하는 수준이거든요. 외부에 있는 것이 통째로 날아가는 리스크에 비하면 — 내부에 자료가 있고 처리는 외부에서 하는 것이 더 안전합니다.<br><br>이런 구조가 가능합니다 — RAG(벡터 DB)는 내부에 두고 LLM은 외부에 두는 겁니다. 삼성 같은 경우도 그런 식으로 구축하거든요. 질문을 하면 LLM이 내부 자료를 검색해서 가져가 대답하니까, 그 문서의 어떤 피스만 나가는 거예요. 내부에는 LLM 없이 RAG만 두고 LLM은 외부에 두는 것도 옵션으로 가능합니다 — 물론 내부도 해킹당하면 문제지만, 해킹을 막는 것으로 하면 되고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">정경록 (답변)</span><span class="time">1:20:31</span></div>
+    <p>네, 잘 몰라서 좀 더 공부하고 제가 직접 여쭤보도록 하겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">사회자</span><span class="time">1:20:37</span></div>
+    <p>추가 질문 없으면 마치겠습니다. 감사합니다.</p>
+  </div>
+
+</div>
+</body>
+</html>
