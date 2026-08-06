@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정재욱 · 홈쇼핑 방송의 성공 확률을 계산하다 | ABC 4기 우수 프로젝트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+    --gold-ink: #8a6d1d; --gold-bg: #faf3dc; --gold-line: #eddfae;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 44px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 30px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 14px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--accent); margin-bottom: 8px; }
+  .head h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .head p { font-size: 15px; color: var(--ink-faint); }
+  .intro {
+    font-size: 14px; color: var(--ink-soft); background: var(--accent-soft);
+    border-radius: 12px; padding: 16px 20px; margin: 24px 0 36px; line-height: 1.75;
+  }
+  .award-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 11px; font-weight: 700; letter-spacing: .02em;
+    color: var(--gold-ink); background: var(--gold-bg); border: 1px solid var(--gold-line);
+    border-radius: 999px; padding: 1px 8px; margin-left: 7px;
+    vertical-align: 2px; white-space: nowrap;
+  }
+  .award-badge::before { content: "🏅"; font-size: 10.5px; }
+
+  /* 목차 */
+  .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 56px; }
+  .toc a {
+    display: block; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 13px 15px; text-decoration: none; color: var(--ink);
+    transition: border-color .12s, transform .12s;
+  }
+  .toc a:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .toc .nm { font-size: 14.5px; font-weight: 700; }
+  .toc .tt { display: block; font-size: 12px; color: var(--ink-faint); margin-top: 3px; line-height: 1.5; }
+  @media (max-width: 640px) { .toc { grid-template-columns: repeat(2, 1fr); } }
+
+  /* 프로젝트 섹션 */
+  .proj {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
+  }
+  .proj .no { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-faint); }
+  .proj .who { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
+  .proj .affil { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+  .proj h2 { font-size: 18px; font-weight: 750; margin: 14px 0 4px; letter-spacing: -0.01em; }
+  .proj .orig { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .oneline {
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
+  }
+  .proj h3 {
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
+  }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
+  .terms {
+    background: var(--bg); border-radius: 12px; padding: 15px 18px; margin-top: 22px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .terms .t-title { font-weight: 750; font-size: 12px; letter-spacing: .05em; color: var(--ink-faint); margin-bottom: 7px; }
+  .terms dt { font-weight: 700; display: inline; color: var(--ink); }
+  .terms dd { display: inline; margin: 0; }
+  .terms div { margin-bottom: 5px; line-height: 1.65; }
+  .think {
+    margin-top: 14px; font-size: 13px; color: var(--ink-soft);
+    border-left: 3px solid var(--gold-line); padding: 4px 0 4px 12px;
+  }
+  .think b { color: var(--gold-ink); }
+  .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .more a {
+    font-size: 12.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
+  }
+  .more a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* 인쇄: 프로젝트당 A4 1장 */
+  @media print {
+    body { background: #fff; }
+    .back, .toc, .intro { display: none; }
+    .wrap { padding: 0; max-width: none; }
+    .head { padding: 40px 0 20px; }
+    .proj {
+      border: none; border-radius: 0; padding: 28px 10mm;
+      margin: 0; page-break-after: always; page-break-inside: avoid;
+    }
+    .more { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← 15선 목록으로</a>
+
+<!-- 13. 정재욱 -->
+  <section class="proj" id="p28">
+    <div class="no">PROJECT 13 · 발표 28</div>
+    <div class="who">정재욱</div>
+    <div class="affil">GS리테일 · 부문장</div>
+    <h2>홈쇼핑 방송의 성공 확률을 계산하다</h2>
+    <div class="orig">원제: BroadcastIQ, 홈쇼핑 방송의 성공 확률을 설계합니다</div>
+    <div class="oneline">"이 방송, 진짜 성공할까요?"라는 25년 묵은 질문에 감 대신 데이터로 답하는 플랫폼을 구상한 이야기다.</div>
+    <h3>어떤 문제가 있었나</h3>
+    <p class="body">홈쇼핑에서 방송 한 번을 하려면 광고비, 제작비, 재고 준비에 1억 원 이상이 들고, 승부는 단 60분 만에 끝난다. 그런데 어떤 상품을 몇 시에 방송할지는 아직도 대부분 경험과 감으로 정한다. 그 위험 부담은 자금력이 약한 중소 납품업체(벤더)가 떠안는다. 방송이 끝나고 나오는 분석도 "오늘 날씨 때문에", "축구 중계 때문에" 수준이다.</p>
+    <h3>어떻게 풀었나</h3>
+    <p class="body">25년간 PD와 MD로 일해 온 발표자는 BroadcastIQ라는 AI 플랫폼을 설계했다. 핵심은 두 가지 실증이다.
+    첫째, 상품 정보 딱 5줄만 입력하면 90초 만에 방송 제안서 초안이 나온다. 회사 PD들이 오래 써 온 내부 노하우 틀(SGPB: 상황·목표·문제·혜택)을 AI에 옮긴 것으로, 원래는 외주 작가에게 건당 500만 원을 주던 일이다.
+    둘째, 회사에 쌓인 11년 치 편성 데이터를 AI에 학습시켜, 요일과 시간대별 성공 확률 지도를 그리고 가장 좋은 방송 시간 후보 3개를 예상 매출과 함께 추천하는 시제품을 만들었다.</p>
+    <h3>무엇이 달라지나</h3>
+    <p class="body">제안서 작성 시간 90% 단축, 외주 비용 70% 절감, 첫 방송 성공률 10%p 향상이 목표다. 납품업체가 "데이터를 보니 이 시간이 더 좋던데요"라고 협상할 수 있게 되는 것, 즉 큰 회사와 작은 회사의 상생이 이 구상의 진짜 목적이다.</p>
+    <div class="terms">
+      <div class="t-title">용어 풀이</div>
+      <div><dt>MD</dt> · <dd>어떤 상품을 팔지 고르고 방송을 기획하는 상품 기획자.</dd></div>
+      <div><dt>편성</dt> · <dd>어떤 방송을 몇 시에 내보낼지 정하는 일. 홈쇼핑 매출을 좌우한다.</dd></div>
+      <div><dt>벤더</dt> · <dd>홈쇼핑에 상품을 대주는 납품업체.</dd></div>
+    </div>
+    <div class="think"><b>생각해 볼 질문</b> · 큰 회사가 거래하는 작은 회사를 도우면, 결국 누구에게 이득이 될까?</div>
+    <div class="more"><a href="../transcripts/28.html">전체 속기록</a><a href="../slides/28.pdf">발표 슬라이드</a><a href="../index.html">아카이브</a></div>
+  </section>
+<div class="more" style="margin-top:26px;"><a href="03.html">← 이상구</a><a href="index.html">목록</a><a href="02.html">조경식 →</a></div>
+</div>
+</body>
+</html>

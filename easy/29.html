@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이동학 · 말로 반도체를 설계하다 | ABC 4기 우수 프로젝트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+    --gold-ink: #8a6d1d; --gold-bg: #faf3dc; --gold-line: #eddfae;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 44px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 30px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 14px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--accent); margin-bottom: 8px; }
+  .head h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .head p { font-size: 15px; color: var(--ink-faint); }
+  .intro {
+    font-size: 14px; color: var(--ink-soft); background: var(--accent-soft);
+    border-radius: 12px; padding: 16px 20px; margin: 24px 0 36px; line-height: 1.75;
+  }
+  .award-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 11px; font-weight: 700; letter-spacing: .02em;
+    color: var(--gold-ink); background: var(--gold-bg); border: 1px solid var(--gold-line);
+    border-radius: 999px; padding: 1px 8px; margin-left: 7px;
+    vertical-align: 2px; white-space: nowrap;
+  }
+  .award-badge::before { content: "🏅"; font-size: 10.5px; }
+
+  /* 목차 */
+  .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 56px; }
+  .toc a {
+    display: block; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 13px 15px; text-decoration: none; color: var(--ink);
+    transition: border-color .12s, transform .12s;
+  }
+  .toc a:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .toc .nm { font-size: 14.5px; font-weight: 700; }
+  .toc .tt { display: block; font-size: 12px; color: var(--ink-faint); margin-top: 3px; line-height: 1.5; }
+  @media (max-width: 640px) { .toc { grid-template-columns: repeat(2, 1fr); } }
+
+  /* 프로젝트 섹션 */
+  .proj {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
+  }
+  .proj .no { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-faint); }
+  .proj .who { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
+  .proj .affil { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+  .proj h2 { font-size: 18px; font-weight: 750; margin: 14px 0 4px; letter-spacing: -0.01em; }
+  .proj .orig { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .oneline {
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
+  }
+  .proj h3 {
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
+  }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
+  .terms {
+    background: var(--bg); border-radius: 12px; padding: 15px 18px; margin-top: 22px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .terms .t-title { font-weight: 750; font-size: 12px; letter-spacing: .05em; color: var(--ink-faint); margin-bottom: 7px; }
+  .terms dt { font-weight: 700; display: inline; color: var(--ink); }
+  .terms dd { display: inline; margin: 0; }
+  .terms div { margin-bottom: 5px; line-height: 1.65; }
+  .think {
+    margin-top: 14px; font-size: 13px; color: var(--ink-soft);
+    border-left: 3px solid var(--gold-line); padding: 4px 0 4px 12px;
+  }
+  .think b { color: var(--gold-ink); }
+  .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .more a {
+    font-size: 12.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
+  }
+  .more a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* 인쇄: 프로젝트당 A4 1장 */
+  @media print {
+    body { background: #fff; }
+    .back, .toc, .intro { display: none; }
+    .wrap { padding: 0; max-width: none; }
+    .head { padding: 40px 0 20px; }
+    .proj {
+      border: none; border-radius: 0; padding: 28px 10mm;
+      margin: 0; page-break-after: always; page-break-inside: avoid;
+    }
+    .more { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← 15선 목록으로</a>
+
+<!-- 11. 이동학 -->
+  <section class="proj" id="p29">
+    <div class="no">PROJECT 11 · 발표 29</div>
+    <div class="who">이동학<span class="award-badge">우수상</span></div>
+    <div class="affil">㈜코코링크 · 대표이사</div>
+    <h2>말로 반도체를 설계하다</h2>
+    <div class="orig">원제: 빅데이터 AI CEO 과정 학습의 사업 적용, 코코링크의 혁신적 전환</div>
+    <div class="oneline">박사 6명이 3년 걸려도 못 풀던 반도체 설계 문제를, 60대 대표가 AI와의 대화로 일주일 만에 풀어낸 이야기다.</div>
+    <h3>어떤 문제가 있었나</h3>
+    <p class="body">코코링크는 국내에서 컴퓨터(서버)를 직접 생산하는 거의 유일한 회사다. 자체 반도체 두뇌(프로세서)를 설계하려고 박사급 3명과 전문가 3명이 3년간 매달렸지만 끝내 완성하지 못했다. 큰돈을 쓰고도 막혀 있던 상태였다.</p>
+    <h3>어떻게 풀었나</h3>
+    <p class="body">과정에서 배운 바이브 코딩(AI에게 말로 시켜 개발하는 방법)을 40년 소프트웨어, 30년 하드웨어 경력에 얹었다. 그러자 3년 묵은 프로세서 설계가 거의 일주일 만에 제품 수준으로 완성됐고, 그 위에서 돌아가는 컴파일러(프로그램 번역기)는 1시간 반 만에 나왔다. 특허 문서도 AI가 함께 써서 50건을 작성했는데, 변리사 사무실이 "1년에 19건까지만 처리 가능하다"고 손사래를 칠 정도였다. 다만 대표는 분명히 선을 긋는다. 바이브 코딩은 "지게 지는 법은 1시간이면 배우지만 747 조종은 10년 걸리는" 기술이라, 수십 년의 실무 경험으로 문제를 정확히 정의할 수 있는 사람이어야 제대로 쓸 수 있다는 것이다.</p>
+    <h3>무엇이 달라지나</h3>
+    <p class="body">개발 속도 100배, 인건비 98% 절감을 확인했고, 회사는 서버 제조사에서 반도체 기업으로 변신 중이다. 2028년부터 자체 반도체를 만드는 것이 목표인데, 이 모든 것을 반도체 전공자 없이 해냈다. "이 속도가 두렵다"는 솔직한 고백이 발표의 여운을 남겼다.</p>
+    <div class="terms">
+      <div class="t-title">용어 풀이</div>
+      <div><dt>프로세서</dt> · <dd>컴퓨터의 두뇌 역할을 하는 반도체 칩.</dd></div>
+      <div><dt>컴파일러</dt> · <dd>사람이 쓴 프로그램을 기계가 알아듣는 언어로 번역해 주는 프로그램.</dd></div>
+      <div><dt>FPGA</dt> · <dd>회로를 다시 짜서 쓸 수 있는 반도체. 칩을 실제로 만들기 전 시험용으로 쓴다.</dd></div>
+    </div>
+    <div class="think"><b>생각해 볼 질문</b> · AI가 개발을 100배 빠르게 해준다면, 사람의 경험은 더 중요해질까 덜 중요해질까?</div>
+    <div class="more"><a href="../transcripts/29.html">전체 속기록</a><a href="../slides/29.pdf">발표 슬라이드</a><a href="../index.html">아카이브</a></div>
+  </section>
+<div class="more" style="margin-top:26px;"><a href="07.html">← 이덕희</a><a href="index.html">목록</a><a href="03.html">이상구 →</a></div>
+</div>
+</body>
+</html>

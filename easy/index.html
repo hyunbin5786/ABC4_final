@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC 4기 우수 프로젝트 15선 · 쉽게 읽기 (목록)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+    --gold-ink: #8a6d1d; --gold-bg: #faf3dc; --gold-line: #eddfae;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 44px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 30px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 14px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--accent); margin-bottom: 8px; }
+  .head h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .head p { font-size: 15px; color: var(--ink-faint); }
+  .intro {
+    font-size: 14px; color: var(--ink-soft); background: var(--accent-soft);
+    border-radius: 12px; padding: 16px 20px; margin: 24px 0 36px; line-height: 1.75;
+  }
+  .award-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 11px; font-weight: 700; letter-spacing: .02em;
+    color: var(--gold-ink); background: var(--gold-bg); border: 1px solid var(--gold-line);
+    border-radius: 999px; padding: 1px 8px; margin-left: 7px;
+    vertical-align: 2px; white-space: nowrap;
+  }
+  .award-badge::before { content: "🏅"; font-size: 10.5px; }
+
+  /* 목차 */
+  .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 56px; }
+  .toc a {
+    display: block; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 13px 15px; text-decoration: none; color: var(--ink);
+    transition: border-color .12s, transform .12s;
+  }
+  .toc a:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .toc .nm { font-size: 14.5px; font-weight: 700; }
+  .toc .tt { display: block; font-size: 12px; color: var(--ink-faint); margin-top: 3px; line-height: 1.5; }
+  @media (max-width: 640px) { .toc { grid-template-columns: repeat(2, 1fr); } }
+
+  /* 프로젝트 섹션 */
+  .proj {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
+  }
+  .proj .no { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-faint); }
+  .proj .who { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
+  .proj .affil { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+  .proj h2 { font-size: 18px; font-weight: 750; margin: 14px 0 4px; letter-spacing: -0.01em; }
+  .proj .orig { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .oneline {
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
+  }
+  .proj h3 {
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
+  }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
+  .terms {
+    background: var(--bg); border-radius: 12px; padding: 15px 18px; margin-top: 22px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .terms .t-title { font-weight: 750; font-size: 12px; letter-spacing: .05em; color: var(--ink-faint); margin-bottom: 7px; }
+  .terms dt { font-weight: 700; display: inline; color: var(--ink); }
+  .terms dd { display: inline; margin: 0; }
+  .terms div { margin-bottom: 5px; line-height: 1.65; }
+  .think {
+    margin-top: 14px; font-size: 13px; color: var(--ink-soft);
+    border-left: 3px solid var(--gold-line); padding: 4px 0 4px 12px;
+  }
+  .think b { color: var(--gold-ink); }
+  .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .more a {
+    font-size: 12.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
+  }
+  .more a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* 인쇄: 프로젝트당 A4 1장 */
+  @media print {
+    body { background: #fff; }
+    .back, .toc, .intro { display: none; }
+    .wrap { padding: 0; max-width: none; }
+    .head { padding: 40px 0 20px; }
+    .proj {
+      border: none; border-radius: 0; padding: 28px 10mm;
+      margin: 0; page-break-after: always; page-break-inside: avoid;
+    }
+    .more { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../index.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">SNU BIG DATA AI CEO · ABC 4기</div>
+    <h1>우수 프로젝트 15선, 쉽게 읽기</h1>
+    <p>우수상 수상 12개 프로젝트와 선정 프로젝트 3편(이상구·신정호·정재욱)을 프로젝트별 페이지로 제공합니다.</p>
+  </div>
+
+  <div class="intro">
+    ABC 4기 최종 발표 가운데 15개 프로젝트를 중고등학생도 이해할 수 있도록 다시 쓴 것이다. 카드를 누르면 프로젝트별 페이지(A4 한 장 분량)로 이동한다. 한 페이지에서 전체를 읽고 싶다면 <a href="../highlights.html" style="color: var(--accent);">통합 페이지</a>를 이용하면 된다.
+  </div>
+
+  <div class="toc">
+    <a href="25.html"><span class="nm">강병관<span class="award-badge">우수상</span></span><span class="tt">보험회사 전체에 AI를 붙이는 법</span></a>
+    <a href="16.html"><span class="nm">김남연<span class="award-badge">우수상</span></span><span class="tt">골프장 사장님의 데이터 경영</span></a>
+    <a href="27.html"><span class="nm">김두환<span class="award-badge">우수상</span></span><span class="tt">AI 직원을 만들어내는 공장</span></a>
+    <a href="20.html"><span class="nm">김린아<span class="award-badge">우수상</span></span><span class="tt">가구 사진을 AI가 만들어준다면</span></a>
+    <a href="05.html"><span class="nm">도준호<span class="award-badge">우수상</span></span><span class="tt">동네 가게 사장님의 AI 경영 코치</span></a>
+    <a href="21.html"><span class="nm">신소영<span class="award-badge">우수상</span></span><span class="tt">제약회사 전문가에게 550일을 돌려주다</span></a>
+    <a href="04.html"><span class="nm">신정호</span><span class="tt">고장 나기 전에 미리 아는 충전기</span></a>
+    <a href="09.html"><span class="nm">안상준<span class="award-badge">우수상</span></span><span class="tt">투자 심사역의 야근을 줄이는 AI</span></a>
+    <a href="26.html"><span class="nm">유지연<span class="award-badge">우수상</span></span><span class="tt">철강회사 베테랑의 노하우를 AI로</span></a>
+    <a href="07.html"><span class="nm">이덕희<span class="award-badge">우수상</span></span><span class="tt">청년과 기업을 잇는 다리, YEBO</span></a>
+    <a href="29.html"><span class="nm">이동학<span class="award-badge">우수상</span></span><span class="tt">말로 반도체를 설계하다</span></a>
+    <a href="03.html"><span class="nm">이상구</span><span class="tt">AI 검색 시대의 마케팅, GEO</span></a>
+    <a href="28.html"><span class="nm">정재욱</span><span class="tt">홈쇼핑 방송의 성공 확률을 계산하다</span></a>
+    <a href="02.html"><span class="nm">조경식<span class="award-badge">우수상</span></span><span class="tt">공모주 투자를 돕는 AI 비서</span></a>
+    <a href="22.html"><span class="nm">한지수<span class="award-badge">우수상</span></span><span class="tt">K팝 회사는 왜 정원을 가꿀까</span></a>
+  </div>
+</div>
+</body>
+</html>

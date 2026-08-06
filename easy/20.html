@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김린아 · 가구 사진을 AI가 만들어준다면 | ABC 4기 우수 프로젝트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+    --gold-ink: #8a6d1d; --gold-bg: #faf3dc; --gold-line: #eddfae;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 44px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 30px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 14px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--accent); margin-bottom: 8px; }
+  .head h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .head p { font-size: 15px; color: var(--ink-faint); }
+  .intro {
+    font-size: 14px; color: var(--ink-soft); background: var(--accent-soft);
+    border-radius: 12px; padding: 16px 20px; margin: 24px 0 36px; line-height: 1.75;
+  }
+  .award-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 11px; font-weight: 700; letter-spacing: .02em;
+    color: var(--gold-ink); background: var(--gold-bg); border: 1px solid var(--gold-line);
+    border-radius: 999px; padding: 1px 8px; margin-left: 7px;
+    vertical-align: 2px; white-space: nowrap;
+  }
+  .award-badge::before { content: "🏅"; font-size: 10.5px; }
+
+  /* 목차 */
+  .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 56px; }
+  .toc a {
+    display: block; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 13px 15px; text-decoration: none; color: var(--ink);
+    transition: border-color .12s, transform .12s;
+  }
+  .toc a:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .toc .nm { font-size: 14.5px; font-weight: 700; }
+  .toc .tt { display: block; font-size: 12px; color: var(--ink-faint); margin-top: 3px; line-height: 1.5; }
+  @media (max-width: 640px) { .toc { grid-template-columns: repeat(2, 1fr); } }
+
+  /* 프로젝트 섹션 */
+  .proj {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
+  }
+  .proj .no { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-faint); }
+  .proj .who { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
+  .proj .affil { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+  .proj h2 { font-size: 18px; font-weight: 750; margin: 14px 0 4px; letter-spacing: -0.01em; }
+  .proj .orig { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .oneline {
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
+  }
+  .proj h3 {
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
+  }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
+  .terms {
+    background: var(--bg); border-radius: 12px; padding: 15px 18px; margin-top: 22px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .terms .t-title { font-weight: 750; font-size: 12px; letter-spacing: .05em; color: var(--ink-faint); margin-bottom: 7px; }
+  .terms dt { font-weight: 700; display: inline; color: var(--ink); }
+  .terms dd { display: inline; margin: 0; }
+  .terms div { margin-bottom: 5px; line-height: 1.65; }
+  .think {
+    margin-top: 14px; font-size: 13px; color: var(--ink-soft);
+    border-left: 3px solid var(--gold-line); padding: 4px 0 4px 12px;
+  }
+  .think b { color: var(--gold-ink); }
+  .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .more a {
+    font-size: 12.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
+  }
+  .more a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* 인쇄: 프로젝트당 A4 1장 */
+  @media print {
+    body { background: #fff; }
+    .back, .toc, .intro { display: none; }
+    .wrap { padding: 0; max-width: none; }
+    .head { padding: 40px 0 20px; }
+    .proj {
+      border: none; border-radius: 0; padding: 28px 10mm;
+      margin: 0; page-break-after: always; page-break-inside: avoid;
+    }
+    .more { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← 15선 목록으로</a>
+
+<!-- 4. 김린아 -->
+  <section class="proj" id="p20">
+    <div class="no">PROJECT 04 · 발표 20</div>
+    <div class="who">김린아<span class="award-badge">우수상</span></div>
+    <div class="affil">라이프스케이프㈜ · 대표이사</div>
+    <h2>가구 사진을 AI가 만들어준다면</h2>
+    <div class="orig">원제: AI 활용 솔루션 잇다(itda), 홈퍼니싱 콘텐츠 자동화</div>
+    <div class="oneline">공장에서 휴대폰으로 찍은 가구 사진 한 장을 보내면, AI가 광고 사진과 영상, 상세 페이지까지 만들어주는 창업 이야기다.</div>
+    <h3>어떤 문제가 있었나</h3>
+    <p class="body">가구를 온라인에서 팔려면 예쁜 사진이 필요하다. 그런데 가구는 크고 무거워서 스튜디오까지 옮겨 촬영하는 데 큰돈과 시간이 든다. 게다가 가구 회사 사장님들은 연세가 많은 분들이 대부분이라 최신 AI 도구를 다루기도 어렵다. 챗GPT 같은 범용 AI로 가구 사진을 만들면 선반의 나뭇가지가 잘리거나, 전선 구멍이 막히거나, 사람과 가구의 크기 비율이 이상해지는 오류가 자주 난다.</p>
+    <h3>어떻게 풀었나</h3>
+    <p class="body">5명의 창업팀이 가구에만 특화된 AI 서비스 "잇다"를 만들었다. 고객사와 나눈 대화 자료를 넣으면 기획 담당 AI가 콘텐츠 기획서를 만들고, 실행 담당 AI가 상황에 맞는 이미지 생성 모델을 골라 결과물을 만든다. 각 공정마다 가장 잘하는 AI 모델을 배치한 자동 조립 라인 구조다. 가구 특유의 오류를 잡아내는 품질 검사 기준(물리적으로 말이 되는지 확인하는 지표)도 국가 연구 과제로 개발 중이다.</p>
+    <h3>무엇이 달라지나</h3>
+    <p class="body">서비스를 쓴 가구 회사들은 콘텐츠 제작 비용과 시간을 평균 80% 이상 아꼈고, 출시 한 달 반 동안 이용한 모든 고객사가 다음 제품도 다시 맡겼다(재이용률 100%). 목표는 "가구 브랜드라면 누구나 쓰는 필수 프로그램"이 되는 것이다. 발표자는 4기 최연소 수강생이다.</p>
+    <div class="terms">
+      <div class="t-title">용어 풀이</div>
+      <div><dt>버티컬 AI</dt> · <dd>모든 분야를 조금씩 하는 범용 AI와 달리, 한 분야(여기서는 가구)만 깊게 파는 특화 AI.</dd></div>
+      <div><dt>파인튜닝</dt> · <dd>이미 만들어진 AI 모델에 우리 분야 데이터를 더 학습시켜 전문가로 만드는 것.</dd></div>
+      <div><dt>리텐션</dt> · <dd>고객이 서비스를 계속 다시 쓰는 비율. 사업이 진짜 쓸모 있는지 보여주는 지표.</dd></div>
+    </div>
+    <div class="think"><b>생각해 볼 질문</b> · 범용 AI가 잘 못하는 일을 찾는 것이 왜 창업의 기회가 될까?</div>
+    <div class="more"><a href="../transcripts/20.html">전체 속기록</a><a href="../slides/20.pdf">발표 슬라이드</a><a href="../index.html">아카이브</a></div>
+  </section>
+<div class="more" style="margin-top:26px;"><a href="27.html">← 김두환</a><a href="index.html">목록</a><a href="05.html">도준호 →</a></div>
+</div>
+</body>
+</html>

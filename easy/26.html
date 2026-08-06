@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유지연 · 철강회사 베테랑의 노하우를 AI로 | ABC 4기 우수 프로젝트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+    --gold-ink: #8a6d1d; --gold-bg: #faf3dc; --gold-line: #eddfae;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 44px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 30px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 14px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--accent); margin-bottom: 8px; }
+  .head h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .head p { font-size: 15px; color: var(--ink-faint); }
+  .intro {
+    font-size: 14px; color: var(--ink-soft); background: var(--accent-soft);
+    border-radius: 12px; padding: 16px 20px; margin: 24px 0 36px; line-height: 1.75;
+  }
+  .award-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 11px; font-weight: 700; letter-spacing: .02em;
+    color: var(--gold-ink); background: var(--gold-bg); border: 1px solid var(--gold-line);
+    border-radius: 999px; padding: 1px 8px; margin-left: 7px;
+    vertical-align: 2px; white-space: nowrap;
+  }
+  .award-badge::before { content: "🏅"; font-size: 10.5px; }
+
+  /* 목차 */
+  .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 56px; }
+  .toc a {
+    display: block; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 13px 15px; text-decoration: none; color: var(--ink);
+    transition: border-color .12s, transform .12s;
+  }
+  .toc a:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .toc .nm { font-size: 14.5px; font-weight: 700; }
+  .toc .tt { display: block; font-size: 12px; color: var(--ink-faint); margin-top: 3px; line-height: 1.5; }
+  @media (max-width: 640px) { .toc { grid-template-columns: repeat(2, 1fr); } }
+
+  /* 프로젝트 섹션 */
+  .proj {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
+  }
+  .proj .no { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-faint); }
+  .proj .who { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
+  .proj .affil { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+  .proj h2 { font-size: 18px; font-weight: 750; margin: 14px 0 4px; letter-spacing: -0.01em; }
+  .proj .orig { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .oneline {
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
+  }
+  .proj h3 {
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
+  }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
+  .terms {
+    background: var(--bg); border-radius: 12px; padding: 15px 18px; margin-top: 22px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .terms .t-title { font-weight: 750; font-size: 12px; letter-spacing: .05em; color: var(--ink-faint); margin-bottom: 7px; }
+  .terms dt { font-weight: 700; display: inline; color: var(--ink); }
+  .terms dd { display: inline; margin: 0; }
+  .terms div { margin-bottom: 5px; line-height: 1.65; }
+  .think {
+    margin-top: 14px; font-size: 13px; color: var(--ink-soft);
+    border-left: 3px solid var(--gold-line); padding: 4px 0 4px 12px;
+  }
+  .think b { color: var(--gold-ink); }
+  .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .more a {
+    font-size: 12.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
+  }
+  .more a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* 인쇄: 프로젝트당 A4 1장 */
+  @media print {
+    body { background: #fff; }
+    .back, .toc, .intro { display: none; }
+    .wrap { padding: 0; max-width: none; }
+    .head { padding: 40px 0 20px; }
+    .proj {
+      border: none; border-radius: 0; padding: 28px 10mm;
+      margin: 0; page-break-after: always; page-break-inside: avoid;
+    }
+    .more { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← 15선 목록으로</a>
+
+<!-- 9. 유지연 -->
+  <section class="proj" id="p26">
+    <div class="no">PROJECT 09 · 발표 26</div>
+    <div class="who">유지연<span class="award-badge">우수상</span></div>
+    <div class="affil">신라철강㈜ · 회장</div>
+    <h2>철강회사 베테랑의 노하우를 AI로</h2>
+    <div class="orig">원제: 경쟁력 극대화를 위한 현장 암묵지의 AI 증폭, 'TC경장'</div>
+    <div class="oneline">철강 유통 그룹의 회장님이 "베테랑들이 회사를 떠나도 그들의 노하우는 남게 하자"며 시작한 전사 AI 전환 이야기다.</div>
+    <h3>어떤 문제가 있었나</h3>
+    <p class="body">철강 유통업의 경쟁력은 경험 많은 직원들의 머릿속에 있다. 어떤 재고가 적정한지, 시장이 어떻게 움직일지를 판단하는 감각은 문서로 적혀 있지 않은 "암묵지"다. 이분들이 은퇴하면 그 지식도 함께 사라진다. 발표자는 조선의 개혁 "갑오경장"에 빗대 이 변화를 "TC경장"이라 이름 붙이고, 아버지인 명예회장과 함께 1월부터 개혁을 시작했다.</p>
+    <h3>어떻게 풀었나</h3>
+    <p class="body">먼저 직원들에게서 회사 고유 용어 300여 개를 직접 쓰게 해서, AI가 회사 언어를 이해하는 기반 사전(온톨로지)을 만들고 있다. "사람이 직접, 짧은 문장으로, 용어로 시작해서 쓴다" 같은 5가지 작성 원칙과 5단계 정제 방법까지 두었다. 현장에는 실제 결과물이 배포됐다. 회사 ERP 안에 재고가 부족한지 과잉인지 실시간 경보하는 AI 조수가 전 영업팀에 깔렸고, 영업사원이 밖에서 "SS400 25T 재고 확인해줘"라고 말하면 즉시 답이 오는 음성 검색 앱도 나왔다. 그룹이 운영하는 유명 수목원 "사유원"에는 4개 국어 AI 해설 앱과 사진 5만 5천 장을 말로 찾는 검색 시스템까지 만들었다.</p>
+    <h3>무엇이 달라지나</h3>
+    <p class="body">한 달 전 전 직원 AI 공모전에는 80%가 참여했고, 이제 직원들이 먼저 "API를 열어 달라"고 요구할 정도가 됐다. 회장님의 말이 인상적이다. "제가 변한 것도 있지만, 전 직원이, 회사가 변하고 있습니다."</p>
+    <div class="terms">
+      <div class="t-title">용어 풀이</div>
+      <div><dt>암묵지</dt> · <dd>글로 적혀 있지 않고 경험자의 머릿속에만 있는 지식과 감각.</dd></div>
+      <div><dt>온톨로지</dt> · <dd>용어들의 뜻과 서로의 관계를 정리한 지식 지도. AI가 회사 언어를 이해하는 기반이 된다.</dd></div>
+      <div><dt>ERP</dt> · <dd>회사의 재고·회계·인사 정보를 한데 관리하는 전사 프로그램.</dd></div>
+    </div>
+    <div class="think"><b>생각해 볼 질문</b> · 사람의 경험과 감각을 데이터로 남기려면 어떤 노력이 필요할까?</div>
+    <div class="more"><a href="../transcripts/26.html">전체 속기록</a><a href="../slides/26.pdf">발표 슬라이드</a><a href="../index.html">아카이브</a></div>
+  </section>
+<div class="more" style="margin-top:26px;"><a href="09.html">← 안상준</a><a href="index.html">목록</a><a href="07.html">이덕희 →</a></div>
+</div>
+</body>
+</html>
