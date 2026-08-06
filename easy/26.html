@@ -57,13 +57,13 @@
   /* 프로젝트 섹션 */
   .proj {
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
+    border-radius: 18px; padding: 24px 30px 26px; margin-bottom: 30px;
   }
   .phead {
     display: flex; align-items: flex-start; justify-content: space-between;
     gap: 14px; margin-bottom: 4px;
   }
-  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
+  .ptitle { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.45; }
   .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
   .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
   .pbtns a {
@@ -72,21 +72,24 @@
     white-space: nowrap; transition: border-color .12s, color .12s;
   }
   .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
-  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
+  .paffil { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 12px; }
   @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
-    font-size: 14.5px; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
-    line-height: 1.65;
+    font-size: 13px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 9px 14px; margin-bottom: 12px;
+    line-height: 1.6;
   }
   .proj h3 {
-    font-size: 14px; font-weight: 750; color: var(--accent);
-    margin: 20px 0 7px; letter-spacing: .01em;
+    font-size: 13px; font-weight: 750; color: var(--accent);
+    margin: 0 0 5px; letter-spacing: .01em;
   }
-  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
+  .proj p.body { font-size: 13px; color: var(--ink-soft); line-height: 1.62; margin-bottom: 13px; }
+  .pcols { column-count: 2; column-gap: 30px; }
+  .pcols h3 { break-after: avoid; }
+  @media (max-width: 760px) { .pcols { column-count: 1; } }
   .hero {
-    width: 100%; display: block; border: 1px solid var(--line);
-    border-radius: 12px; margin: 0 0 20px;
+    display: block; max-height: 205px; width: auto; max-width: 100%;
+    border: 1px solid var(--line); border-radius: 12px; margin: 0 auto 14px;
   }
   .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
   .more a {
@@ -108,7 +111,6 @@
     .more { display: none; }
   }
 </style>
-
 </head>
 <body>
 <div class="wrap">
@@ -120,14 +122,16 @@
       <div class="pbtns"><a href="../transcripts/26.html">전체 속기록</a><a href="../slides/26.pdf">발표 슬라이드</a></div>
     </div>
     <div class="paffil">신라철강㈜ · 회장</div>
-    <img class="hero" src="../img/easy/26.jpg" alt="발표 핵심 슬라이드" loading="lazy">
     <div class="oneline">철강 유통 그룹의 회장님이 "베테랑들이 회사를 떠나도 그들의 노하우는 남게 하자"며 시작한 전사 AI 전환 이야기다.</div>
+    <img class="hero" src="../img/easy/26.jpg" alt="발표 핵심 슬라이드" loading="lazy">
+    <div class="pcols">
     <h3>어떤 문제가 있었나</h3>
     <p class="body">철강 유통업의 경쟁력은 경험 많은 직원들의 머릿속에 있다. 어떤 재고가 적정한지, 시장이 어떻게 움직일지를 판단하는 감각은 문서로 적혀 있지 않은 "암묵지"다. 이분들이 은퇴하면 그 지식도 함께 사라진다. 발표자는 조선의 개혁 "갑오경장"에 빗대 이 변화를 "TC경장"이라 이름 붙이고, 아버지인 명예회장과 함께 1월부터 개혁을 시작했다.</p>
     <h3>어떻게 풀었나</h3>
     <p class="body">먼저 직원들에게서 회사 고유 용어 300여 개를 직접 쓰게 해서, AI가 회사 언어를 이해하는 기반 사전(온톨로지)을 만들고 있다. "사람이 직접, 짧은 문장으로, 용어로 시작해서 쓴다" 같은 5가지 작성 원칙과 5단계 정제 방법까지 두었다. 현장에는 실제 결과물이 배포됐다. 회사 ERP 안에 재고가 부족한지 과잉인지 실시간 경보하는 AI 조수가 전 영업팀에 깔렸고, 영업사원이 밖에서 "SS400 25T 재고 확인해줘"라고 말하면 즉시 답이 오는 음성 검색 앱도 나왔다. 그룹이 운영하는 유명 수목원 "사유원"에는 4개 국어 AI 해설 앱과 사진 5만 5천 장을 말로 찾는 검색 시스템까지 만들었다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">한 달 전 전 직원 AI 공모전에는 80%가 참여했고, 이제 직원들이 먼저 "API를 열어 달라"고 요구할 정도가 됐다. 회장님의 말이 인상적이다. "제가 변한 것도 있지만, 전 직원이, 회사가 변하고 있습니다."</p>
+    </div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="09.html">← 안상준</a><a href="index.html">목록</a><a href="07.html">이덕희 →</a></div>
 </div>
