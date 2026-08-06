@@ -4729,6 +4729,11 @@ document.getElementById("btnClose").addEventListener("click", closeDetail);
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeDetail(); });
 
 renderTable(sortByName(PRESENTATIONS));
+/* URL 해시로 상세 바로 열기 (예: archive.html#01) */
+(function () {
+  const m = location.hash.match(/^#p?(\d+)$/);
+  if (m) openDetail(Number(m[1]));
+})();
 </script>
 </body>
 </html>
