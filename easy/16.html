@@ -57,13 +57,13 @@
   /* 프로젝트 섹션 */
   .proj {
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: 18px; padding: 24px 30px 26px; margin-bottom: 30px;
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
   .phead {
     display: flex; align-items: flex-start; justify-content: space-between;
     gap: 14px; margin-bottom: 4px;
   }
-  .ptitle { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.45; }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
   .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
   .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
   .pbtns a {
@@ -72,24 +72,21 @@
     white-space: nowrap; transition: border-color .12s, color .12s;
   }
   .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
-  .paffil { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 12px; }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
   @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
-    font-size: 13px; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border-radius: 10px; padding: 9px 14px; margin-bottom: 12px;
-    line-height: 1.6;
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
   }
   .proj h3 {
-    font-size: 13px; font-weight: 750; color: var(--accent);
-    margin: 0 0 5px; letter-spacing: .01em;
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
   }
-  .proj p.body { font-size: 13px; color: var(--ink-soft); line-height: 1.62; margin-bottom: 13px; }
-  .pcols { column-count: 2; column-gap: 30px; }
-  .pcols h3 { break-after: avoid; }
-  @media (max-width: 760px) { .pcols { column-count: 1; } }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
   .hero {
-    display: block; max-height: 205px; width: auto; max-width: 100%;
-    border: 1px solid var(--line); border-radius: 12px; margin: 0 auto 14px;
+    width: 100%; display: block; border: 1px solid var(--line);
+    border-radius: 12px; margin: 0 0 20px;
   }
   .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
   .more a {
@@ -111,6 +108,7 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
@@ -122,16 +120,14 @@
       <div class="pbtns"><a href="../transcripts/16.html">전체 속기록</a><a href="../slides/16.pdf">발표 슬라이드</a></div>
     </div>
     <div class="paffil">㈜동훈 · 대표이사</div>
-    <div class="oneline">50년 된 회사의 사장님이 골프장 예약 기록 16만 건을 AI로 분석해, 감으로 정하던 가격과 운영을 데이터로 바꾸고 있는 이야기다.</div>
     <img class="hero" src="../img/easy/16.jpg" alt="발표 핵심 슬라이드" loading="lazy">
-    <div class="pcols">
+    <div class="oneline">50년 된 회사의 사장님이 골프장 예약 기록 16만 건을 AI로 분석해, 감으로 정하던 가격과 운영을 데이터로 바꾸고 있는 이야기다.</div>
     <h3>어떤 문제가 있었나</h3>
     <p class="body">이 회사는 골프장 두 곳(81홀)을 운영하는데, 일할 사람 구하기가 어렵고 기후 변화로 잔디 관리도 점점 힘들어졌다. 데이터도 문제였다. 예약, 회계, 코스 관리 프로그램이 다 따로 놀아서 사장님이 회사 전체 상황을 한눈에 볼 수 없었고, 잔디 관리 기록은 담당 팀장이 바뀔 때마다 엑셀 양식까지 바뀌어 쌓이지 않았다.</p>
     <h3>어떻게 풀었나</h3>
     <p class="body">서울대 청년 교육생들(캡스톤 팀)과 함께 3년 치 예약 기록 16만 건을 날씨, 경기 지표, 검색량과 엮어 분석했다. 그러자 감으로는 몰랐던 사실들이 보였다. 가격을 조금만 내려도 손님이 크게 늘어나는 시간대가 있었고, 매번 다른 친구들을 데려오는 "허브 고객" 수백 명의 존재도 드러났다. 운영 쪽에서는 매일 새벽 5시 반에 드론이 골프장 전체를 촬영해 3시간 반 떨어진 사업장 상태를 사장님이 아침마다 확인하게 만들었고, 비싼 수입 장비에는 GPS를 달았다. 최종 목표는 "AI가 보고하고, 경영진이 결정하는" 통합 운영 시스템이다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">여름 비수기에 실제 가격 실험을 진행하고, 2027년 창녕 사업장에서 시험 가동을 거쳐 2028년 전사 완성이 목표다. 사장님은 "남이 만들면 갖다 쓰자고 생각했는데, 배우고 나니 우리 몸에 딱 맞는 것을 직접 만들자로 바뀌었다"고 말했다.</p>
-    </div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="25.html">← 강병관</a><a href="index.html">목록</a><a href="27.html">김두환 →</a></div>
 </div>

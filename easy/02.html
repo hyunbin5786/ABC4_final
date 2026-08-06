@@ -57,13 +57,13 @@
   /* 프로젝트 섹션 */
   .proj {
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: 18px; padding: 24px 30px 26px; margin-bottom: 30px;
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
   .phead {
     display: flex; align-items: flex-start; justify-content: space-between;
     gap: 14px; margin-bottom: 4px;
   }
-  .ptitle { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.45; }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
   .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
   .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
   .pbtns a {
@@ -72,24 +72,21 @@
     white-space: nowrap; transition: border-color .12s, color .12s;
   }
   .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
-  .paffil { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 12px; }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
   @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
-    font-size: 13px; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border-radius: 10px; padding: 9px 14px; margin-bottom: 12px;
-    line-height: 1.6;
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
   }
   .proj h3 {
-    font-size: 13px; font-weight: 750; color: var(--accent);
-    margin: 0 0 5px; letter-spacing: .01em;
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
   }
-  .proj p.body { font-size: 13px; color: var(--ink-soft); line-height: 1.62; margin-bottom: 13px; }
-  .pcols { column-count: 2; column-gap: 30px; }
-  .pcols h3 { break-after: avoid; }
-  @media (max-width: 760px) { .pcols { column-count: 1; } }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
   .hero {
-    display: block; max-height: 205px; width: auto; max-width: 100%;
-    border: 1px solid var(--line); border-radius: 12px; margin: 0 auto 14px;
+    width: 100%; display: block; border: 1px solid var(--line);
+    border-radius: 12px; margin: 0 0 20px;
   }
   .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
   .more a {
@@ -111,6 +108,7 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
@@ -122,16 +120,14 @@
       <div class="pbtns"><a href="../transcripts/02.html">전체 속기록</a><a href="../slides/02.pdf">발표 슬라이드</a></div>
     </div>
     <div class="paffil">㈜에스제이엠인베스트먼트 · 대표이사</div>
-    <div class="oneline">투자회사 대표가 "언제 사고팔지"를 데이터로 알려주는 회사 전용 AI 투자 비서를 직접 만든 이야기다.</div>
     <img class="hero" src="../img/easy/02.jpg" alt="발표 핵심 슬라이드" loading="lazy">
-    <div class="pcols">
+    <div class="oneline">투자회사 대표가 "언제 사고팔지"를 데이터로 알려주는 회사 전용 AI 투자 비서를 직접 만든 이야기다.</div>
     <h3>어떤 문제가 있었나</h3>
     <p class="body">회사가 주식시장에 처음 상장할 때 파는 주식을 공모주라고 한다. 상장 직후 1~6개월은 주가가 크게 출렁이는 시기라 사고파는 타이밍이 수익을 좌우하는데, 판단에 필요한 정보는 공시 사이트, 뉴스, 내부 메모에 흩어져 있었다. 리포트 양식도 사람마다 달라 비교와 검증이 어려웠다.</p>
     <h3>어떻게 풀었나</h3>
     <p class="body">두 개의 축으로 시스템을 만들었다. 하나는 흩어진 자료를 모아 투자 분석 리포트를 자동으로 써주는 엔진이고, 다른 하나는 공모가와 현재 주가의 차이(괴리율)를 실시간 추적하다가 기준에 도달하면 텔레그램으로 알려주는 매매 신호 시스템이다. 역할이 다른 AI 4개(자료 조사, 리포트 작성, 수치 검증, 운영)가 분업하고 서로 검증하는 멀티 에이전트 구조를 썼다. 중요한 원칙이 있다. AI는 알려주기만 하고(Alert), 실제 매매 결정은 반드시 사람이 한다(Action). 돈이 오가는 일이기 때문이다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">실제로 동작하는 웹 대시보드와 알림 시스템까지 만들어 시연했고, 리포트 작성 시간을 80% 줄이는 것이 목표다. 우선은 회사 내부 3인용으로 쓰고, 시장이 발전하면 같은 구조를 확장할 계획이다. AI를 잘 모르던 금융인들에게 보여줬더니 "돈 주고 팔아도 되겠다"는 반응이 나왔다고 한다.</p>
-    </div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="28.html">← 정재욱</a><a href="index.html">목록</a><a href="22.html">한지수 →</a></div>
 </div>

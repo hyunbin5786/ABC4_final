@@ -57,13 +57,13 @@
   /* 프로젝트 섹션 */
   .proj {
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: 18px; padding: 24px 30px 26px; margin-bottom: 30px;
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
   .phead {
     display: flex; align-items: flex-start; justify-content: space-between;
     gap: 14px; margin-bottom: 4px;
   }
-  .ptitle { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.45; }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
   .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
   .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
   .pbtns a {
@@ -72,24 +72,21 @@
     white-space: nowrap; transition: border-color .12s, color .12s;
   }
   .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
-  .paffil { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 12px; }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
   @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
-    font-size: 13px; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border-radius: 10px; padding: 9px 14px; margin-bottom: 12px;
-    line-height: 1.6;
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
   }
   .proj h3 {
-    font-size: 13px; font-weight: 750; color: var(--accent);
-    margin: 0 0 5px; letter-spacing: .01em;
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
   }
-  .proj p.body { font-size: 13px; color: var(--ink-soft); line-height: 1.62; margin-bottom: 13px; }
-  .pcols { column-count: 2; column-gap: 30px; }
-  .pcols h3 { break-after: avoid; }
-  @media (max-width: 760px) { .pcols { column-count: 1; } }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
   .hero {
-    display: block; max-height: 205px; width: auto; max-width: 100%;
-    border: 1px solid var(--line); border-radius: 12px; margin: 0 auto 14px;
+    width: 100%; display: block; border: 1px solid var(--line);
+    border-radius: 12px; margin: 0 0 20px;
   }
   .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
   .more a {
@@ -111,6 +108,7 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
@@ -122,9 +120,8 @@
       <div class="pbtns"><a href="../transcripts/21.html">전체 속기록</a><a href="../slides/21.pdf">발표 슬라이드</a></div>
     </div>
     <div class="paffil">한국 베링거 인겔하임 · 부사장</div>
-    <div class="oneline">글로벌 제약회사의 한국 법인이 서류 작업에 묻혀 있던 전문가들의 시간을 AI로 1년에 550일 이상 되찾은 이야기다.</div>
     <img class="hero" src="../img/easy/21.jpg" alt="발표 핵심 슬라이드" loading="lazy">
-    <div class="pcols">
+    <div class="oneline">글로벌 제약회사의 한국 법인이 서류 작업에 묻혀 있던 전문가들의 시간을 AI로 1년에 550일 이상 되찾은 이야기다.</div>
     <h3>어떤 문제가 있었나</h3>
     <p class="body">이 회사는 앞으로 7년 안에 신약 20개를 출시할 예정이라 일이 폭발적으로 늘어난다. 그런데 의사·약사 자격을 가진 전문가 직원들이 정작 논문을 찾고, 표를 정리하고, 규정에 맞춰 보고서를 바꾸는 단순 작업에 시간을 쏟고 있었다. 어떤 직원은 한 달에 120시간을 논문 정리에만 썼다.</p>
     <h3>어떻게 풀었나</h3>
@@ -134,7 +131,6 @@
     셋째, 논문 한 편을 요약해 회사 양식으로 만드는 1~2시간짜리 일을 자동 파이프라인으로 10~20분으로 줄였다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">과제별로 시간이 70~90% 줄어 합치면 1년에 550일 이상이 절약된다. 이 시간은 신약 출시 직후의 가장 중요한 시기에 전문가들이 본연의 일에 쓰게 된다. 성과를 본 독일 본사도 관심을 보여 글로벌 확산을 논의 중이고, 함께한 교육생 한 명은 인턴으로 채용할 계획이다. 발표자는 "AI는 사람을 대체하는 것이 아니라, 우리가 잘하는 일에 집중하게 해주는 도구"라고 말했다.</p>
-    </div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="05.html">← 도준호</a><a href="index.html">목록</a><a href="04.html">신정호 →</a></div>
 </div>

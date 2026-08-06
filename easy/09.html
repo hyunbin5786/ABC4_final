@@ -57,13 +57,13 @@
   /* 프로젝트 섹션 */
   .proj {
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: 18px; padding: 24px 30px 26px; margin-bottom: 30px;
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
   .phead {
     display: flex; align-items: flex-start; justify-content: space-between;
     gap: 14px; margin-bottom: 4px;
   }
-  .ptitle { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.45; }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
   .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
   .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
   .pbtns a {
@@ -72,24 +72,21 @@
     white-space: nowrap; transition: border-color .12s, color .12s;
   }
   .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
-  .paffil { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 12px; }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
   @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
-    font-size: 13px; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border-radius: 10px; padding: 9px 14px; margin-bottom: 12px;
-    line-height: 1.6;
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
   }
   .proj h3 {
-    font-size: 13px; font-weight: 750; color: var(--accent);
-    margin: 0 0 5px; letter-spacing: .01em;
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
   }
-  .proj p.body { font-size: 13px; color: var(--ink-soft); line-height: 1.62; margin-bottom: 13px; }
-  .pcols { column-count: 2; column-gap: 30px; }
-  .pcols h3 { break-after: avoid; }
-  @media (max-width: 760px) { .pcols { column-count: 1; } }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
   .hero {
-    display: block; max-height: 205px; width: auto; max-width: 100%;
-    border: 1px solid var(--line); border-radius: 12px; margin: 0 auto 14px;
+    width: 100%; display: block; border: 1px solid var(--line);
+    border-radius: 12px; margin: 0 0 20px;
   }
   .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
   .more a {
@@ -111,6 +108,7 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
@@ -122,16 +120,14 @@
       <div class="pbtns"><a href="../transcripts/09.html">전체 속기록</a><a href="../slides/09.pdf">발표 슬라이드</a></div>
     </div>
     <div class="paffil">코오롱인베스트먼트 · 대표이사 사장</div>
-    <div class="oneline">첨단 기술에 투자하면서 정작 자기 회사는 90년대 방식으로 일하던 벤처캐피탈이, AI로 일하는 방식을 뜯어고친 이야기다.</div>
     <img class="hero" src="../img/easy/09.jpg" alt="발표 핵심 슬라이드" loading="lazy">
-    <div class="pcols">
+    <div class="oneline">첨단 기술에 투자하면서 정작 자기 회사는 90년대 방식으로 일하던 벤처캐피탈이, AI로 일하는 방식을 뜯어고친 이야기다.</div>
     <h3>어떤 문제가 있었나</h3>
     <p class="body">벤처캐피탈(VC)은 유망한 스타트업을 찾아 투자하는 회사다. 그런데 30년 경력의 사장님이 보기에, 투자를 결정하는 보고서와 자료 양식은 30년 전과 거의 그대로였다. 심사역들은 시장 조사, 자료 정리, 출자자 보고서 작성 같은 반복 작업에 밤늦게까지 매달렸다. "첨단에 투자하면서 우리는 가장 구식으로 일한다"는 역설이 출발점이었다.</p>
     <h3>어떻게 풀었나</h3>
     <p class="body">서울대 청년 교육생 6명과 회사 임직원이 팀을 이뤄 2주에 한 번씩 만나며 업무를 자동화했다. 투자 검토(프론트), 회사 운영(백오피스), 펀드 관리 세 영역에 각각 AI 에이전트를 두고, 이를 하나의 "통합 업무 포털"로 묶는 설계다. 상장(IPO) 시장 동향을 매일 자동 정리하는 시스템은 완성됐고, 비슷한 회사들과 가치를 비교하는 분석도 거의 완성됐다. 고객 정보를 다루므로 보안 규정을 지키는 데에만 한 달을 쏟았다. 원칙은 분명하다. 발로 뛰는 소싱과 최종 투자 결정은 사람이 하고, 그 사이의 반복 작업을 AI가 맡는다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">투자심사 보고서 작성이 2주에서 1주로 줄어든다. 사장님은 이것을 "시간 단축"이 아니라 "생각할 시간의 확보"라고 불렀다. 더 좋은 투자 판단을 위해 깊이 고민할 여유가 생긴다는 것이다. 목표는 인력 감축이 아니라 "야근 없는 회사"다.</p>
-    </div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="04.html">← 신정호</a><a href="index.html">목록</a><a href="26.html">유지연 →</a></div>
 </div>

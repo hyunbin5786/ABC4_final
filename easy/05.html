@@ -57,13 +57,13 @@
   /* 프로젝트 섹션 */
   .proj {
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: 18px; padding: 24px 30px 26px; margin-bottom: 30px;
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
   .phead {
     display: flex; align-items: flex-start; justify-content: space-between;
     gap: 14px; margin-bottom: 4px;
   }
-  .ptitle { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.45; }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
   .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
   .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
   .pbtns a {
@@ -72,24 +72,21 @@
     white-space: nowrap; transition: border-color .12s, color .12s;
   }
   .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
-  .paffil { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 12px; }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
   @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
-    font-size: 13px; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border-radius: 10px; padding: 9px 14px; margin-bottom: 12px;
-    line-height: 1.6;
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
   }
   .proj h3 {
-    font-size: 13px; font-weight: 750; color: var(--accent);
-    margin: 0 0 5px; letter-spacing: .01em;
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
   }
-  .proj p.body { font-size: 13px; color: var(--ink-soft); line-height: 1.62; margin-bottom: 13px; }
-  .pcols { column-count: 2; column-gap: 30px; }
-  .pcols h3 { break-after: avoid; }
-  @media (max-width: 760px) { .pcols { column-count: 1; } }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
   .hero {
-    display: block; max-height: 205px; width: auto; max-width: 100%;
-    border: 1px solid var(--line); border-radius: 12px; margin: 0 auto 14px;
+    width: 100%; display: block; border: 1px solid var(--line);
+    border-radius: 12px; margin: 0 0 20px;
   }
   .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
   .more a {
@@ -111,6 +108,7 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
@@ -122,16 +120,14 @@
       <div class="pbtns"><a href="../transcripts/05.html">전체 속기록</a><a href="../slides/05.pdf">발표 슬라이드</a></div>
     </div>
     <div class="paffil">한국지급결제㈜ · 대표이사</div>
-    <div class="oneline">계산대(POS) 회사 사장님이, 재고 관리를 아예 안 하는 동네 가게 7,500곳을 위해 "지금 이 버튼을 누르세요"라고 알려주는 AI 코치를 만드는 이야기다.</div>
     <img class="hero" src="../img/easy/05.jpg" alt="발표 핵심 슬라이드" loading="lazy">
-    <div class="pcols">
+    <div class="oneline">계산대(POS) 회사 사장님이, 재고 관리를 아예 안 하는 동네 가게 7,500곳을 위해 "지금 이 버튼을 누르세요"라고 알려주는 AI 코치를 만드는 이야기다.</div>
     <h3>어떤 문제가 있었나</h3>
     <p class="body">이 회사의 계산대 프로그램을 쓰는 가게는 1만 곳이 넘는다. 데이터를 분석해 보니 그중 7,500곳이 재고 관리를 전혀 하지 않았다. 창고에 뭐가 얼마나 있는지 모르니, 손님이 와도 못 팔거나 안 팔리는 물건이 쌓여 임대료도 못 버는 일이 생긴다. 사장님들은 데이터 대신 "감"으로 장사하고, 그 감을 넘어설 방법이 없다고 생각한다.</p>
     <h3>어떻게 풀었나</h3>
     <p class="body">회사를 세운 지 10년 만에 처음으로 소상공인용 모바일 앱을 3개월 만에 만들어 사장님들과 직접 소통할 통로를 열었다. 회사에 쌓여 있던 사용 설명서(노션 문서)를 AI에게 주고 1분짜리 교육 영상으로 자동 변환해 앱으로 보낸다. 핵심은 "현금이 표시된 행동 지침"이다. 재고의 성격을 4가지로 나눠 "이 재고를 이번 주에 할인하면 약 30만 원이 돌아옵니다. 적용하시겠어요?" 같은 알림을 보내고, 사장님이 버튼 하나만 누르면 그 할인이 계산대에 바로 적용된다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">교육과 채널 확보는 절반 이상 완성됐고, 행동 지침 기능은 9월 시험을 거쳐 4분기 출시가 목표다. 심사위원은 "재고가 실시간 데이터로 잡히면 보험료를 매일 조정하는 새로운 보험 상품도 가능해진다"는 협업 아이디어까지 보탰다.</p>
-    </div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="20.html">← 김린아</a><a href="index.html">목록</a><a href="21.html">신소영 →</a></div>
 </div>

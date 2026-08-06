@@ -57,13 +57,13 @@
   /* 프로젝트 섹션 */
   .proj {
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: 18px; padding: 24px 30px 26px; margin-bottom: 30px;
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
   .phead {
     display: flex; align-items: flex-start; justify-content: space-between;
     gap: 14px; margin-bottom: 4px;
   }
-  .ptitle { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.45; }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
   .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
   .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
   .pbtns a {
@@ -72,24 +72,21 @@
     white-space: nowrap; transition: border-color .12s, color .12s;
   }
   .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
-  .paffil { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 12px; }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
   @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
-    font-size: 13px; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border-radius: 10px; padding: 9px 14px; margin-bottom: 12px;
-    line-height: 1.6;
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
   }
   .proj h3 {
-    font-size: 13px; font-weight: 750; color: var(--accent);
-    margin: 0 0 5px; letter-spacing: .01em;
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
   }
-  .proj p.body { font-size: 13px; color: var(--ink-soft); line-height: 1.62; margin-bottom: 13px; }
-  .pcols { column-count: 2; column-gap: 30px; }
-  .pcols h3 { break-after: avoid; }
-  @media (max-width: 760px) { .pcols { column-count: 1; } }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
   .hero {
-    display: block; max-height: 205px; width: auto; max-width: 100%;
-    border: 1px solid var(--line); border-radius: 12px; margin: 0 auto 14px;
+    width: 100%; display: block; border: 1px solid var(--line);
+    border-radius: 12px; margin: 0 0 20px;
   }
   .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
   .more a {
@@ -111,6 +108,7 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
@@ -122,16 +120,14 @@
       <div class="pbtns"><a href="../transcripts/27.html">전체 속기록</a><a href="../slides/27.pdf">발표 슬라이드</a></div>
     </div>
     <div class="paffil">메디씨앤씨 · 미래전략실장/이사</div>
-    <div class="oneline">"필요한 AI 비서를 말 한마디로 뚝딱 만들어주는 공장"을 만든 이야기다. AI가 AI를 만든다.</div>
     <img class="hero" src="../img/easy/27.jpg" alt="발표 핵심 슬라이드" loading="lazy">
-    <div class="pcols">
+    <div class="oneline">"필요한 AI 비서를 말 한마디로 뚝딱 만들어주는 공장"을 만든 이야기다. AI가 AI를 만든다.</div>
     <h3>어떤 문제가 있었나</h3>
     <p class="body">발표자의 회사는 국내 활동 의사의 95%(약 13만 명 중)가 가입한 의사 전용 사이트를 운영한다. 2년 전부터 회사 안팎에서 쓸 AI 에이전트(스스로 판단해서 일까지 해주는 AI 프로그램)를 만들어 왔는데, 만들수록 깨달은 것이 있었다. 사람마다 원하는 AI가 조금씩 다르다는 것이다. 결국 한 사람 한 사람에게 맞춘 에이전트가 필요한데, 그걸 일일이 개발자가 만들면 시간이 너무 오래 걸린다.</p>
     <h3>어떻게 풀었나</h3>
     <p class="body">그래서 "에이전트를 만드는 에이전트", 즉 메타 에이전트를 만들었다. 사용자가 "구글 캘린더에 일정을 등록해 주는 비서를 만들어 줘"라고 한 줄만 쓰면, 메타 에이전트가 설계도 3가지(가장 단순한 안, 일 잘하는 안, 창의적인 안)를 그림으로 제안한다. 하나를 고르면 부품을 조립하고, 시험 가동까지 세 번 돌려본 뒤 완성된 에이전트를 내놓는다. 회사 데이터를 다루는 부분은 안전장치를 두었다. 전체 데이터를 읽는 기본 도구 위에, 각 사용자에게 허락된 범위만 보이도록 좁혀주는 "도구 생성 에이전트"를 따로 만들었다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">코딩으로 짜도 1시간 걸리던 에이전트 하나가 대화 몇 번으로 만들어진다. 시연에서는 즉석에서 만든 에이전트가 실제로 졸업여행 일정을 캘린더에 등록했다. 지금은 회사 내부용이고, 앞으로 의사 회원들이 스스로 자기 에이전트를 만드는 서비스로 키울 계획이다.</p>
-    </div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="16.html">← 김남연</a><a href="index.html">목록</a><a href="20.html">김린아 →</a></div>
 </div>

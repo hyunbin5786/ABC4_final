@@ -57,13 +57,13 @@
   /* 프로젝트 섹션 */
   .proj {
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: 18px; padding: 24px 30px 26px; margin-bottom: 30px;
+    border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
   .phead {
     display: flex; align-items: flex-start; justify-content: space-between;
     gap: 14px; margin-bottom: 4px;
   }
-  .ptitle { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.45; }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
   .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
   .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
   .pbtns a {
@@ -72,24 +72,21 @@
     white-space: nowrap; transition: border-color .12s, color .12s;
   }
   .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
-  .paffil { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 12px; }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
   @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
-    font-size: 13px; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border-radius: 10px; padding: 9px 14px; margin-bottom: 12px;
-    line-height: 1.6;
+    font-size: 14.5px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
+    line-height: 1.65;
   }
   .proj h3 {
-    font-size: 13px; font-weight: 750; color: var(--accent);
-    margin: 0 0 5px; letter-spacing: .01em;
+    font-size: 14px; font-weight: 750; color: var(--accent);
+    margin: 20px 0 7px; letter-spacing: .01em;
   }
-  .proj p.body { font-size: 13px; color: var(--ink-soft); line-height: 1.62; margin-bottom: 13px; }
-  .pcols { column-count: 2; column-gap: 30px; }
-  .pcols h3 { break-after: avoid; }
-  @media (max-width: 760px) { .pcols { column-count: 1; } }
+  .proj p.body { font-size: 14.5px; color: var(--ink-soft); }
   .hero {
-    display: block; max-height: 205px; width: auto; max-width: 100%;
-    border: 1px solid var(--line); border-radius: 12px; margin: 0 auto 14px;
+    width: 100%; display: block; border: 1px solid var(--line);
+    border-radius: 12px; margin: 0 0 20px;
   }
   .more { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
   .more a {
@@ -111,6 +108,7 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
@@ -122,16 +120,14 @@
       <div class="pbtns"><a href="../transcripts/20.html">전체 속기록</a><a href="../slides/20.pdf">발표 슬라이드</a></div>
     </div>
     <div class="paffil">라이프스케이프㈜ · 대표이사</div>
-    <div class="oneline">공장에서 휴대폰으로 찍은 가구 사진 한 장을 보내면, AI가 광고 사진과 영상, 상세 페이지까지 만들어주는 창업 이야기다.</div>
     <img class="hero" src="../img/easy/20.jpg" alt="발표 핵심 슬라이드" loading="lazy">
-    <div class="pcols">
+    <div class="oneline">공장에서 휴대폰으로 찍은 가구 사진 한 장을 보내면, AI가 광고 사진과 영상, 상세 페이지까지 만들어주는 창업 이야기다.</div>
     <h3>어떤 문제가 있었나</h3>
     <p class="body">가구를 온라인에서 팔려면 예쁜 사진이 필요하다. 그런데 가구는 크고 무거워서 스튜디오까지 옮겨 촬영하는 데 큰돈과 시간이 든다. 게다가 가구 회사 사장님들은 연세가 많은 분들이 대부분이라 최신 AI 도구를 다루기도 어렵다. 챗GPT 같은 범용 AI로 가구 사진을 만들면 선반의 나뭇가지가 잘리거나, 전선 구멍이 막히거나, 사람과 가구의 크기 비율이 이상해지는 오류가 자주 난다.</p>
     <h3>어떻게 풀었나</h3>
     <p class="body">5명의 창업팀이 가구에만 특화된 AI 서비스 "잇다"를 만들었다. 고객사와 나눈 대화 자료를 넣으면 기획 담당 AI가 콘텐츠 기획서를 만들고, 실행 담당 AI가 상황에 맞는 이미지 생성 모델을 골라 결과물을 만든다. 각 공정마다 가장 잘하는 AI 모델을 배치한 자동 조립 라인 구조다. 가구 특유의 오류를 잡아내는 품질 검사 기준(물리적으로 말이 되는지 확인하는 지표)도 국가 연구 과제로 개발 중이다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">서비스를 쓴 가구 회사들은 콘텐츠 제작 비용과 시간을 평균 80% 이상 아꼈고, 출시 한 달 반 동안 이용한 모든 고객사가 다음 제품도 다시 맡겼다(재이용률 100%). 목표는 "가구 브랜드라면 누구나 쓰는 필수 프로그램"이 되는 것이다. 발표자는 4기 최연소 수강생이다.</p>
-    </div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="27.html">← 김두환</a><a href="index.html">목록</a><a href="05.html">도준호 →</a></div>
 </div>
