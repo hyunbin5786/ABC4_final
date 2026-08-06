@@ -4534,12 +4534,15 @@ function sortByName(list) {
   return [...list].sort((a, b) => a.name.localeCompare(b.name, "ko"));
 }
 
+const DISPLAY_NO = {};
+sortByName(PRESENTATIONS).forEach((p, i) => { DISPLAY_NO[p.no] = i + 1; });
+
 function renderTable(list) {
   tbody.innerHTML = list.map(p => {
     if (p.placeholder) {
       return `
         <tr class="empty" data-no="${p.no}">
-          <td class="col-no">${String(p.no).padStart(2, "0")}</td>
+          <td class="col-no">${String(DISPLAY_NO[p.no] || p.no).padStart(2, "0")}</td>
           <td class="col-name">미정</td>
           <td class="col-topic"><span class="badge-pending">등록 대기</span></td>
           <td class="col-tags"></td>
@@ -4548,7 +4551,7 @@ function renderTable(list) {
     }
     return `
       <tr data-no="${p.no}">
-        <td class="col-no">${String(p.no).padStart(2, "0")}</td>
+        <td class="col-no">${String(DISPLAY_NO[p.no] || p.no).padStart(2, "0")}</td>
         <td class="col-name">${p.name}${p.award ? `<span class="award-badge">우수상</span>` : ""}${p.affil ? `<span class="sub">${p.affil}</span>` : ""}</td>
         <td class="col-topic">
           <span class="t">${p.topic}</span>
@@ -4621,7 +4624,7 @@ function openDetail(no) {
   const p = PRESENTATIONS.find(x => x.no === no);
   if (!p) return;
 
-  document.getElementById("dNo").textContent = `NO. ${String(p.no).padStart(2, "0")}`;
+  document.getElementById("dNo").textContent = `NO. ${String(DISPLAY_NO[p.no] || p.no).padStart(2, "0")}`;
   document.getElementById("dName").innerHTML = p.name + (p.award ? '<span class="award-badge">우수상</span>' : "");
   document.getElementById("dAffil").textContent = p.affil || "";
   document.getElementById("dTopic").textContent = p.topic;

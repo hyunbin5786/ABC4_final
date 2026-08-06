@@ -59,11 +59,21 @@
     background: var(--surface); border: 1px solid var(--line);
     border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
-  .proj .no { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-faint); }
-  .proj .who { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
-  .proj .affil { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
-  .proj h2 { font-size: 18px; font-weight: 750; margin: 14px 0 4px; letter-spacing: -0.01em; }
-  .proj .orig { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .phead {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 14px; margin-bottom: 4px;
+  }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
+  .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
+  .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
+  .pbtns a {
+    font-size: 12px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px;
+    white-space: nowrap; transition: border-color .12s, color .12s;
+  }
+  .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
+  @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
     font-size: 14.5px; font-weight: 600; color: var(--accent);
     background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
@@ -98,18 +108,18 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
   <a class="back" href="index.html">← 15선 목록으로</a>
 
-<!-- 4. 김린아 -->
-  <section class="proj" id="p20">
-    <div class="no">PROJECT 04 · 발표 20</div>
-    <div class="who">김린아<span class="award-badge">우수상</span></div>
-    <div class="affil">라이프스케이프㈜ · 대표이사</div>
-    <h2>가구 사진을 AI가 만들어준다면</h2>
-    <div class="orig">원제: AI 활용 솔루션 잇다(itda), 홈퍼니싱 콘텐츠 자동화</div>
+<section class="proj" id="p20">
+    <div class="phead">
+      <div class="ptitle">김린아<span class="award-badge">우수상</span><span class="tsep">·</span>가구 사진을 AI가 만들어준다면</div>
+      <div class="pbtns"><a href="../transcripts/20.html">전체 속기록</a><a href="../slides/20.pdf">발표 슬라이드</a></div>
+    </div>
+    <div class="paffil">라이프스케이프㈜ · 대표이사</div>
     <img class="hero" src="../img/easy/20.jpg" alt="발표 핵심 슬라이드" loading="lazy">
     <div class="oneline">공장에서 휴대폰으로 찍은 가구 사진 한 장을 보내면, AI가 광고 사진과 영상, 상세 페이지까지 만들어주는 창업 이야기다.</div>
     <h3>어떤 문제가 있었나</h3>
@@ -118,7 +128,6 @@
     <p class="body">5명의 창업팀이 가구에만 특화된 AI 서비스 "잇다"를 만들었다. 고객사와 나눈 대화 자료를 넣으면 기획 담당 AI가 콘텐츠 기획서를 만들고, 실행 담당 AI가 상황에 맞는 이미지 생성 모델을 골라 결과물을 만든다. 각 공정마다 가장 잘하는 AI 모델을 배치한 자동 조립 라인 구조다. 가구 특유의 오류를 잡아내는 품질 검사 기준(물리적으로 말이 되는지 확인하는 지표)도 국가 연구 과제로 개발 중이다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">서비스를 쓴 가구 회사들은 콘텐츠 제작 비용과 시간을 평균 80% 이상 아꼈고, 출시 한 달 반 동안 이용한 모든 고객사가 다음 제품도 다시 맡겼다(재이용률 100%). 목표는 "가구 브랜드라면 누구나 쓰는 필수 프로그램"이 되는 것이다. 발표자는 4기 최연소 수강생이다.</p>
-    <div class="more"><a href="../transcripts/20.html">전체 속기록</a><a href="../slides/20.pdf">발표 슬라이드</a><a href="../index.html">아카이브</a></div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="27.html">← 김두환</a><a href="index.html">목록</a><a href="05.html">도준호 →</a></div>
 </div>

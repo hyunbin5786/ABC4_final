@@ -59,11 +59,21 @@
     background: var(--surface); border: 1px solid var(--line);
     border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
-  .proj .no { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-faint); }
-  .proj .who { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
-  .proj .affil { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
-  .proj h2 { font-size: 18px; font-weight: 750; margin: 14px 0 4px; letter-spacing: -0.01em; }
-  .proj .orig { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .phead {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 14px; margin-bottom: 4px;
+  }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
+  .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
+  .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
+  .pbtns a {
+    font-size: 12px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px;
+    white-space: nowrap; transition: border-color .12s, color .12s;
+  }
+  .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
+  @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
     font-size: 14.5px; font-weight: 600; color: var(--accent);
     background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
@@ -98,18 +108,18 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
   <a class="back" href="index.html">← 15선 목록으로</a>
 
-<!-- 7. 신정호 -->
-  <section class="proj" id="p04">
-    <div class="no">PROJECT 07 · 발표 04</div>
-    <div class="who">신정호</div>
-    <div class="affil">SK㈜ · 경영자문위원 (전 SK시그넷 CEO)</div>
-    <h2>고장 나기 전에 미리 아는 충전기</h2>
-    <div class="orig">원제: 전기차 충전기 Predictive Maintenance, Break-Fix에서 Predict-Fix로</div>
+<section class="proj" id="p04">
+    <div class="phead">
+      <div class="ptitle">신정호<span class="tsep">·</span>고장 나기 전에 미리 아는 충전기</div>
+      <div class="pbtns"><a href="../transcripts/04.html">전체 속기록</a><a href="../slides/04.pdf">발표 슬라이드</a></div>
+    </div>
+    <div class="paffil">SK㈜ · 경영자문위원 (전 SK시그넷 CEO)</div>
     <img class="hero" src="../img/easy/04.jpg" alt="발표 핵심 슬라이드" loading="lazy">
     <div class="oneline">코딩을 한 번도 해본 적 없는 전직 CEO가, AI에게 말로 시켜서 2개월 만에 "전기차 충전기 고장 예측 시스템"을 혼자 만든 이야기다.</div>
     <h3>어떤 문제가 있었나</h3>
@@ -118,7 +128,6 @@
     <p class="body">발표자는 코딩 경험이 전혀 없는 비개발자다. 그런데 AI에게 자연어로 명령해 프로그램을 만드는 "바이브 코딩"(Claude와 Cursor 활용)으로 2개월 만에 8개 모듈짜리 시스템을 혼자 완성했다. 충전기 46대가 실제로 남긴 77만 줄의 운영 기록을 학습시켜, 이상 신호를 찾는 AI와 고장을 예측하는 AI를 겹겹이 쌓았다. 특히 "일부러 반대 의견을 내는 검증 AI"(데블스 애드버킷)를 직접 추가해, 시스템이 성급하게 "고장!"이라고 외치는 오탐을 걸러내게 했다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">실제 고장 13건 중 12건을 미리 잡아냈고(탐지율 92.3%), 공식 경보보다 평균 19일 먼저 알려줬다. 열흘 넘게 여유를 갖고 수리를 준비할 수 있다는 뜻이다. 나아가 충전기를 팔고 끝나는 사업에서, 고장 예측 서비스를 구독료로 파는 사업으로 확장하는 비전까지 제시했다.</p>
-    <div class="more"><a href="../transcripts/04.html">속기록(Q&A)</a><a href="../slides/04.pdf">발표 슬라이드</a><a href="../index.html">아카이브</a></div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="21.html">← 신소영</a><a href="index.html">목록</a><a href="09.html">안상준 →</a></div>
 </div>

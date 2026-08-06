@@ -59,11 +59,21 @@
     background: var(--surface); border: 1px solid var(--line);
     border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
-  .proj .no { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-faint); }
-  .proj .who { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
-  .proj .affil { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
-  .proj h2 { font-size: 18px; font-weight: 750; margin: 14px 0 4px; letter-spacing: -0.01em; }
-  .proj .orig { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .phead {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 14px; margin-bottom: 4px;
+  }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
+  .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
+  .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
+  .pbtns a {
+    font-size: 12px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px;
+    white-space: nowrap; transition: border-color .12s, color .12s;
+  }
+  .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
+  @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
     font-size: 14.5px; font-weight: 600; color: var(--accent);
     background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
@@ -98,18 +108,18 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
   <a class="back" href="index.html">← 15선 목록으로</a>
 
-<!-- 3. 김두환 -->
-  <section class="proj" id="p27">
-    <div class="no">PROJECT 03 · 발표 27</div>
-    <div class="who">김두환<span class="award-badge">우수상</span></div>
-    <div class="affil">메디씨앤씨 · 미래전략실장/이사</div>
-    <h2>AI 직원을 만들어내는 공장</h2>
-    <div class="orig">원제: MetaAgent, 에이전트를 만드는 에이전트</div>
+<section class="proj" id="p27">
+    <div class="phead">
+      <div class="ptitle">김두환<span class="award-badge">우수상</span><span class="tsep">·</span>AI 직원을 만들어내는 공장</div>
+      <div class="pbtns"><a href="../transcripts/27.html">전체 속기록</a><a href="../slides/27.pdf">발표 슬라이드</a></div>
+    </div>
+    <div class="paffil">메디씨앤씨 · 미래전략실장/이사</div>
     <img class="hero" src="../img/easy/27.jpg" alt="발표 핵심 슬라이드" loading="lazy">
     <div class="oneline">"필요한 AI 비서를 말 한마디로 뚝딱 만들어주는 공장"을 만든 이야기다. AI가 AI를 만든다.</div>
     <h3>어떤 문제가 있었나</h3>
@@ -118,7 +128,6 @@
     <p class="body">그래서 "에이전트를 만드는 에이전트", 즉 메타 에이전트를 만들었다. 사용자가 "구글 캘린더에 일정을 등록해 주는 비서를 만들어 줘"라고 한 줄만 쓰면, 메타 에이전트가 설계도 3가지(가장 단순한 안, 일 잘하는 안, 창의적인 안)를 그림으로 제안한다. 하나를 고르면 부품을 조립하고, 시험 가동까지 세 번 돌려본 뒤 완성된 에이전트를 내놓는다. 회사 데이터를 다루는 부분은 안전장치를 두었다. 전체 데이터를 읽는 기본 도구 위에, 각 사용자에게 허락된 범위만 보이도록 좁혀주는 "도구 생성 에이전트"를 따로 만들었다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">코딩으로 짜도 1시간 걸리던 에이전트 하나가 대화 몇 번으로 만들어진다. 시연에서는 즉석에서 만든 에이전트가 실제로 졸업여행 일정을 캘린더에 등록했다. 지금은 회사 내부용이고, 앞으로 의사 회원들이 스스로 자기 에이전트를 만드는 서비스로 키울 계획이다.</p>
-    <div class="more"><a href="../transcripts/27.html">전체 속기록</a><a href="../slides/27.pdf">발표 슬라이드</a><a href="../index.html">아카이브</a></div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="16.html">← 김남연</a><a href="index.html">목록</a><a href="20.html">김린아 →</a></div>
 </div>

@@ -59,11 +59,21 @@
     background: var(--surface); border: 1px solid var(--line);
     border-radius: 18px; padding: 34px 38px; margin-bottom: 30px;
   }
-  .proj .no { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-faint); }
-  .proj .who { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
-  .proj .affil { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
-  .proj h2 { font-size: 18px; font-weight: 750; margin: 14px 0 4px; letter-spacing: -0.01em; }
-  .proj .orig { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .phead {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 14px; margin-bottom: 4px;
+  }
+  .ptitle { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.5; }
+  .ptitle .tsep { color: var(--ink-faint); font-weight: 400; margin: 0 7px; }
+  .pbtns { display: flex; gap: 6px; flex-shrink: 0; margin-top: 3px; }
+  .pbtns a {
+    font-size: 12px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px;
+    white-space: nowrap; transition: border-color .12s, color .12s;
+  }
+  .pbtns a:hover { border-color: var(--accent); color: var(--accent); }
+  .paffil { font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
+  @media (max-width: 560px) { .phead { flex-direction: column; gap: 8px; } }
   .oneline {
     font-size: 14.5px; font-weight: 600; color: var(--accent);
     background: var(--accent-soft); border-radius: 10px; padding: 11px 16px; margin-bottom: 20px;
@@ -98,18 +108,18 @@
     .more { display: none; }
   }
 </style>
+
 </head>
 <body>
 <div class="wrap">
   <a class="back" href="index.html">← 15선 목록으로</a>
 
-<!-- 6. 신소영 -->
-  <section class="proj" id="p21">
-    <div class="no">PROJECT 06 · 발표 21</div>
-    <div class="who">신소영<span class="award-badge">우수상</span></div>
-    <div class="affil">한국 베링거 인겔하임 · 부사장</div>
-    <h2>제약회사 전문가에게 550일을 돌려주다</h2>
-    <div class="orig">원제: AI 기반 의학부 업무 운영모델 혁신 전략</div>
+<section class="proj" id="p21">
+    <div class="phead">
+      <div class="ptitle">신소영<span class="award-badge">우수상</span><span class="tsep">·</span>제약회사 전문가에게 550일을 돌려주다</div>
+      <div class="pbtns"><a href="../transcripts/21.html">전체 속기록</a><a href="../slides/21.pdf">발표 슬라이드</a></div>
+    </div>
+    <div class="paffil">한국 베링거 인겔하임 · 부사장</div>
     <img class="hero" src="../img/easy/21.jpg" alt="발표 핵심 슬라이드" loading="lazy">
     <div class="oneline">글로벌 제약회사의 한국 법인이 서류 작업에 묻혀 있던 전문가들의 시간을 AI로 1년에 550일 이상 되찾은 이야기다.</div>
     <h3>어떤 문제가 있었나</h3>
@@ -121,7 +131,6 @@
     셋째, 논문 한 편을 요약해 회사 양식으로 만드는 1~2시간짜리 일을 자동 파이프라인으로 10~20분으로 줄였다.</p>
     <h3>무엇이 달라지나</h3>
     <p class="body">과제별로 시간이 70~90% 줄어 합치면 1년에 550일 이상이 절약된다. 이 시간은 신약 출시 직후의 가장 중요한 시기에 전문가들이 본연의 일에 쓰게 된다. 성과를 본 독일 본사도 관심을 보여 글로벌 확산을 논의 중이고, 함께한 교육생 한 명은 인턴으로 채용할 계획이다. 발표자는 "AI는 사람을 대체하는 것이 아니라, 우리가 잘하는 일에 집중하게 해주는 도구"라고 말했다.</p>
-    <div class="more"><a href="../transcripts/21.html">전체 속기록</a><a href="../slides/21.pdf">발표 슬라이드</a><a href="../index.html">아카이브</a></div>
   </section>
 <div class="more" style="margin-top:26px;"><a href="05.html">← 도준호</a><a href="index.html">목록</a><a href="04.html">신정호 →</a></div>
 </div>
