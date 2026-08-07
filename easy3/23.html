@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>정재욱 · 홈쇼핑 방송의 성공 확률을 계산하다 | ABC 4기 우수 프로젝트</title>
+<title>최우석 · 코딩 모르는 상무님이 주말에 만든 AI 애널리스트 | ABC 3기 우수 프로젝트</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
   :root {
@@ -113,26 +113,24 @@
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="../best4.html">← 15선 목록으로</a>
+  <a class="back" href="../best3.html">← 14선 목록으로</a>
 
-<section class="proj" id="p28">
+<section class="proj" id="p23">
     <div class="phead">
-      <div class="ptitle">정재욱<span class="tsep">·</span>홈쇼핑 방송의 성공 확률을 계산하다</div>
-      <div class="pbtns"><a href="../transcripts/28.html?embed=1">전체 속기록</a><a href="../slides/28.pdf">발표 슬라이드</a><a class="pb-archive" href="../archive.html#28">자세히 보기</a></div>
+      <div class="ptitle">최우석<span class="award-badge">우수상</span><span class="tsep">·</span>코딩 모르는 상무님이 주말에 만든 AI 애널리스트</div>
+      <div class="pbtns"><a href="../transcripts3/23.html?embed=1">전체 속기록</a><a href="../slides3/23.pdf">발표 슬라이드</a><a class="pb-archive" href="../archive3.html#23">자세히 보기</a></div>
     </div>
-    <div class="paffil">GS리테일 · 부문장</div>
-    <div class="oneline">"이 방송, 진짜 성공할까요?"라는 25년 묵은 질문에 감 대신 데이터로 답하는 플랫폼을 구상한 이야기다.</div>
-    <img class="hero" src="../img/easy/28.jpg" alt="발표 핵심 슬라이드" loading="lazy">
+    <div class="paffil">NICE신용평가 · 기업평가본부장 상무</div>
+    <div class="oneline">파이썬도 모르는 신용평가사 본부장이 100만 원짜리 컴퓨터와 Claude Code로 주말 8시간 만에 신용평가 보고서를 쓰는 AI를 만들고, 보안이 생명인 회사에 AI를 들여올 전략까지 설계한 이야기다.</div>
+    <img class="hero" src="../img/easy3/23.jpg" alt="코딩 모르는 상무님이 주말에 만든 AI 애널리스트 대표 슬라이드">
     <h3>어떤 문제가 있었나</h3>
-    <p class="body">홈쇼핑에서 방송 한 번을 하려면 광고비, 제작비, 재고 준비에 1억 원 이상이 들고, 승부는 단 60분 만에 끝난다. 그런데 어떤 상품을 몇 시에 방송할지는 아직도 대부분 경험과 감으로 정한다. 그 위험 부담은 자금력이 약한 중소 납품업체(벤더)가 떠안는다. 방송이 끝나고 나오는 분석도 "오늘 날씨 때문에", "축구 중계 때문에" 수준이다.</p>
+    <p class="body">신용평가사는 기업이 빌린 돈을 갚을 능력이 있는지 등급(A, B 같은 점수)을 매기는 회사다. 이 등급 하나로 몇 조 원어치 채권(기업이 돈을 빌리며 발행하는 증서)의 금리가 결정되고, 국내에서 등급으로 굴러가는 금융시장 규모만 900조 원이다. 그런데 보고서 한 건을 연구원이 손으로 쓰는 데 이틀이 넘게 걸렸고, 발표자는 이 일을 AI로 자동화하자고 제안했다. 반발이 거셌다. AI가 쓴 보고서로 알려지면 회사의 신뢰가 무너진다는 걱정, 평가가 틀리면 금융감독원 검사와 소송이 따라붙는 법적 책임, 정보 유출은 곧 회사의 존립 위기라는 보안 최우선 기조가 벽처럼 서 있었다.</p>
     <h3>어떻게 풀었나</h3>
-    <p class="body">25년간 PD와 MD로 일해 온 발표자는 BroadcastIQ라는 AI 플랫폼을 설계했다. 핵심은 두 가지 실증이다.
-    첫째, 상품 정보 딱 5줄만 입력하면 90초 만에 방송 제안서 초안이 나온다. 회사 PD들이 오래 써 온 내부 노하우 틀(SGPB: 상황·목표·문제·혜택)을 AI에 옮긴 것으로, 원래는 외주 작가에게 건당 500만 원을 주던 일이다.
-    둘째, 회사에 쌓인 11년 치 편성 데이터를 AI에 학습시켜, 요일과 시간대별 성공 확률 지도를 그리고 가장 좋은 방송 시간 후보 3개를 예상 매출과 함께 추천하는 시제품을 만들었다.</p>
+    <p class="body">발표자는 회사를 설득하기 전에 스스로 증명하기로 했다. 발표 2주 전 100만 원짜리 맥미니를 사서 Claude Code(말로 지시하면 AI가 알아서 프로그램을 만들어 주는 도구)를 깔고, 원하는 보고서의 요구사항 10개를 적어 넣었다. AI가 구현 계획 30장을 뽑아 줬고, 파이썬의 파도 모르는 발표자가 "난 못해, 해결해줘"라고 하면 AI가 스스로 코드를 고쳐 가며 돌아갔다. 토요일과 일요일 저녁 합쳐 8시간 만에, 기업 이름만 치면 사업성·재무·산업분석에 논문식 각주까지 갖춘 보고서 초안이 나오는 에이전트(특정 업무를 전담하는 AI 작업자)가 완성됐다. 회사 자료는 하나도 쓰지 않고 공개 데이터만으로 만든 결과인데도, 업무의 60~70%는 대체 가능하다는 계산이 나왔다.</p>
     <h3>무엇이 달라지나</h3>
-    <p class="body">제안서 작성 시간 90% 단축, 외주 비용 70% 절감, 첫 방송 성공률 10%p 향상이 목표다. 납품업체가 "데이터를 보니 이 시간이 더 좋던데요"라고 협상할 수 있게 되는 것, 즉 큰 회사와 작은 회사의 상생이 이 구상의 진짜 목적이다.</p>
-  </section>
-<div class="more" style="margin-top:26px;"><a href="23.html">← 이상구</a><a href="../best4.html">목록</a><a href="29.html">조경식 →</a></div>
+    <p class="body">발표자의 결론은 외부 AI 80%에 사내 소형 모델 20%를 섞는 하이브리드다. 일반 분석과 보고서는 성능이 가장 좋은 외부 AI에 맡기고, 절대 밖으로 내보낼 수 없는 공시 전 기밀자료만 회사 안의 작은 AI로 처리하는 방식이다. 자체 AI를 만들면 10~30억 원과 12~18개월이 드는데 품질은 한 세대 뒤지지만, 외부 AI는 수억 원과 1~3개월이면 최상급 품질을 쓸 수 있기 때문이다. 진짜 경쟁력은 AI 모델이 아니라 20년 애널리스트 노하우가 담긴 프롬프트(AI에게 주는 지시문)라는 사실도 깨달아, 이를 회사 자산으로 지키는 보안 설계와 함께 A1부터 A7까지 업무별 에이전트 7종을 24개월에 걸쳐 도입하는 로드맵을 세웠다. 각 단계마다 검증 관문을 통과해야 다음으로 넘어가고, 최종 등급 결정은 끝까지 사람이 맡는다.</p>
+</section>
+<div class="more" style="margin-top:26px;"><a href="22.html">← 조순진</a><a href="../best3.html">목록</a><a href="24.html">최인욱 →</a></div>
 </div>
 </body>
 </html>

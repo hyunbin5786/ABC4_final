@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>정재욱 · 홈쇼핑 방송의 성공 확률을 계산하다 | ABC 4기 우수 프로젝트</title>
+<title>남효승 · AI가 직접 쓰는 회사 백과사전 | ABC 3기 우수 프로젝트</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
   :root {
@@ -113,26 +113,24 @@
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="../best4.html">← 15선 목록으로</a>
+  <a class="back" href="../best3.html">← 14선 목록으로</a>
 
-<section class="proj" id="p28">
+<section class="proj" id="p09">
     <div class="phead">
-      <div class="ptitle">정재욱<span class="tsep">·</span>홈쇼핑 방송의 성공 확률을 계산하다</div>
-      <div class="pbtns"><a href="../transcripts/28.html?embed=1">전체 속기록</a><a href="../slides/28.pdf">발표 슬라이드</a><a class="pb-archive" href="../archive.html#28">자세히 보기</a></div>
+      <div class="ptitle">남효승<span class="award-badge">우수상</span><span class="tsep">·</span>AI가 직접 쓰는 회사 백과사전</div>
+      <div class="pbtns"><a href="../transcripts3/09.html?embed=1">전체 속기록</a><a href="../slides3/09.pdf">발표 슬라이드</a><a class="pb-archive" href="../archive3.html#09">자세히 보기</a></div>
     </div>
-    <div class="paffil">GS리테일 · 부문장</div>
-    <div class="oneline">"이 방송, 진짜 성공할까요?"라는 25년 묵은 질문에 감 대신 데이터로 답하는 플랫폼을 구상한 이야기다.</div>
-    <img class="hero" src="../img/easy/28.jpg" alt="발표 핵심 슬라이드" loading="lazy">
+    <div class="paffil">삼우종합건축사무소 · ENG팀 상무</div>
+    <div class="oneline">건축 회사가 50년간 쌓은 72.5TB의 설계 문서를, 질문할 때마다 검색하는 AI 대신 AI가 미리 읽고 정리해 두는 '사내 백과사전'으로 바꾸는 이야기다.</div>
+    <img class="hero" src="../img/easy3/09.jpg" alt="AI가 직접 쓰는 회사 백과사전 대표 슬라이드">
     <h3>어떤 문제가 있었나</h3>
-    <p class="body">홈쇼핑에서 방송 한 번을 하려면 광고비, 제작비, 재고 준비에 1억 원 이상이 들고, 승부는 단 60분 만에 끝난다. 그런데 어떤 상품을 몇 시에 방송할지는 아직도 대부분 경험과 감으로 정한다. 그 위험 부담은 자금력이 약한 중소 납품업체(벤더)가 떠안는다. 방송이 끝나고 나오는 분석도 "오늘 날씨 때문에", "축구 중계 때문에" 수준이다.</p>
+    <p class="body">삼우종합건축사무소는 올해 창립 50주년을 맞은 건축 설계 회사다. 그동안 쌓인 예산서, 시방서(공사 방법을 적은 문서), 준공 문서가 72.5TB, 건수로 2천만 건에 이르는데, 오래된 자료 창고는 찾기도 어려우면서 유지 관리비만 연 2억 원 가까이 들었다. 그래서 먼저 RAG(질문을 받을 때마다 AI가 문서를 검색해서 답을 만드는 방식)를 6개월간 운영해 봤는데 결과는 냉정했다. 건축 설계 문서는 프로젝트마다 구성이 비슷해서 '피난 동선' 같은 키워드를 검색하면 비슷한 문서가 100개씩 쏟아졌고, AI가 그중 아무거나 골라 쓰다 보니 같은 질문에도 매번 다른 답이 나왔다. 검색과 요약을 반복하느라 AI 사용료도 절감 효과를 넘어섰다.</p>
     <h3>어떻게 풀었나</h3>
-    <p class="body">25년간 PD와 MD로 일해 온 발표자는 BroadcastIQ라는 AI 플랫폼을 설계했다. 핵심은 두 가지 실증이다.
-    첫째, 상품 정보 딱 5줄만 입력하면 90초 만에 방송 제안서 초안이 나온다. 회사 PD들이 오래 써 온 내부 노하우 틀(SGPB: 상황·목표·문제·혜택)을 AI에 옮긴 것으로, 원래는 외주 작가에게 건당 500만 원을 주던 일이다.
-    둘째, 회사에 쌓인 11년 치 편성 데이터를 AI에 학습시켜, 요일과 시간대별 성공 확률 지도를 그리고 가장 좋은 방송 시간 후보 3개를 예상 매출과 함께 추천하는 시제품을 만들었다.</p>
+    <p class="body">발표자는 발상을 바꿨다. 질문이 올 때마다 검색하는 대신, AI가 미리 원본 문서를 읽고 잘 정리된 백과사전(LLM Wiki)을 별도로 써 두게 한 것이다. 원본 문서는 절대 고치지 못하게 잠가 두고, AI는 주말 같은 한가한 시간에 피난·방화·주차 같은 주제별 정리 페이지와 실무 체크리스트를 만들어 계속 갱신한다. 질문이 오면 백과사전에서 먼저 찾고, 없을 때만 기존 RAG 검색으로 넘어간다. 2천만 건을 전부 정리하는 것이 아니라 자주 쓰이는 0.025~0.25%만 골라 페이지로 만들고, 직원들의 사용 패턴에 따라 정리 우선순위가 자동으로 바뀐다. 보안도 처음부터 설계했다. 삼성전자 반도체처럼 자료 반출을 금지하는 고객 데이터는 외부 AI에 보내지 않고 사내 GPU 서버 3대에서 Llama, Qwen 같은 공개 모델로만 처리하며, 부서·팀·개인별 열람 권한에 따라 검색 결과 자체가 걸러진다.</p>
     <h3>무엇이 달라지나</h3>
-    <p class="body">제안서 작성 시간 90% 단축, 외주 비용 70% 절감, 첫 방송 성공률 10%p 향상이 목표다. 납품업체가 "데이터를 보니 이 시간이 더 좋던데요"라고 협상할 수 있게 되는 것, 즉 큰 회사와 작은 회사의 상생이 이 구상의 진짜 목적이다.</p>
-  </section>
-<div class="more" style="margin-top:26px;"><a href="23.html">← 이상구</a><a href="../best4.html">목록</a><a href="29.html">조경식 →</a></div>
+    <p class="body">"지하 주차장 피난 계단 검토 때 뭘 봐야 하나"라고 물으면 체크리스트 페이지가 나오고, 각 항목이 건축법 시행령 PDF의 몇 페이지, 사내 지침의 몇 번째 문단에서 왔는지까지 추적된다. 선배 건축사는 의심되는 항목만 원문 클릭 한 번으로 확인하면 된다. 어느 AI 모델이 어떤 원문을 보고 답했는지 5단계로 기록되기 때문에, 2026년 1월 시행된 AI 기본법(AI 사용의 투명성과 책임을 요구하는 법)에도 대응할 수 있다. 3년간 총비용 약 5.4~7.2억 원에 연 3.3억 원어치의 업무 시간 절약 효과를 기대하며, 올 상반기에 첫 버전을 완성해 하반기 사내 도입을 목표로 한다. 2028년에는 이 시스템을 다른 설계 회사에 파는 사업까지 구상하고 있다.</p>
+</section>
+<div class="more" style="margin-top:26px;"><a href="08.html">← 김홍래</a><a href="../best3.html">목록</a><a href="10.html">박세현 →</a></div>
 </div>
 </body>
 </html>
