@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속기록: 05. 김재균 · AI가 운영하는 AI 인프라의 완성</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 36px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+  .head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .head p { font-size: 14.5px; color: var(--ink-faint); }
+  .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--ink-faint);
+    margin: 44px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .block {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 14px;
+  }
+  .block .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .block .speaker { font-size: 13.5px; font-weight: 700; }
+  .block .speaker.presenter { color: var(--accent); }
+  .block .time { font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .block p { font-size: 15px; color: var(--ink-soft); }
+  .note {
+    font-size: 13px; color: var(--ink-faint); background: var(--accent-soft);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../archive3.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">TRANSCRIPT · NO. 05</div>
+    <h1>AI가 운영하는 AI 인프라의 완성 발표 속기록</h1>
+    <p>김재균 (클루닉스 · 공동대표) · 발표 및 질의응답 · 2026. 5. 16</p>
+  </div>
+
+  <div class="note">클로바노트 자동 속기록을 기반으로 하며, 발표 슬라이드와 대조해 명백한 음성인식 오류(SLURM·쿠버네티스·VS Code·좀비 프로세스·테트리스·칩 온도·노드 간 통신 속도·의사결정자로 격상 등)만 바로잡아 정리했습니다. 심사위원·질문자 성함은 속기록에 나오지 않아 익명으로 표기했습니다. 음성인식 품질이 낮은 일부 구간은 대의만 살려 정리했으며, 교정이 확실치 않은 일부 고유명사(아이카 등)는 들리는 대로 두었습니다.</div>
+
+  <div class="section-title">발표</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">53:17</span></div>
+    <p>네, 감사합니다. 저는 클루닉스의 김재균이고요. 저희 회사에 대해서 기존에 제가 설명드리는 게 늘 좀 어려웠던 것 같아요. 저는 공대를 졸업하고 이후에 계속 기획 쪽 업무, 전략 쪽 업무, 재무 쪽 업무를 맡아 왔고, 공동대표로 있으면서 사업·영업 쪽 그리고 기획과 재무 쪽을 총괄하고 있습니다. 기술 쪽은 다른 분들이 같이 챙기고 계시고요.<br><br>그런데 최근에 IR을 한번 진행하면서, IR을 같이 도와주시는 분이 사전 질문을 좀 받았어요. 심사위원분들하고 한 10개 팀이 공동으로 IR을 진행했는데, 질문을 하면서 'HPC가 뭐냐'라고 했을 때 본인은 'HPC는 저기 쓰는 PC보다 한 10배쯤 비싼 컴퓨터'라고 얘기한다고 그러더라고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">54:23</span></div>
+    <p>그래서 심사위원들한테도 그보다 더 어렵게 얘기하면 어차피 서로 못 알아들으니까 그 정도로 쉽게 얘기해 달라고 했다는데, 그 얘기를 들으면서 한편으로 좀 이상한 기분이 들더라고요. 저도 사실 잘 모르는 얘기를 많이 했던 것 같고요. 그래서 가능하면 오늘 저희 회사, 저희가 하는 일에 대해서 조금 쉽게 설명할 수 있도록 노력해 보겠습니다.<br><br>여기가 버티컬로 보면 HPC 서버라고 볼 수 있는 곳인데, 제일 밑에는 하드웨어가 당연히 있고요. 서버가 있고, 서버에는 CPU가 있고, 메인보드에 GPU·메모리·스토리지 같은 것들이 들어가 있습니다. 요새는 GPU가 당연히 너무 중요하고요. 그리고 메모리·스토리지, I/O 네트워크도 요새는 굉장히 중요합니다. 최근에 NVIDIA가 네트워크 업체 같은 경우도 계속 인수하면서 이 생태계 자체를 확장해 가는 걸로 뉴스를 많이 보셨을 것 같고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">55:35</span></div>
+    <p>하드웨어가 있으면 그 위에 뭐가 깔리냐 하면, 펌웨어가 설치되고, 드라이버가 설치되고, 그다음에 OS가 깔립니다. OS라고 하면 우리가 보통 PC에서 많이 보는 윈도우가 있고, 주로 슈퍼컴퓨팅이나 AI 쪽, AI 서버에서는 리눅스가 많이 깔립니다. 리눅스는 오픈소스이기 때문에 여러 배포판이 많이 쓰이고요. 여기까지가 기본적으로 인프라에서 하드웨어와 기본적인 OS라고 보시면 될 것 같고요.<br><br>그 위로 클러스터 미들웨어, 여기에는 SLURM이라고 하는 HPC를 관리하는 소프트웨어가 있다고 보시면 될 것 같아요. 여러 명의 사람들이 특정 작업들을 많이 던져요, 일을 시켜요. 예를 들면 하나의 서버를 10명이 쓰려면, 누가 던진 일을 얼마나 먼저 하고, 또 그걸 위해서 리소스를 몇 퍼센트 정도 할당하고, 이런 일들이 벌어지겠죠.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">56:41</span></div>
+    <p>그런 것을 스케줄링해 주는 게 오픈소스인 SLURM이고요. 비슷한 일을 하는 게 쿠버네티스예요. 이런 부분이 스케줄링을 해 주는, 오케스트레이션을 해 주는 겁니다. 그리고 그 위에 보면 그런 작업들을 하는 방이라고 볼 수 있는 도커 컨테이너 같은 부분들이 있고요. 파이썬 라이브러리, 그 위에 IDE, 우리가 써봤죠, VS Code 같은 것이 그 위에 깔리고, 그러고 나면 그 위에서 개발자들이 직접 쓸 수 있는 딥러닝이라든가 모델 학습·추론이 이루어집니다.<br><br>그래서 저희 회사에서 하는 일은 4번·5번·6번, 이것들을 쉽게 클릭 한 번에 할 수 있도록 만들어주는 솔루션이라고 보시면 될 것 같아요. 웹 화면으로 브라우저를 통해 들어가서 제가 클릭을 한두 번 하면, 기존에 셋업된 저 4번·5번·6번 한 벌이 바로 오픈되어 쓸 수 있도록 환경이 제공된다고 보시면 될 것 같습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">57:40</span></div>
+    <p>사실 리눅스도 버전이 여러 개고, SLURM도 버전이 있고, 여기 도커나 VS Code 같은 것도 여러 가지 버전이 있는데, 그게 맞지 않으면 잘 안 돌아가요. 그래서 개발자들이 그 시스템을 다시 확인하고 OS, 리눅스 같은 걸 다시 한번 봐야 한다고 하면 시간 소요가 되게 많이 되겠죠. 이런 부분이 버티컬로 보면 저희 회사에서 하는 일이고요.<br><br>수평적으로 보면, 이런 서버 구조를 지금 같은 경우에는 대략 한 1천 대 정도 저희가 운영하고 있다고 보시면 될 것 같아요. 수직적으로 이렇게 되어 있는 구조가 천 대 정도 운영되고 있는데, 거기에는 세 가지 요소가 있다고 보시면 될 것 같아요. 첫 번째는 천 대 서버라는 차원, 그래서 천 대 서버 중에 1·2·3번, 4·5·6번을 누가 쓸 거냐 하는 자원에 대한 문제고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">58:39</span></div>
+    <p>두 번째는 그것을 누가 쓸 거냐 하는 부분인데, 이건 사실 개인적으로 쓰는 게 아니라 여러 시스템에서 쓰는 거기 때문에, 저희 같은 경우는 현재 예를 들어 한 100개 정도의 기업체가 사용하고 있습니다. 그러면 그 각각의 회사들 안에서도 사용자들이 있을 거기 때문에 수백 명이 들어가서 쓰겠죠. 그래서 각 기업들은 몇 번에서 몇 번까지 노드, 내지는 몇 번에서 몇 번까지 GPU를 쓰고, 또 그 기업 안에서 그룹이 있을 수 있죠. 어떤 사람들이 그 안에서 몇 번에서 몇 번까지의 GPU를 쓸 건지, 이런 부분을 정해주는 게 두 번째가 될 거고요. 세 번째는 그것으로 어떤 작업을 할 거냐 하는 부분이 있을 것 같아요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">59:25</span></div>
+    <p>그래서 어떤 자원을 쓰고, 누가 쓰고, 그리고 그것을 SLURM을 돌려서 잡을 던져 일을 시킬 건지, 학습을 시킬 건지, 추론을 시킬 건지, 어떤 서비스를 쓸 건지. 이 세 가지가 제일 중요한 구조인데, 그 세 가지를 가장 편리하게 만들어주는 솔루션이라고 볼 수 있을 것 같습니다. 바텀에는 하드웨어라든가 네트워크·스토리지 부분이 있고, 탑에는 서비스가 있는데, 그 서비스를 쓰는 개인들이 편하게 쓸 수 있도록 만들어주는 플랫폼이라고 보시면 될 것 같습니다.<br><br>그래서 기존에는 수동적인 부분이 많을 수밖에 없어요. 지금도 AI Ops라고는 많이 하지만, 사실상 저희는 솔루션을 제공해 주는 거고, 그걸 운영해 주는 MSP가 저희랑 같이 있거든요. KT랑 같이 운영해 주시는 업체에서 MSP를 24/7 서비스로, 24시간 365일 서비스를 해주고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">1:00:38</span></div>
+    <p>그러다 보면 당연히 GPU가 죽었을 때, 죽고 나서 알게 되고, 죽었을 때 그것을 새로 리부팅을 해주든가 아니면 자원을 회수한다든가 하는 부분에 있어서 MSP에서 그런 역할들을 해 주시는데, 그러면 당연히 자원·리소스에 누수가 있을 수밖에 없겠죠. 그래서 수동으로 인프라 운영을 하게 되면 비용·자원의 낭비가 있을 수밖에 없고요. 장애 대응에 있어서도 사후적인 조치밖에 불가능할 겁니다. 그리고 운영 방식에 있어서도, 아까 말씀드린 세 가지 중요한 요소들이 있고 그걸 쓰는 여러 명이 있는데, 수동에 의존해서 관리할 수밖에 없는 한계를 가지고 있습니다. 그래서 그런 수동 할당의 낭비를 없애는 지능형 자원 재배치 메커니즘을 저희가 진행하려고 하고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">1:01:42</span></div>
+    <p>그 부분은 여기 보시는 것처럼, 기존에는 좀비 프로세스라고 해서 컨테이너라든가 GPU 자원, 쉽게 보시면 컴퓨터가 죽는다, 컴퓨터의 일부가 죽는다고 보시면 될 것 같아요. 또는 CPU 작업은 돌리는데 GPU는 안 돌고 있다거나 하는 불합리한 요소, 그런 부분이 많이 발생하는데, 그것을 테트리스 하듯이 차곡차곡 끼워 맞춰서 전반적인 효율을 높인다고 보시면 될 것 같아요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">1:02:18</span></div>
+    <p>글로벌에서도 자율 운영에 대해서 많이 얘기하고 있고 추세로 가고 있지만, 저희가 목표로 하는 지점은, 기능에 있어서 자동화, AI를 이용한 운영을 넘어서, 최종적으로는 거의 무인에 가까운 AI 기반의 IDC를 운영할 수 있는 솔루션으로 나가고자 합니다. 아직은 조금 시간이 걸리는 일일 수 있을 것 같고요.<br><br>첫 번째 단계는 올해 하반기에 데이터 기반을, 로 데이터를 좀 쌓고 그게 어떤 의미가 있는지 봐야 될 것 같고요. 두 번째는 그 이후 12개월 정도에 이상 탐지 그리고 예측 분석 시스템을 적용해 볼 수 있을 것 같습니다. 그 이후로는 조금 더 자율적인 데이터센터 운영을 위한 비즈니스로 갈 수 있을 것 같고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">1:03:21</span></div>
+    <p>네, 그래서 첫 번째는 일단 데이터를 잘 수집하고 그 데이터를 뜯어보는 과정이 될 것 같아요. 현재도 이런 데이터들은 쌓여 있기는 해요. 있는데, 그게 어떤 의미를 가지고 있는지 저희도 사실 아직은 모르고, 이거를 파악하고 있는 업체는 아마 잘 없을 것 같아요. 이쪽 분야가 워낙 좁고, 이만큼 대용량의 데이터가 잘 없어서요.<br><br>현재는 예를 들면 칩의 온도가 어떻게 되고, 전력 소비는 어떻게 변하고 있고, 메모리를 어떻게 쓰고 있는지 이런 데이터, 그리고 큐에 작업을 던졌을 때 대기하는 시간이 얼마나 걸리는지, 작업이 얼마나 걸리는지, 종료하는 시간, 작업이 얼마나 소요되는지, 그리고 노드 간의 통신 속도라든가 속도와 관련된 것. 이런 부분들이 지금은 따로따로 흩어져 있긴 한데, 그 의미를 볼 수 있도록 수집 대상 데이터를 구체화하는 것을 올해 할 예정이고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">1:04:33</span></div>
+    <p>내년에는 이후에 이것을 가지고 실시간 탐지라든가 미래 예측을 할 수 있는 방안을 진행하려고 합니다. 그래서 이 시점부터는, 기존에는 관리자가 모니터링하는 형태로, 어떤 이상이 있을 때 얼러트가 가게 돼 있어요. 관리자에게 메일 등으로 보내서 뭔가 조치를 취하고 업무 파악도 하게 돼 있는데, 이렇게 모니터링하는 요원이 아닌, AI의 예측을 승인하는 의사결정자로 격상시킬 수 있을 것 같습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">1:05:13</span></div>
+    <p>저희는 향후에 그래서 자율적으로 운영되는 센터들을 운영하고 싶고요. 여기가 맨 마지막 페이지인데, 제가 이 부분을 진행하면서, 앞에서도 말씀드린 거지만 사실 제가 기술에 대해서는 잘 몰라요. 기획 쪽 일을 하다 보니까 잘은 모르는데, 그동안은 계속 어려운 것만 어렵게 얘기해 왔던 것 같고요.<br><br>그런데 지금 AI 수업을 듣고 하면서, 이 부분이 저희 회사의 사실은 로드맵이거든요. 이번에 LLM한테 던져서 '있는 거 그대로, 변형시키지 말고 만들어줘, 그중에 특히 이런 것들은 특히 바꾸지 말고 해줘'라고 했는데 좀 꽤 바꿨더라고요. 그렇지만 크게 대세에 지장은 없어서 이 슬라이드를 그대로 보고 있고, 보시는 것처럼 지금 AI 팩토리 관련된 이 부분이 저희 회사의 공식적인 자료에도 들어가 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">1:06:15</span></div>
+    <p>저희가 지난해 정도까지만 해도 AI 관련해서 우리 회사에서 AI 할 수 있는 부분이 뭐가 있을까 공론화했을 때, 지난해 초만 해도 사실 아이디어가 잘 없었어요. 뭘 해야 될지 잘 모르겠고 그랬는데, 지금 저도 이 수업을 듣고 하면서, 중요한 의미가 두 가지 정도 있을 것 같은데요.<br><br>첫 번째는, 저도 잘 모르지만 하나씩 하나씩 묻다 보면, 저희가 하는 HPC라든가 AI 관계형 솔루션이라든가 하는 게 굉장히 좁은 분야거든요. 회사 내에서도 사실 물어볼 수 있는 사람이 저희 개발자 정도인데, 물어보면 어느 정도 얘기는 하지만 그 시간도 서로 간에 좀 아쉽고요. 근데 LLM한테, Claude한테 이것을 물었을 때 굉장히 잘 답변을 해줘요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">1:07:08</span></div>
+    <p>쉽게는 '쿠버네티스가 뭐 하는 거야', 'SLURM이 어떻게 작업하는 거야' 이런 것에서부터, 회사 전략에 있어서 '우리와 비슷한 인접 영역의 회사들이 어떻게 개발을 하고 들어오고 있는데, 우리의 핵심 역량을 고려했을 때 우리는 뭘 할 수 있을까'라고 물으면 주는 답변이 꽤 그럴듯하고, 서로 간의 핵심 역량까지도 분석해서 이해하고 답을 돌려주는 것을 보면서, 얘네가 꽤 깊이, 좁은 분야에 있어서도 깊이 내려갈 수 있구나 하는 부분을 이해하게 됐고요.<br><br>또 하나는, 전에는 이 정도 1년·2년 로드맵을 만들려고 하면 굉장히 시간이 오래 걸렸어요. 개발까지 해서 만들면 한 몇 달은 걸리는 작업인데, 지금은 사실 이렇게 저렇게 물어봐서 하루 정도면 어쨌든 그림을 그려볼 수도 있는 거죠.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (발표자)</span><span class="time">1:08:11</span></div>
+    <p>그리고 나서 그것을 가지고 CPO한테 컨펌 받으면 바로 소통을 할 수 있고, 필요하면 굉장히 애자일하게 수정할 수도 있고, 그런 부분이 굉장히 빠르게 회사가 변할 수 있는 공간이 된 것 같습니다. 여기까지 하겠습니다.</p>
+  </div>
+
+  <div class="section-title">질의응답</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">1:08:40</span></div>
+    <p>네, 잘 들었습니다. 근데 이 솔루션은 지금 클라우드나 데이터센터에 들어가는 것이죠. 거기서 쓸 때 4번·5번·6번, 미들웨어하고 컨테이너하고 IDE를 사용자한테 이렇게 통합된 걸로 지금 나와 있어서 적용이 되고 있는 거죠? 아니면 지금 적용을 하고 있는 중인가요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (답변)</span><span class="time">1:09:04</span></div>
+    <p>현재 아이카에서 지금 하고 있는 사업이 진행 중이고, 거기에서도 저희 것을 사용하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">1:09:10</span></div>
+    <p>사실 이게 그러려면 일정하게 고객이 제한되어 있는 거잖아요. 클라우드 서비스를 하는 곳 말이죠. 어쨌든 저희 같은 경우도 GPU를 맡아도 자체적으로 SLURM을 통해서 그걸 다 할 수 있고, 도커나 다 개별적으로 각자 환경에 맞게 할 텐데요. 기본적으로는 고객이 클라우드 하는 데로 제한되어 있고, 이 통합된 솔루션은 한 번 구축되면, 아까 메모리 최적화 같은 것을 다 한다고 해도, 한 번 되고 나면 더 이상 하실 일이 없는 것 아닌가요? 그래서 지금 이 로드맵 분야에서 뭘 하시는지 보여주시는 것 같은데요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (답변)</span><span class="time">1:09:51</span></div>
+    <p>맞습니다. 현재 저희 고객, 저희 매출을 전반적으로 봤을 때 대략 한 70% 정도는 HPC 고객이고요. 나머지 중에 20~30%가 AI 쪽 관련이라고 보실 수 있고요. 이번 정부의 드라이브도 그렇고 현재 시장도 그렇고, 향후 2~3년에서 한 5년 정도까지는, 지금 현재 국내에 데이터센터가 한 30개 정도 된다고 들었는데 그게 한 5년 내에 2배가 된다고 합니다. 전력 수급이 이슈가 되는 상황이고요. 그래서 저희도 말씀하신 것처럼 향후 몇 년간은 굉장히 기회가 있을 거라고 생각을 하고요. 그 이후에 뭘 먹고살아야 될 건지에 대해서는 지금 고심이기는 합니다.<br><br>또 말씀하신 부분하고 맞닿는 부분이, 사실 지금 CSP 같은 경우에 하드웨어를 가지고 있고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (답변)</span><span class="time">1:10:44</span></div>
+    <p>CSP의 MSP들이 그걸로 서비스를 하고 셀링을 하는데, CSP들이 직접 하고 싶어서 우리 쪽을 침범하면 어떻게 할까, 직접 솔루션을 개발한다거나 하는 부분이 좀 걱정도 되더라고요. 그래서 그런 부분에서도 저희가 그럼 어떤 부분의 솔루션을 좀 더 고도화해야 될지에 대해서도 챗GPT랑 얘기를 많이 나누면서 고도화 개념을 작업하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 B</span><span class="time">1:11:20</span></div>
+    <p>아까 보여주신 지능형 자원 재배치 메커니즘이라는 것이 눈에 띄는데, 이게 현재 어떤 알고리즘을 사용하고 계신지, 그다음에 여기에 어떤 AI가 들어갈 여지가 있는지 그런 고민이요. 전통적인 최적화 방법으로도 여러 가지 틀이 있지 않습니까.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (답변)</span><span class="time">1:11:46</span></div>
+    <p>기존에 HPC 고객, 대기업 고객에서 주로 하는 것과 관련해서, 최근에 제가 개발자하고 대화를 나누면서 보니 AI에 대해 레벨 차가 굉장히 많이 있더라고요. 시니어 개발자가 '이것은 AI가 할 일이 아니다'라고 얘기를 하는데, 저는 물론 굉장히 놀랐어요.<br><br>저희 HPC 같은 경우는 이런 식으로 되어 있거든요. 예를 들어서 도커가 죽었다거나, 특정 노드가 죽었다, GPU가 연결이 잘 안 된다, 자원 활용률이 낮다, 그러면 대기 시간을 주고, 예를 들면 10초를 준다, 그러면 10초 동안 응답이 없으면 그걸 점검하는 거죠. 누군가 점검해서 다시 살리거나, 아니면 그것을 죽이고 새로운 작업을 주거나. 현재는 이런 식으로 되어 있습니다. AI 쪽 관련해서도 거기서 크게 다르지는 않고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김재균 (답변)</span><span class="time">1:12:46</span></div>
+    <p>이제 그런 내용을 아까 말씀드린 24시간 관제하는 쪽에서 확인해서, 얼러트에 따라 상황을 확인하고, 확인했을 때 그냥 이어서 새로 살려야 되는 거면 새로 살리고, 하는 시스템으로 되어 있는데요. AI가 들어갈 수 있는 부분은, 온도나 자원의 활용률이나 지표에서 나오고 있는 여러 가지 정보들에 따라서 미리 예측을 하거나, 적어도 굉장히 빠른 시간 안에 그것을 확인할 수 있지 않을까. 지금 그렇게 해서 이걸 좀 봐야겠다고 생각하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">사회자</span><span class="time">1:13:39</span></div>
+    <p>네, 그러면 오늘 김재균 대표님 발표를 마지막으로 오늘 차수 최종 발표를 이것으로 마치도록 하겠습니다. 큰 박수 부탁드리겠습니다.</p>
+  </div>
+
+</div>
+<script>
+if (window.self !== window.top || /[?&]embed=1/.test(location.search)) {
+  var b = document.querySelector('.back'); if (b) b.remove();
+}
+</script>
+</body>
+</html>

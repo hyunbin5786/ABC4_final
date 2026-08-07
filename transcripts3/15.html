@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속기록: 15. 윤형섭 · Net-zero 스마트 빌딩을 위한 AI 기반 실시간 원격 모니터링 시스템</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 36px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+  .head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .head p { font-size: 14.5px; color: var(--ink-faint); }
+  .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--ink-faint);
+    margin: 44px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .block {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 14px;
+  }
+  .block .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .block .speaker { font-size: 13.5px; font-weight: 700; }
+  .block .speaker.presenter { color: var(--accent); }
+  .block .time { font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .block p { font-size: 15px; color: var(--ink-soft); }
+  .note {
+    font-size: 13px; color: var(--ink-faint); background: var(--accent-soft);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../archive3.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">TRANSCRIPT · NO. 15</div>
+    <h1>Net-zero 스마트 빌딩을 위한 AI 기반 실시간 원격 모니터링 시스템 발표 속기록</h1>
+    <p>윤형섭 (하이매틱스 · 대표) · 발표 및 질의응답 · 2026. 5. 12</p>
+  </div>
+
+  <div class="note">클로바노트 자동 속기록을 기반으로 하며, 발표 슬라이드와 대조해 명백한 음성인식 오류(임베디드 시스템·MPU·NPU·BIPV·KOTRA·스마트 와처·SHAP Value·Transformer 등)만 바로잡아 정리했습니다. 심사위원·질문자 성함은 속기록에 나오지 않아 익명으로 표기했습니다. 타임스탬프는 당일 세션 전체 녹음 기준이라 59분대에서 시작하며, 첫 발언에는 타임스탬프가 기록되어 있지 않습니다. 음성인식 품질이 낮은 일부 구간은 대의만 살려 정리했습니다.</div>
+
+  <div class="section-title">발표</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">59:00대</span></div>
+    <p>안녕하세요. 윤형섭입니다. 지난번 발표에서 몇 가지 질문 사항이 나와서 그걸 보충하는 걸로 하고요. 그다음에 저희 회사를 소개하는 게 제가 많이 어렵습니다. 그래서 그걸 어떻게 소개할까를 중점적으로 설명드리고요. 제가 이 과정에 오기 전에 거의 2년 동안 AI에만 매달렸는데 결과가 별로 안 좋았어요. 사실은 모델을 한 4개 정도 개발했는데 제품화하는 데 상당히 어려웠습니다. 이번에 저를 뽑아주셔서 앞으로 어떻게 헤쳐나가야 될지 방향을 찾았고, 그러니까 은퇴를 안 해도 될 것 같아요. 제가 엔지니어를 올해로 35년 동안 했거든요. 근데 앞으로 좀 더 해도 괜찮을 것 같습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">사회자</span><span class="time">1:00:05</span></div>
+    <p>저희 과정 덕인가요? 네, 저희 과정 덕인가요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:00:09</span></div>
+    <p>조금만 더 설명드리면요, 제가 혼자 개발하는 게 되게 어려웠어요. 근데 여기 계신 분들이 대화를 하지 않더라도 저한테 무언의 어떤 메시지를 전달해 주고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:00:28</span></div>
+    <p>회사를 사실 설명드리기가 정말 어려운데, 저희는 태양광을 하는 업체가 아니라 임베디드 시스템 단말을 만드는 업체입니다. 여기 보시면 게이트웨이가 있는데 실제 데이터 통신 중계기고요. 각각 저희가 만든 센서와 컨트롤러가 있어서, 네트워크를 통해 저희 회사에 제가 조그맣게 운영해 놓은 소형 서버 5대 정도에서 데이터 처리를 해서 모바일 서비스를 합니다. 제가 궁극적으로 하고 싶은 건 빅데이터를 처리해서 AI 모델을 개발하고 그 서비스를 쓰는 시스템을 만드는 것이 제일 큽니다. 여기서 저한테 다행인 게, 저번에 말씀드렸듯이 태양광 모니터링 시스템을 저희가 만들어 놨는데 이게 아직까지 10년 넘게 팔리고 있다는 겁니다. 이거는 저희 회사 제품이고, 웹 서비스를 하는 것과 저쪽에는 단말, 그다음에 그런 시스템들이 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:01:32</span></div>
+    <p>AI는 지금 태양광 모니터링에 한정해서 보시면요, 아이콘으로 나온 건 어떻게 서비스할 것인가 하는 거고, 이게 저희가 그동안 계속 누적해 서비스한 지역입니다. 이 지역에서 항상 문제가 터지는데, 한 사람이 관리할 수 있는 건 45대밖에 안 됩니다. 그래서 가장 중심이 되는 게, 이 많은 데이터를 분석해서 사전 예측과 자동 관리 최적화가 필요한 시점이 된 거죠. 저희가 이걸 계속 고민을 했는데 최근에 와서 딥러닝 기반으로 해결했어요. 여기서 문제가 되는 건, 제가 딥러닝을 이해하기가 굉장히 어렵거든요. 저희도 마이크로프로세서부터 지금까지 해왔고 머신러닝까지는 제가 이해를 했는데, 딥러닝은 여기 와서 공부하면서 좀 이해를 했습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:02:27</span></div>
+    <p>이거는 현재 저희가 갖고 있는 시스템 설계인데요. 현재 이렇게 설치가 돼 있기 때문에 보시면 되게 작아요. 눈에 잘 보이지 않아요. 실제로는 이런 콘셉트로 센서가 있고요, 태양광 패널하고 인버터가 있고, 미터 쪽에도 이게 있습니다. 현재는 스마트 기기 개념으로 접근하고 있고, 그다음에 클라우드인데 저희 회사에 있는 서버로 전국의 데이터를 다 보낼 수 있다고 보시면 됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:03:11</span></div>
+    <p>아까 보신 조회 시스템에 이번에 딥러닝을 적용하는 구조인데요. 데이터베이스에 들어온 데이터로 학습을 시킨 거예요. 학습을 시킨 다음에 저희가 개발한 딥러닝 모델을 결정하고, 그 모델로 실시간 데이터를 받아서 이상 감지를 하고, 이상 감지한 결과를 다시 데이터베이스에 저장하게 됩니다. 그래서 계속 이렇게 순환하는 모습이 되고요. 저희가 한 10년 정도 데이터를 모아서 학습을 시켰고, 지금 한 2년 정도 데이터를 추가로 학습시킨 다음, 두 달에 한 번 또는 6개월에 한 번씩 재학습을 시키고 그 모델을 만들어서 계속 유지하게 됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:04:06</span></div>
+    <p>여기 보시면, 그때 질문이 나왔던 내용인데, 그러면 과연 왜 발전량을 예측하느냐. 발전량 예측이라는 것은 미래를 예측하는 게 아니에요. 현재 상태가 정상적으로 발전이 되고 있는지, 그다음에 사전 예측이라든가 앞으로 고장이 날지 어느 정도 불안한지, 이런 것들을 예측해서 대응할 수 있게 해주는 겁니다. 그거를 사용자에게 알려줘서 자동 최적화를 하게 되는 거고요. 통합 데이터 분석을 통해 그런 메시지를 사용자한테 주게 되고, 그걸 통해 데이터 기반 의사결정을 하게 됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:04:55</span></div>
+    <p>그다음에 연구 개발 추진 체계와 조직도인데요. 저희가 태양광 모니터링을 개발하면서 MPU도 같이 개발해 들어가고 있는데, MPU를 개발하기 위해 이런 프로세스와 과정을 거치게 됩니다. 거기엔 제가 참여했고요. 시스템 개발 조직도를 저렇게 했는데 실질적으로 팀을 나눴어요. 1차적으로 두세 명이나 5명씩 나눠서 하게 되는데, 처음에 아까 말씀드린 AI 모델을 개발해서 최적화시킨 다음에, 그거를 PC 같은 쪽으로 돌리는 걸로는 대응이 안 됩니다. 저는 큰 시스템을 만드는 게 아니라, 작은 시스템이 모여서 엄청나게 많은 것을 한 번에 처리하는 거기 때문에 저희한테 맞는 MPU가 필요하게 돼 있습니다. 그래서 MPU 콘셉트를 설계하고요, AI 소프트웨어 개발팀이 있고, 그다음에 하드웨어 설계를 해야 되고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:05:55</span></div>
+    <p>그다음에 전체 시스템 통합을 하게 되는데, 저는 AI 소프트웨어하고 시스템 통합 펌웨어 이런 쪽을 맡고 있습니다. 최종적으로 시스템을 검증해야 되는데, 검증하는 방법은 지금 많이 찾고 있어요. 아직까지 AI 시스템에 대해서 검증하는 국가 기관이 있거든요. 그걸 통해서 검증을 할 예정입니다. 그다음에 기대 효과는, 저희가 갖고 있는 수요처가 있어요. 기존 고객이 있고요. 국내에서는 BIPV 주택, 아파트라든지 그쪽에 신규 그룹이 계속 생기고 있고요. 해외에서도 저희 쪽에 관심을 가져주는데, 저도 관심 안 가질 거라고 생각했는데 KOTRA에서 일렉트로닉스라는 책자가 있는데 저희 회사를 소개시켜줬거든요. 그래서 거기서 연락이 온 거예요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:06:46</span></div>
+    <p>그런데 문제는, 그 사람들을 만나서 얘기했을 때 저희 회사 제품이 아니라 저희가 어떤 비즈니스를 하는지에 너무 관심이 많아서, 그때는 제가 조금 조심하고 있습니다. 여기 경제적 기대 효과나 기술적 차별화는 아까 설명드린 내용이라서 생략하겠습니다. 그다음에 해외 진출은 KOTRA에서 저희 쪽에 계속 제안이 와서 진출을 하려고 하는 건데, 100여 개국인데 거의 한 3년 전부터 계속 그런 얘기가 왔어요. 그때 저희가 제일 먼저 한 게 국제 특허를 낸 겁니다. 에너지 효율 쪽 관련해서 국제 특허를 냈는데 다행히 그 특허가 등록이 됐어요. 너무 쉽게 채택이 돼서, 이번에 과정에 들어오면서 (그 의미를) 알게 됐어요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:07:40</span></div>
+    <p>이런 기술들은 아직도 개발 중이라는 걸 알게 됐기 때문에, 제가 과거에 능력이 없어서 개발을 못했다기보다 앞으로도 개발할 게 더 많구나 하는 생각을 하게 됐습니다. 이거는 한국 특허, 그다음에 저희가 '스마트 와처(Smart Watcher)'라고 상표 등록을 했습니다. 그다음에 사업화 전략인데 이건 좀 도식적으로 표현했습니다. 저희가 지금 납품하고 있는 게 하나, 둘, 셋, 넷, 제품이 4개인데요. 이거를 이용해서 데이터 분석을 통해 AI 대시보드를 이번에 저희가 제공해서 내놓게 될 거고요. 그다음에 MPU인데, 제가 말씀드린 MPU는 시중에 나와 있는, 지금 막 LLM에 쓰이는 GPU하고 좀 차별이 있어요. 저희는 아주 심플하고 최적화된 거거든요. 그게 비싸지는 않습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:08:39</span></div>
+    <p>그래서 저희는 MPU에다가 NPU를 결합해서 하나의 임베디드 시스템을 개발하고, 그다음에 스마트 발전 시스템에 장착할 예정입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:08:58</span></div>
+    <p>여기까지 너무 빨리 한 거예요. 그 대신 제가 질문을 많이 받았어요. 그래서 2026년도에는 AI 모니터링, 아까 말씀드린 거를 개발하고 MPU를 개발해서, 올해 말 정도면 온디바이스형을 국내에서 파는데 저희가 생각한 거는 한 100대 정도 팔면 많이 판 겁니다. 근데 하여튼 한 대라도 팔리는 기술이에요. 그래서 2027년도부터는 MPU하고 MCU로 해서 메인 보드를 저희가 개발하게 되고, 2027년도 중반부터는 아마 해외 쪽에도 저희가 소개를 할 거예요. 그래서 온디바이스 시장에서 내년도에 만약 1,000대 정도만 팔아도 (대단한 거니까) 1,000대 정도 하고, 2028년부터는 AI 프로세서까지도 저희가 개발이 가능하거든요. AI 프로세서까지 개발하면 원격 모니터링 전용 제품이 나오는데, 이때부터는 대량 생산이 가능한 거죠.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:10:01</span></div>
+    <p>그래서 저희가 5천 대, 또는 사실 꿈같은 얘기지만 10만 대도 가능하지 않을까 생각하고 있습니다. 그래서 결론을 말씀드리면, 22년도부터 AI에 대한 요구 조건이 너무 많아서 저희가 (개발을) 했는데, NPU를 개발하기에는 데이터를 저희가 충분히 확보하고 있기 때문에 그거를 바탕으로 AI 알고리즘을 계속 업데이트하고 개발하고 있고요. 제품은 이 두 가지로 요약을 할 수 있어요. 근데 저희가 단말을 개발하다 보니까 이 단말에만 되는 건 아니고, 아까도 말씀드렸듯이 이걸 이용해서 건물 에너지 또는 전기라든지, 나아가서 스마트 시스템에 들어가는 다양한 애플리케이션을 개발할 수 있고, 그 부분에 대한 솔루션을 저희가 제공하고자 하는 목표가 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:10:58</span></div>
+    <p>그다음에 국내·해외, KOTRA 이런 것들은 이미 과거에 만나면서 어떻게 진행할지 얘기할 시간을 가졌습니다. 그래서 이거는 저희가 전시회 같은 데 갔을 때 사진을 한번 보여드리는 거거든요. 저희가 이런 식으로 해외 전시를 해서 소개하고 있습니다. 그래서 AI하고 단말하고 PC, 세 가지가 결합되다 보니까 제가 설명하기가 좀 어렵지만 그래도 충분히 설명하려고 노력하고 있습니다. 여기까지 마치겠습니다. 감사합니다.</p>
+  </div>
+
+  <div class="section-title">질의응답</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">1:11:49</span></div>
+    <p>예, 발표 잘 들었습니다. 아까 AI 지능형 운영 플랫폼에서 딥러닝을 통해서 학습을 해서 진단도 하고 예측도 하시잖아요. 거기 쓰이는, 데이터베이스에 실시간으로 들어가는 데이터가, 솔라 레디에이션 센서에서 오는 정보는 태양광 쪽에서 오는 정보겠죠. 그다음에 온도 데이터가 들어오고. 기상청에서는 뭐가 들어오나요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:12:22</span></div>
+    <p>기상청에서 말하는 것과 똑같이 (일사량이) 얼마 정도 된다는 정보를 주는데요. 그걸 가지고 저희가 현재 상태를 예측하게 되는데, 기상청 정보는 국가에서 제공하는 거기 때문에 실시간이 안 됩니다. 항상 과거 데이터밖에 못 받고 있기 때문에, 저희가 그 실시간성을 확보하기 위해서 자체 센서로 데이터를 수집하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">1:12:43</span></div>
+    <p>스마트 센서 같은 경우는 전국에 굉장히 많이 있어서 그 정보들이 지역별로 다 들어오고, 데이터로 하면 크게 세 가지 정도면 되나요? 이걸 학습해서. 굉장히 많겠죠.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:12:55</span></div>
+    <p>근데 제가 처음부터 말씀드린 게, 시스템이 복잡해지면 안 돼요. 제가 원하는 건 아주 심플해요. 심플하면서 가장 높은 정확도를 쫓아가는 게 저희 목표이기 때문에, 지금 보시면 기상청 API를 말씀하셨는데 이쪽은 빼고요. 여기 두 개, 레디에이션(일사량) 데이터, 원래는 경사가 아니라 수평 데이터하고 경사 데이터, 그리고 온도까지, 이 4개는 항상 있어요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">1:13:31</span></div>
+    <p>그게 가장 핵심이겠네요. 근데 저게 굉장히 민감한 게, 이걸 개발하면 지역마다도 굉장히 편차가 있을 거고, 한국 내에서도 그렇고 어떻게 설치됐느냐에 따라서도 다르고. 이게 만약에 해외로 간다고 하면 그 지역에서 저런 데이터가 또 실제로 다 수집이 돼서 학습이 돼야 되고, 그러기 때문에 로컬라이즈, 현지화가 굉장히 잘 돼야만 가능한 것 같거든요. 데이터 축적이 그렇게 쉽지가 않을 텐데요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:14:04</span></div>
+    <p>그래서 저도 그걸 고민했어요. 고민했는데 외국에서는 어떻게 하냐면, 와서 오피스를 만들고 1년 동안 테스트를 하라고 해요. 원하는 건물에 5대 정도를 설치해 주겠다, 그런 제안을 해줘요. 그리고 저희가 계속 고민했던 게, 10년 치 데이터를 학습시켰지만 처음에 1년, 10개월, 9개월, 이렇게 기간을 바꿔가면서 정확도를 찾아봤거든요. 근데 운이 좋으면 6개월 치만으로도 (유의미한 정확도가) 나와요. 그다음에 또 한 가지가, 저희가 전국에 태양광이 다 깔려 있는데 지역별로 분석을 잘 해놨어요. 그 정도의 감각으로, 저희는 엔지니어이기 때문에 학자처럼 수학적으로 그렇게 하지 않아요. 대충 이 정도 되면 이 정도 될 것이다 하고 튜닝해 들어가거든요. 그래서 해외 어느 장소에 가든 위성 데이터에 대한 정보나 이런 걸 다 분석해서 대략의 값을 봅니다. 아직은 그 정도 수준입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 B</span><span class="time">1:15:20</span></div>
+    <p>제가 프라블럼 도메인에 대해서 몰라서, 이 문제가 왜 어려운 문제인가를 좀 설명해 주시면 좋겠다는 생각을 했는데요. 발전량을 예측하기 위해서 딥러닝 모델도 필요하다고 보여주시는 건데, 사실 태양광 패널이 있고 거기서 생산되는 전력이라는 것은, 제가 잘 모릅니다마는 어떤 물리 법칙들에 의해서 결정이 되고 전력 생산에 관여하는 팩터들이 그렇게 많지는 않을 것 같은데, 어떤 부분들 때문에 딥러닝 모델 같은 것이 필요하게 되는지 어려운 점을 좀 설명해 주시고요. 두 번째는 저 최적화의 대상이 무엇인가요? 무엇을 최적화한다는 것인지 말씀해 주시면 감사하겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:16:16</span></div>
+    <p>첫 번째로, 왜 이거를 해야 되냐면요. 우리가 볼 때는 그냥 (모니터링) 화면만 이렇게 있어요. 처음에는 사업자용 태양광 발전소에서 시작해서 저희가 건물주 쪽으로 넘어가는데, 건물 비하 기공사나 울산 같은 데는 사람이 갈 수가 없어요. 갈 수가 없고 그걸 설치하는 데 비용이 꽤 크거든요. 근데 거기서 어떤 문제가 한 번 생기면 발전을 못해요. 쉽게 말씀드리면 시스템이 딱 멈추는 순간에, 건물에서 돈을 벌어야 되는데 돈을 못 벌거든요. 그러다 보니까 문제가 생기면 이 사람들이 되게 다급해요. 어떻게 고쳐야 될지 모르는 거죠. 그래서 저희가 어떤 고장이 났다, 또는 효율이 어느 정도 떨어졌다 하는 걸 알려주는 거고, 또 사람이 못 가요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:17:09</span></div>
+    <p>사람이 못 가기 때문에, 이 설비가 지금 어느 정도의 퀄리티를 유지하고 있다는 것을 실시간으로 보여주는 것만으로도 관리자들 마음이 놓이는 거고, 그래서 저희가 그거를 계속 노티로 보여주는 거죠. 그다음에 또 뭐냐 하면, 솔라 시스템이라고 해놨는데 이 사람들이 수명 예측을 못해요. 실제로 20년이라고 했지만 10몇 년 만에 효율이 뚝 떨어지기도 하고, 그렇게 되면 사업 등록 때 다시 재설치를 해야 되거든요. 그래서 현재 상태로 교체를 해야 되는 시기들도 알려주게 됩니다. 그리고 아까 최적화를 말씀해 주셨는데, 그 질문은 제가 100% 다 이해를 못했습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 B</span><span class="time">1:18:00</span></div>
+    <p>보통 최적화라고 그러면 제한된 리소스를 어떤 식으로 투입해서 무엇을 할 거냐를 결정한다고 볼 수 있는 것인데, 이 컨텍스트에서라면 예를 들자면 프리벤티브 메인터넌스(예방 정비) 같은 걸 한다고 하게 되면, 제가 가서 수리를 하거나 부품을 갈거나 고장 나기 직전에 한다고 했을 때, 어디에 가서 어떤 패널들을 교체하는 게 가장 최적이냐 이런 문제인 건지, 무엇을 결정하는 건지가 좀 궁금했습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:18:40</span></div>
+    <p>최적화라는 거는요, 지금 말씀하신 것처럼 운영에 대한 최적화요. 고장이 날 건지, 아니면 그 사람들이 그걸 수리를 할 건지, 아니면 현재 정상적으로 발전이 돼서 우리 수익이 정상적인지, 이런 것들을 한꺼번에 정확하게 빠른 시간 안에 판단해서 게시를 보여주고요. 그다음에 저희가 생각하는 또 하나는, AS 업체하고 저희도 그런 운영을 하고 있는데, 그런 데에 자동으로 (연락이) 가게 되면 굉장히 신속하게 할 수 있거든요. 그런 거를 하고 있고요. 그다음에 최적화를 좀 더 확대하면, 이게 시스템이 작은 거지만 전국에 쫙 뿌려지면 제가 한꺼번에 다 볼 수가 없어요. 그래서 서버 쪽에서는, 저희는 서버에서 AI를 돌리지 않고 (단말에서) 오는 노티만 받아서 처리를 해줘요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:19:35</span></div>
+    <p>간단하게 그 정도로 해서 전체 시스템을 운영하기 때문에, 그런 인터랙티브를 자동으로 할 수 있도록 하는 측면이고요. 이런 정도의 데이터를 딥러닝 돌리는 거라면 GPU도 필요 없이 그냥 학습하고 있고, CPU에서도 충분히 잘 됩니다. 근데 MPU, 그게 저희가 설명하기 제일 어려운 부분이에요. 보통 하시는 분들은 'CPU만 해도 되는데' 하는데, 실제로 이 태양광 운영 시스템을 서버로 연동하는 거는 한 10몇 년 전에 개발한 거거든요. 그때 저희가 그걸 개발하니까 사람들이 저한테 왜 그걸 전국 단위로 하느냐, 그 중간에 SaaS가 올라왔어요. 왜 SaaS를 안 쓰느냐, 이렇게 해도 되는데. 저 나름대로의 철학이 있거든요. CPU를 쓰다가 만약에 MPU를 써야 되는 결정적인 순간이 오면,</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:20:30</span></div>
+    <p>마이크로 빌드라든지 분산 지원 시스템이 되면 그때는 (외부에) 서로 놔야 되는데, 그러지 말고 이거 만드는 거 우리가 전적으로 하자. CPU를 돌리다가 우리가 MPU로 개발할 수 있을 때 개발하자. 그래서 엔지니어들끼리 합의를 봤어요. 근데 이게 조금 어려운 게, 제가 설계해서 (제조) 쪽에 미리 줘야 되는데 그 부분이 조금 어렵습니다. 그것도 고민하고 있어요. 어려운데, 제품화에 대해서는 어렵지만 그렇다고 해서 그렇게 어려운 건 아닙니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">1:21:12</span></div>
+    <p>딥러닝에서 평균치보다 발전량이 많거나 적거나 하는 이상 감지 관련해서, 왜 이상이라고 시그널을 했는지 이걸 SHAP Value(섀플리 밸류) 이런 걸로 설명 가능하게 하고, 그걸 자연어로 외국 사람들하고도 커뮤니케이션하는 걸 좀 집어넣으시면 좋겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:21:34</span></div>
+    <p>맞습니다. 그러니까 그게 사실 어려웠어요. 물론 이론적인 모델들이 다 들어가지만 그건 이론적인 거고, 저희처럼 만들 때는 사실 어느 정도의 감도 들어가거든요. 그런데 그거를 만들면서 교수님이 말씀하시는 그런 것들을 같이 설명해야 돼요. 그것들은 앞으로 제가 많이 도움을 받을 거고요. 결론적으로 말씀드리면 그런 것들이 앞으로 계속 이루어져야 된다고 저는 생각해요. 그리고 또 한 가지 제가 고민하는 게, 우리도 이런 시스템을 하다가 시스템이 복잡해지게 되면 트랜스포머라든지 어텐션을 써야 돼요. 처음에 제가 제일 어려웠던 게, 그 LLM 모델을 어떻게 여기다가, 시계열에 넣어서 분석할 거냐, 이게 너무 어려운 거예요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">윤형섭 (발표자)</span><span class="time">1:22:28</span></div>
+    <p>근데 보니까 워드 벡터로 해서, 뭐든지 결과적으로 최종 단에는 숫자로 들어가고 숫자로 나오잖아요. 이것도 마찬가지로 시그널도 숫자, 모두 다 숫자잖아요. 중간에 그 숫자를 받아서 처리해서 숫자를 내보내주면 되고, 거기에 대해서 우리가 레이어를 최적화시키고 파라미터를 최적화시키면, 앞으로 이쪽 분야에 대해서 충분히 좋은 대책들이 나올 수 있다고 생각하고 있습니다.</p>
+  </div>
+
+</div>
+<script>
+if (window.self !== window.top || /[?&]embed=1/.test(location.search)) {
+  var b = document.querySelector('.back'); if (b) b.remove();
+}
+</script>
+</body>
+</html>

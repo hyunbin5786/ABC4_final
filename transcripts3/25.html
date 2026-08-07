@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속기록: 25. 탁정미 · 전력기기 제조 현장을 위한 지식그래프와 LLM의 융합 전략</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 36px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+  .head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .head p { font-size: 14.5px; color: var(--ink-faint); }
+  .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--ink-faint);
+    margin: 44px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .block {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 14px;
+  }
+  .block .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .block .speaker { font-size: 13.5px; font-weight: 700; }
+  .block .speaker.presenter { color: var(--accent); }
+  .block .time { font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .block p { font-size: 15px; color: var(--ink-soft); }
+  .note {
+    font-size: 13px; color: var(--ink-faint); background: var(--accent-soft);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../archive3.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">TRANSCRIPT · NO. 25</div>
+    <h1>전력기기 제조 현장을 위한 지식그래프와 LLM의 융합 전략 발표 속기록</h1>
+    <p>탁정미 (효성ITX · CS추진실 전무) · 발표 및 질의응답 · 2026. 5. 9</p>
+  </div>
+
+  <div class="note">클로바노트 자동 속기록을 기반으로 하며, 발표 슬라이드와 대조해 명백한 음성인식 오류(데이터 사일로·MES·지식그래프·그래프 RAG(GraphRAG)·온톨로지·S2W·APS·챗GPT·NotebookLM·홍일점 등)만 바로잡아 정리했습니다. 심사위원·질문자 성함은 속기록에 나오지 않아 익명으로 표기했습니다. 일부 발음이 뭉개진 구간은 대의만 살려 정리했습니다.</div>
+
+  <div class="section-title">발표</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">사회자</span><span class="time">00:01</span></div>
+    <p>지난 중간 발표 때도 상당히 임프레시브한 내용을 보여주셔서, 오늘 어느 정도까지 최종적으로 완성을 하셨는지 궁금해지는 우리 효성ITX 탁정미 전무님의 발표를 시작하도록 하겠습니다. 큰 박수로 응원해 주시면 감사하겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">00:23</span></div>
+    <p>예, 안녕하세요. 저는 서울대학교 AI CEO 3기에서 여성 홍일점 단 한 분을 제외한 많은 사람들의 누나 역할을 하고 있는 탁정미입니다. 반갑습니다. 많이 피곤하실 텐데, 준비는 사실 많은 고민을 하기는 했는데 발표는 간단하게 하도록 하겠습니다. 이 한 장을 만들기 위해서 지난 5개월을 제가 고민을 한 것 같습니다.<br><br>사실은 이 과정을 지원하고 유 교수님과 인터뷰를 하면서 제가 하고자 했던 목표와 방향성이 뭐였냐면, 효성 내 여러 제조업의 스마트팩토리라는 주제로 약 15년을 일을 했거든요. 그러면서 아까 잠깐 비전 정리 때 말씀드렸습니다마는, 많은 어려움을 겪었고 현장과의 소통에서 벽을 느꼈고, 이런 IT를 하면서 어마어마한 데이터들을 제가 경험을 했습니다. 그런데 이 데이터들을 지금 사일로라고 표현을 했는데, 제조 공장에서 다루는 엄청나게 많은 데이터들이 각 시스템마다 분명히 벽이 있고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">01:43</span></div>
+    <p>이 데이터들을 제대로 활용하기 위한 뭔가 방안을 우리가 찾아야 된다는 안타까운 마음을 가지고 CIO로서의 역할을 정리했던 기억이 있었고, 이런 상황에서 LLM 시대가 도래하면서 이 기술을 이 문제를 해결하는 데 접목할 수 있지 않겠느냐를 고민할 수 있는 시간이 되겠다고 생각을 했습니다. 그래서 제목도 '데이터 사일로를 넘어 인지(Cognitive) 공장으로' 가는 방안, 전략을 한번 짜보자는 걸로 주제를 잡았습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">02:32</span></div>
+    <p>크게 3단계로 제조 분야에서 IT의 진화 과정을 잡아봤습니다. 우리나라가 1990년대 초반부터 ERP를 도입하고, 공장 내에서도 설비의 PLM이나 DCS 정보 말고 MES라는 공정 관리 시스템을 구축하기 시작했었습니다. 약 30년 전인데, MES의 풀 버전을 다 적용하기보다 효성은 필요로 하는 품질 같은 쪽을 먼저 자체 개발해서 디벨롭을 하고 있었고요. 이러다가 2010년도가 되면서 스마트팩토리다, 빅데이터 플랫폼이다라는 얘기가 나오면서 다른 방향으로 뭔가 해봐야 되는 거 아니냐 하는 이 시점에, 제가 그룹의 IT를 책임지게 됐습니다. (슬라이드가) 자동으로 넘어갔네요. 그래서 DCS 데이터를 모으고 시계열 분석을 하고 여기에 머신러닝을 적용하는 활동을 2010년대부터 했습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">03:34</span></div>
+    <p>그래서 스판덱스와 효성화학의 공정 데이터 실시간 수집을 통해 '지금 무엇이 발생하고 있어, 얘들아 이런 문제가 발생할 수 있는 거야'라고 알람도 보내고 했었어요. 그다음에 공장의 데일리 리포트 같은 경우도 자동으로 생성하는 것, 이런 건 지금도 잘 쓰고 있습니다. 그런데 문제는, 그 수집한 데이터 안에서만 요약하고 알람을 주는 거지, 이 데이터가 ERP와 연계되거나 자재와 연결되기 위해서는 기준 정보부터 새로 싹 바꿔야 되는 안타까움이 있는 거죠. 그래서 '앞으로 무엇이 일어날 건데', '지금 이런 문제가 생기면 우리는 뭘 해야 되는데'라는 문제에 대한 답을 못 내놓는 거예요.<br><br>2010년도에 효성은 SAP ERP로 전환하는 업그레이드 단계를 거쳤고요. 제가 Tier 3에서, 2022년도에 효성중공업의 SAP ERP를 S/4HANA 버전으로 업그레이드하는 작업을 총괄합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">04:47</span></div>
+    <p>이 제조 공장에서 ERP를 중심으로 여러 시스템들이 많이 산재해 있는데 이걸 빅뱅으로 구축을 합니다. 뒷장에 그림을 그려봤는데요. 한가운데에 전사적 실시간 통합을 위한 통합 전사 관리 시스템 ERP를 구축합니다. 우리 차상균 교수님이 (만든) HANA 버전으로 업그레이드했다, 이때가 한참 코로나 시기인데 바람이 불었었어요. 그리고 MES, 더 앞단에는 CRM 고객 관리 시스템, 그다음에 SCM이라고 해서 자재·물류·생산 계획이 총괄되는 SCM 시스템, PLM이라는 설계 시스템, 마지막으로 이 모든 데이터들을 통합해서 경영진들한테 의사결정에 필요한 정보를 대시보드 형태로 제공해 주는 비즈니스 인텔리전스(BI)까지, 이 모든 시스템을 한 번에 구축했습니다. 사실 구축 전에 3년 정도 프로세스 혁신(PI) 과정을 거쳤었고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">05:58</span></div>
+    <p>여기서 제일 혁신하기 어려웠던 과정은 뭐라고 생각하시나요? 저희는 2D 설계를 했어요. 3D 설계를 아직 제대로 못하고 있었어요. 근데 모든 데이터의 근간이 되는 자재, 그 자재 코드에 대한 형상과 원가를 제대로 계산하기 위해서는 설계 방식을 확 다 바꿔야 되는 거고, 모든 자재 코드를 다 바꿔야 되는 거죠. 가장 혁신에 대한 반발이 컸고 크게 부딪혔던 게 저 PLM입니다. 그래서 효성 오너분께서 정말로 원하셨던 3D 설계 전환을 이번에는 꼭 해달라는 당부를 해 주셨고요.<br><br>제가 아까 어떤 분한테 말씀드렸는데, 이런 계단식 강의장에 트라우마가 있어요. 창원 공장의 공장장을 만나러 저녁때 커피 한잔 마시자 그래서 갔는데, 이분이 설계 담당자 300명을 다 모아놓고 저를 앞에 세운 겁니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">07:11</span></div>
+    <p>그리고 '당신이 만들어 놓은 설계 시스템 때문에 우리가 이렇게 고생을 하고 있어, 이 사람아' 하면서, 이러이러한 어려움이 있는지 생생하게 현장의 소리를 들어봐 달라. 그래서 300명의 남자들이 새카맣게 앉아 있고, 그래서 이런 (계단식) 자리에 서면 그런 게 조금 있었어요. 이제는 많이 해소가 됐는데요. 어쨌든 그런 반발에도 불구하고 제가 3D 혁신을 끌고 갔고, 이 근간이 되는 설계 데이터가 사실 모든 시스템에 다 흐르거든요. 설계 데이터가 제대로 안 만들어지면 이 시스템이 돌아가질 않습니다. 이걸 완수해내기까지 정말 소설 같은 히스토리가 있습니다. 어쨌든 성공적으로 마치고 창원 공장을 오픈했고, 2023년도부터는 해외 공장으로 확산을 지금 하고 있는 중입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">08:19</span></div>
+    <p>근데 이 대목에서 제가 정말 큰 실수를 저질렀던 게, BI 시스템이 이 많은 데이터들을 제대로 활용할 수 있는 가장 아름다운 종착점인데, BI 시스템마저 한 방에 다 한 거죠. 데이터가 쌓이고 제대로 연결이 안 된 부분이 있으면 연결하는 시간을 가졌어야 되는데, 의사결정자들이 제일 많이 보는 게 BI거든요. 원하는 데이터가 안 나와, 왜 품질 불량이 난 거야 도대체, 오늘 생산 계획 대비 어느 제품이 어디서 어떻게 만들어지고 있는지 이게 맞아? 좀 틀리는 것 같아. 이렇게 되니까 신뢰성이 떨어지는 거죠. 점점 안 보게 되는 거죠. 안 보니까 인풋에 문제가 생기는 거죠. 그래서 지금 약간 이런 과도기와 혼란스러운 상황은 있지만, 또 다른 우리 혁신팀이 이 문제는 해결하고 있을 거라고 봅니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">09:19</span></div>
+    <p>그래서 이런 몇백억 투자, 거의 5년에 걸친 혁신 활동 이후에도, 사실은 요 밑에 보면 수작업, 그리고 맨 위에 보면 '왜 이런 일이 일어났는지'에 대한 답을 구하기 위한 엑셀 작업은 여전히 계속되고 있습니다. 저는 22년도에 최초 챗GPT가 나오고 저희 BI 시스템에 바로 API 연동을 했었어요. 직원들이 구글링을 하지 않고 이 안에서 경쟁사의 현황을 파악하게 한다거나 하는 연결은 됐으나, 그냥 재미였던 거죠. 그러면서 이 LLM을 가지고 데이터 분석을 실시간으로, 우리 개인 개인이 회사 내에 쌓여 있는 이 많은 정보와 소통할 수 있는 기술이 만들어지지 않을까를 계속 모니터링했고, 어떻게 보면 그 과정을 이번 AI CEO 과정을 통해서 제대로 다 제 걸로 만드는 시간이 아니었나 생각합니다. 그래서 굉장히 감사하고 고마운 마음을 갖고 있고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">10:35</span></div>
+    <p>여기 적혀 있는 5가지 내용은, 결국 RDBMS라는 데이터베이스에 우리 데이터가 들어가는 형태는 거의 선형입니다. 마치 엑셀 칸에 데이터 들어가는 것처럼요. 이것 대비 LLM을 이용한 데이터베이스는 뭔가 다른 방식으로, AI가 이해할 수 있는 다른 방식으로, 단순한 데이터 덩어리 하나하나가 아닌 관계를 우리가 맺어준다고 하면, 일어나는 현상에 대한 추론이나 원인 분석을 더 정확하게 할 수 있지 않겠느냐는 생각을 하게 됐고, 이 안에서 그 답을 찾아낸 거죠.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">11:20</span></div>
+    <p>그래서 인지 공장의 청사진입니다. 결국 맨 아랫단의 데이터 입력을 넘어서서, 이 많은 시스템들을 넘어서서, 온톨로지와 지식그래프와 그래프 RAG라는 기술을 통해서 지식을 자산화하는 과정을 한 번 더 거친다면, 맨 위에 있는 사람과 설비와 로봇이 제대로 다 연결이 돼서 할루시네이션 없이 바로바로 원인 분석과 처방까지 가능하지 않겠느냐는 생각을 하게 됐고, 실제 해외와 국내에 이러한 사례들이 있지 않겠느냐를 한번 찾아봤습니다. 다음 장에서는 이 지식 자산을 만들기 위한 세 가지 기술에 대한 설명을 간략하게 넣었습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">12:11</span></div>
+    <p>핵심 엔진은 세 가지 기술 트랙으로 가는데요. 온톨로지는 공장 내 다양한 정보들의 객체화와 연결과 그들의 속성을 그림으로 표현하는 것, 저도 사실 요건 안 해봤기 때문에 말로 이해하는 거고요. 실제 앞으로 하반기와 더 많은 시간 동안 이 부분을 전문 업체들을 만나서 알아볼 생각입니다. 그다음 여기 있는 지식그래프(Knowledge Graph), 이건 우리가 일반적으로 말하는 데이터베이스입니다. 여기(온톨로지)에 설계되어 있는 형태대로 많은 인풋 데이터들이 관계를 가진 형태로, 네트워크 형태로 들어가는, 3차원 형식의 데이터가 된다고 합니다. 그리고 그래프 RAG는 LLM과 데이터를 주고받는 연동 통로가 되는 인터페이스 역할을 하는, 우리가 계속 RAG, RAG 얘기 많이 하잖아요. 그런 역할을 하는 겁니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">13:22</span></div>
+    <p>각각에 대한 (상세 설명은) 피곤하시니까 생략을 하겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">13:33</span></div>
+    <p>글로벌 사례는 뭐가 있느냐. 이런 기술 방식으로 지멘스가 좀 앞서간다고 찾아보니까 나와 있고요. 생산 계획 최적화, 여기 현장의 현실적인 얘기를 하나 드리면, 고객이 변압기 하나를 오더하면 리콰이어먼트가 몇백 장이 됩니다. 거기에 들어가는 자재가 몇만 개가 되고요. 공정이 지금 기억으로는 300개의 공정 라인으로 쪼개진다고 해요. 근데 리콰이어먼트가 한 번으로 끝나지 않고 심한 경우에는 100여 건이 넘게 변경을 한다고 해요. 그러면 제작 라인에 순서가 매겨져 있는데, 고객의 리콰이어먼트가 변경됨에 따라서 자재 발주도 변해야 되고 생산 계획도 변해야 되고, 실제 작업반의 설비와 연계된 문제도 많이 있을 거고, 뒤가 출렁출렁합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">14:40</span></div>
+    <p>지멘스 같은 경우는 오더가 하나 바뀌면 인간이 검토해야 될 것이 약 1,400개인데, 이걸 AI 지식그래프로 처리를 해서 약 40개로 압축, 의사결정의 효율을 높였다. 뒷단에 디지털 트윈까지 만들었다, 이런 얘기를 합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">15:06</span></div>
+    <p>국내에는, 제가 포스코 DX의 사장님과 연구소장을 통해서 직접 들었고 언론에도 많이 나와 있는데, 설비와 전기 문서 약 3만 페이지를 온톨로지화했답니다. 그래서 설비관리 GPT를 런칭해서, 작업 현장에 있는 분들이 설비 이상에 대한 문제, 사용에 대한 궁금증을 GPT로 지금 소통하고 있는 상황이라고 합니다. 이런 작은 성공 사례를 하나 만들어 놓으면 생산 현장의 많은 분들이 활용하면서 마인드가 바뀌게 되고, 여기에 MES 정보, DCS 정보, 기타 정보들을 온톨로지 형태로 연결한다면 조금 더 정확한 추론과 액션들을 할 수 있을 거라고 봅니다. 이 외에 작은 업체들의 사례를 4가지 정도 더 뽑아봤습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">16:10</span></div>
+    <p>제가 이걸 뽑은 이유는, 이러한 사례들을 벤치마킹해서 국내의 작은 제조업체라도 하반기에 하나 정해서 PoC 형태로 하면서, 온톨로지에 대한 인식을 바꾸는 작업을 해보고 싶어서 넣어봤습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">16:35</span></div>
+    <p>앞단에 (S2W 등) 앞에 나와 있는 건 온톨로지를 구축할 수 있는 솔루션을 갖고 있는 업체들 이름이고요. 그 업체가 어떤 일을 했는지 찾아봤습니다. 이건 지금 NotebookLM으로 그렸는데 굉장히 화려하게 그림을 잘 그려주네요. 하나하나 설명은 생략하도록 하겠습니다.<br><br>인포시즈라는 업체는 도면 검토 자동화라고 했는데, 이거 조금 설명드리면요. 이건 비정형 데이터거든요. 도면 정보를 우리가 3D로 한다고 그러면 물론 디지털화된 정보들로 갈 수 있겠지만, 사실 효성중공업만 하더라도 협력업체들이 몇백 개 될 거 아니에요. 그들한테 부품에 대한 설계 도면과 정보를 줘야 되는데, 그쪽이 3D 형태로 데이터를 받을 준비가 안 되어 있으면 결국 2D로 전환하거나 페이퍼로 또 전달을 해줘야 됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">17:50</span></div>
+    <p>그다음에 3D로 전환하기 전 2D 시절에 엄청나게 많은 설계 정보가 있을 텐데, 이것도 활용할 수 있는 방법이 제가 만든 빅뱅에서는 없었어요. 그리고 품질에 문제가 생겼을 때 왜 그런 문제가 생겼지, 왜 불량이 생겼지에 대한 원인 분석 보고서도 전부 페이퍼로 돼 있거든요. 이런 것도 디지털화 못했어요. 이런 비정형 데이터들을 전부 학습시키는데, 그래프 RAG 방식으로 시킨 겁니다. 그래서 예전보다, 여기 맨 아래, 품질 (분석) 정확도가 90% 이상 향상이 됐고 응답 속도도 빨라졌다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">18:40</span></div>
+    <p>이건 그 외의 문서죠. 자재명세서(BOM), 설계변경요청서(ECO), 공정 문서 관리, 이렇게 데이터베이스로 저장되어 있지 않은 많은 문서들을 전부 온톨로지 방식으로 학습시켜서 에이전트와 소통하는 방식으로 많은 개선을 했다.<br><br>그다음 이 사례는, 설비의 데이터들을 모아서 이상 감지하는 건 예전에도 했었습니다. 그런데 이런 비정형 센싱 데이터를 MES와 연동을 해서, 센싱 데이터에 이상이 생겼을 때 '어느 공장에 문제가 생길 수 있어'라고 시스템의 정형 데이터와 연동하는 것, 그러니까 뭔가 융합이 된다는 느낌이 들고요. 여기에 LLM이 붙으면서 작업자가 챗봇이라는 형태로 소통할 수 있는 환경이 이미 만들어지고 있고, 국내에도 이런 사례가 있는 겁니다.<br><br>그래서 대기업은 제가 오늘 말씀드린 이런 것들을 이미 충분히 알고 있고 움직이고 있을 거고, 중견·중소 제조업은 아마 좀 척박할 수 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">20:01</span></div>
+    <p>그래서 이 부분에 대한 현실적인 AI 도입 전략이 필요하지 않느냐. 작은 영역에 대한 시도를 먼저 하고, 그다음에 같이 작업하고 있는 현장에 있는 분들과의 소통, '너희들의 일자리를 뺏으려고 하는 게 아니다'라는 것, 이런 게 굉장히 중요합니다. 제가 현장에서 아주 뼈저리게 느꼈기 때문에, 그런 공감할 수 있는 분위기를 만드는 것. 그러려면 그들과 같이 공부하고 작은 거라도 같이 작업하는 것. 다 만들어 놓고 어느 날 갑자기 와서 '써봐', 이게 아니고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">20:43</span></div>
+    <p>그래서 올 하반기에 이런 PoC 작업을 할 수 있는 파트너를 만나는 게 지금 저의 작은 소망이고요. 내년도에는 정부 바우처가 있다고 합니다. 이미 스마트팩토리 추진단 같은 데를 통해서 기업별로 2억 언더 정도의 지원을 하면서 이런 걸 할 수 있다고 하니까, 공급 기업과의 매칭을 통해서 사업계획서도 같이 작성을 해서, 내년도 스마트팩토리 사업 추진단에 이런 것들이 적용될 수 있는 분위기가 만들어지면 좋겠다는 생각도 하고, 업체와 같이 한번 구성을 해볼 수 있지 않겠냐.<br><br>그래서 지능형 공장 고도화의 로드맵을 (NotebookLM에게) 네트워크 형태로 좀 그려달라고 했더니 이렇게 잘 그려줬어요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (발표자)</span><span class="time">21:39</span></div>
+    <p>보시면 이 그물망이 1단계에서는 작고, 점점점 아주 괴물처럼 촘촘하게 네트워크망이 그려지는데, 이런 데이터의 네트워크 형태가 궁극적으로 저희가 원하는 지능형 공장으로 가기 위한 필수 작업 단계가 아니겠느냐. 그러기 위해서 저는 지금 있는 데이터를 모으는 것에 더해, 가운데 단에, LLM과 만나기 전에 온톨로지라는 것을 한번 제대로 구축을 해봐야 되지 않겠느냐를 생각하고 제안합니다.<br><br>마지막 장입니다. 지능형 자율 제조를 향해서는 단 하나의 성공 방정식이 이거 아니겠느냐. LLM의 유연성, 그다음에 온톨로지라는 도메인 특유의 전문 지식, 이런 것들이 결합돼서 궁극적인 피지컬 AI라는 형태로 우리 공장의 모습이 가야 되지 않겠느냐는 생각을 하고, 이것과 철학을 맥을 같이 하는 방향으로 대한민국의 제조업이 많이 발전하기를 바라고요. 기회가 되면 일조를 하고 싶습니다. 이상입니다.</p>
+  </div>
+
+  <div class="section-title">질의응답 · 심사평</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">23:00</span></div>
+    <p>네, 발표 잘 들었습니다. 오늘 제조 관련 발표를 앞의 전자 얘기부터 같이 들었는데, 한국의 미래에 대해서 다시 생각해 보면서 정말 잘 됐으면 좋겠다는 생각을 많이 하게 되고, 3D 설계를 완성하면서 그 과정에서 '이렇게 했으면 더 좋지 않았을까' 나눠주신 것도 공감이 많이 갔습니다.<br><br>한 가지 피드백을 드리자면, 마지막 슬라이드에도 말씀을 주셨는데, 우리가 LLM이라는 것에 엄청나게 매혹이 되죠. 워낙 사람같이 말을 하기 때문에요. 말씀하신 것처럼 유연하고, 어떻게 보면 되게 말랑말랑한 레고 조각 같아요. 어떤 레고 조각과도 서로 붙을 수 있도록 도와주는 역할을 하는 레고 블록인 거죠. 그런데 제조 공정에서는 현실의 물리적인 제약들이 있기 때문에 마냥 말랑말랑한 것만으로 다 되는 건 아니잖아요. 기계적인 것뿐만 아니라 생산 스케줄링 같은 것들에서, 소위 산업공학에서 지난 몇십 년 동안 개발해 온 '어떻게 하면 최적으로 수행할까'에 대한 방법론과 알고리즘이 다 있는데, 요즘 그걸 그냥 AI로 대체한다는 식으로 접근하는 걸 많이 보는 것 같아요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">24:58</span></div>
+    <p>그렇게 해서는 될 게 아니고, 지금 우리가 매혹되어 있는 AI에 실제로 일을 맡길 수 있게 됐다고 느끼는 건, 제가 보기에는 툴 콜링(tool calling), 도구를 얘가 불러서 사용할 수 있게 되면서 어느 정도 릴라이어블해졌다고 느끼는 거라고 봅니다. 그래서 이 전략과 프로젝트를 적용하시면서, 산업공학이든 기계공학이든 여러 공학 분야에서 지난 수십 년간 발전해 온 툴들을 AI가 어떻게 액세스해서 적절한 때에 불러줄까라는 관점으로 접목을 하면 훨씬 좋겠습니다. 온톨로지가 하나고, 또 다른 하나는 적절한 툴을 적절한 때에 불러주는 것, 어떤 툴들을 쥐어줄까를 생각하시면 도움이 되지 않을까라는 생각이 들었고요.<br><br>다른 하나는 캐주얼한 말씀인데, 마침 어제 학과의 다른 교수님과 얘기하다가 효성중공업 주가가 그렇게 많이 올랐다는 얘기를 처음 들었습니다. 효성중공업과 효성ITX의 관계는 무엇인지, 개인적으로 여쭤보고 싶었습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (답변)</span><span class="time">26:29</span></div>
+    <p>효성에 IT 계열사가 있었고요. 제가 효성 입사할 때는 효성데이터시스템으로 입사를 했고요. IMF를 겪으면서 효성데이터시스템이 ATM 제조사로 변신을 합니다. 그룹 내에 IT 개발을 하던 조직이 없으니까, 동양나이론이라고 실 만들던 회사에 있던 컴퓨터 사업부를 떼어내서 효성데이터시스템에 통합시키면서 회사명을 노틸러스효성으로 바꾸고, 그 회사가 ATM 제조 업무에 집중하게 되고 IT 사업, 특히 대외 사업은 거의 접는 형태로 20년을 오다 보니까, 그룹의 의사결정자가 보기에 IT가 정체되어 있다.<br><br>그래서 효성ITX로 기존 회사의 이름을 바꾸고, 효성ITX가 그룹의 IT를 책임져 달라는 경영 방침이 정해지면서 어떻게 보면 제가 거기에 선봉을 섰었고, 그 이후에 그룹의 스마트팩토리 과제를 수행하고, 2019년부터는 효성중공업의 ERP를 비롯한 빅뱅 PI를 책임지라고 해서 효성중공업으로 직접 발령도 받고, 그 프로젝트의 창원 공장 구축까지 끝내고 다시 효성ITX로 복귀를 했고, 이런 겁니다. 그래서 지금 효성ITX는 앞으로 그런 방향으로 회사의 아이덴티티를 계속 키워나가야 될 상황입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 B</span><span class="time">28:17</span></div>
+    <p>저도 발표 잘 들었습니다. 지금까지 해오셨던 경험을 바탕으로 LLM이나 RAG 같은 새로운 기술들을 도입하려고 하시는 것, 말씀하신 것처럼 공장에서 만들어지는 다양한 종류의 데이터들을 통합해 보겠다는 게 인상적이었다고 생각합니다. 그리고 장기적으로 공장에서 제조하는 것 자체에 에이전트가 도입된다면, 지금 말씀하시는 그 데이터가 실제 공장에서 활용되는 에이전트의 학습 데이터가 되지 않을까 하는 생각이 있습니다. 잘 들었습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">29:17</span></div>
+    <p>오늘은 시커먼 남자 300명이 아닌 데서 발표하시는데 괜찮으셨죠?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (답변)</span><span class="time">29:21</span></div>
+    <p>이제 뭐 그 정도는, (그때에) 대면 아무것도 아니죠.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">29:25</span></div>
+    <p>새로운 기술을 도입하는 것에는 저항이 굉장히 심한데, 야구를 보면 스트라이크·볼 판정하는 카메라 장치가 도입되니까 타자가 심판 앞에서 야구 방망이를 두드려 부수고 이랬었는데 지금은 다 수용하고 있는 것 같고요. 마이클 루이스가 쓴 머니볼을 보면, 야구를 통계로 한다고 하니까 야구 감독들이 말도 안 되는 얘기 하지 말라고 다들 반대했는데 지금은 다 쓰고 있죠. 그때 머니볼의 주인공이 했던 이야기가, '몇십 년 전에는 투자할 때도 다 감으로 했는데, 지금 감으로 투자하는 회사 다 망하지 않았냐, 다 통계 가지고 하지 않느냐'였는데, 지금 야구도 통계로 하고 있는 것 같고요. 공장도, 시커먼 300명의 남자들이 '모르는 사람이 엉뚱한 얘기 하지 마라' 그랬던 게 변해가고 있는 것 같습니다. 효성에서의 경험과 새로운 비전 가지고 작업하시는 거 응원드리고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">30:35</span></div>
+    <p>한 가지만 말씀드리면, 설계 도면이 2차원이면 그에 해당하는 3차원 건물이 지어지는 게, 사실 단백질 아미노산 1차원 시퀀스가 3차원 단백질 구조로 바뀌고 특정한 구조를 가진 오브젝트가 특정한 기능을 하는 것과 같다고 생각해 보면, 공장 설계도 문제는 이것보다 쉬운 문제일 것 같아요. 상대적으로는, 1차원이 3차원으로 변하는 것보다 2차원과 3차원을 바꾸는 건 상대적으로 수월할 것 같고요.<br><br>저는 옛날부터 이런 생각을 했는데, 공장 설계든 주택 설계든 오피스 설계든 이걸 혁신하기 위해서 도면과 3차원 이미지 페어를 값싼 가격에 많이 수집하면, 그 관계를 러닝시켜서 2차원을 집어넣으면 3차원 건물이 나오고, 역함수를 풀면 3차원 건물을 집어넣으면 그에 해당하는 도면이 나오고, 그러면 설계 자동화가 되는 거 아닌가. 데이터를 얻는 방법이 뭘까 생각해 보면, 전국의 건축학과 학생들이 졸업 작품전을 하는데 그게 2차원과 3차원 페어 데이터죠. 2차원 설계도를 넣고 그걸 스티로폼으로 3차원 건물을 만들어내는데, 매년 엄청난 페어가 만들어지면서 다 폐기 처분되거든요. 이런 협조를 얻으면 2차원·3차원 레이블드 데이터를 많이 받을 수 있고, 그러면 설계 자동화가 되는 거 아닌가, 이런 생각을 옛날부터 했는데 오늘 2차원·3차원 설계 도면 말씀이 나와서 드렸습니다. 아주 잘 들었습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">사회자</span><span class="time">32:35</span></div>
+    <p>마지막으로 발표해 주신 전무님께 질문이나 코멘트 있으신 분, 손 들어주시면.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문자 D</span><span class="time">32:50</span></div>
+    <p>발표 잘 들었습니다. 아주 흥미로운 내용인데요. 저도 같은 제조업을 하는 사람으로서, 변압기도 보니까 품종이 엄청 다양하고 공정도 많은 것 같습니다. 그럴 때 항상 문제가 되는 게 스케줄링인데, 어떤 제품을 어느 순서로 각 공정에서 작업 순위를 결정할 거냐. 그건 지금 각 공정을 책임지는 작업반장의 경험으로 하세요, 아니면 시스템이 있어서 시스템 베이스로 움직이나요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (답변)</span><span class="time">33:22</span></div>
+    <p>네, 제가 이 빅뱅을 하게 된 가장 큰 계기가 그 스케줄링입니다. 공장 현장에서의 제작 현황 데이터를 제대로 볼 수가 없는 거죠. MES가 제대로 안 돌아가니까요. 그렇다고 ERP에 그 데이터가 있는 것도 아니고. 근데 영업하시는 분이, 고객이 이 제품을 언제까지 해달라고 하는데 이걸 내가 오케이해도 되는지에 대한 의사결정을 그 자리에서 할 수가 없는 거예요. 그러니까 생산 현장의 현황을 볼 수 있는 시스템이 필요하다, 필요하다. 그것만 만들어진다면, 수주 풀에 만들어져 있는 정보와 생산 현황 데이터를 가지고 APS라는 시스템 이름으로 돌리는데, 그 로직은 아주 수학적인 복잡한 로직이 되겠죠. 그 로직은 많은 사람들의 얘기를 듣고 우리 설비와 상황을 보고 지금 현재는 사람이 세팅을 해놨습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (답변)</span><span class="time">34:22</span></div>
+    <p>그런데 이것도 AI라는 걸 적용하면 스케줄링도 뭔가 탄력적으로 할 수 있을 것 같고요. 이건 (20)19년도 빅뱅 구축 전에는 수작업으로 엑셀로 했었고요. 이후에는 지금 APS라는 시스템을 돌려서 하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문자 D</span><span class="time">34:39</span></div>
+    <p>저희도 APS를 도입했는데 현실적으로 거의 사용을 못하고 있거든요. 한마디로 제약이 많아서 그 제약을 다 반영해서 설계하기가 어렵고, 어느 날 갑자기 생각지도 못하게 설비가 서면 그것까지 감안하지는 못하니까요. 그래서 실제로 APS를 도입해서 운영하면 내가 원하는 납기에 딱딱 들어오냐, 예측대로 맞냐, 영업 담당자한테 한 달 전에 '이때쯤 나올 거야' 했던 게 그대로 나오냐, 그 정확도가 얼마나 되나요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">탁정미 (답변)</span><span class="time">35:18</span></div>
+    <p>지금 이 자리에서 바로 말씀드리기는 어렵습니다. 제가 (효성중공업을) 떠나온 지 한 2년 돼가서요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문자 D</span><span class="time">35:22</span></div>
+    <p>알겠습니다. 그 부분이 정말 너무 어렵더라고요. 그래서 거기에 AI를 도입하는 게 정말 가능할까. 예, 잘 들었습니다. 감사합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">사회자</span><span class="time">35:37</span></div>
+    <p>네, 질문 있으시면… 없으신 것 같군요. 다들 오늘 긴 하루였고요. 마지막까지 힘써 주신 탁정미 전무님께 큰 박수 부탁드립니다.</p>
+  </div>
+
+</div>
+<script>
+if (window.self !== window.top || /[?&]embed=1/.test(location.search)) {
+  var b = document.querySelector('.back'); if (b) b.remove();
+}
+</script>
+</body>
+</html>

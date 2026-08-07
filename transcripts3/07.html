@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속기록: 07. 김형우 · 블루빗과 함께하는 AIOps 통합관제 솔루션</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 36px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+  .head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .head p { font-size: 14.5px; color: var(--ink-faint); }
+  .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--ink-faint);
+    margin: 44px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .block {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 14px;
+  }
+  .block .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .block .speaker { font-size: 13.5px; font-weight: 700; }
+  .block .speaker.presenter { color: var(--accent); }
+  .block .time { font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .block p { font-size: 15px; color: var(--ink-soft); }
+  .note {
+    font-size: 13px; color: var(--ink-faint); background: var(--accent-soft);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../archive3.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">TRANSCRIPT · NO. 07</div>
+    <h1>블루빗과 함께하는 AIOps 통합관제 솔루션 발표 속기록</h1>
+    <p>김형우 (에스넷시스템 · 대표이사) · 발표 및 질의응답 · 2026. 5. 7</p>
+  </div>
+
+  <div class="note">클로바노트 자동 속기록을 기반으로 하며, 발표 슬라이드와 대조해 명백한 음성인식 오류(AIOps·XpertViewer·CloudHub·RAG·로컬 LLM·온프레미스·Dynatrace·트라이얼 버전 등)만 바로잡아 정리했습니다. 심사위원·질문자 성함은 속기록에 나오지 않아 익명으로 표기했습니다. 타임스탬프는 당일 세션 전체 녹음 기준이며, 화자 분리가 어긋난 짧은 구간은 문맥에 따라 병합했고 일부 저품질 구간은 대의만 살려 정리했습니다.</div>
+
+  <div class="section-title">발표</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">33:12</span></div>
+    <p>반갑습니다. 김형우입니다. 저희 이번 과정에 입과할 때는 스마트 팩토리 하는 회사에 있다가 1월 1일자로 에스넷시스템이라는 회사로 이직이 됐습니다. 강제적으로요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">33:31</span></div>
+    <p>그래서 과제가 조금 변하긴 했는데, 중간 발표회도 이 과제를 했고요. 중간 발표회 때 5장으로 발표한 것을 2배로 확장했어요. 10장으로요. 제가 중간 발표할 때 조금 맥락을 못 잡은 것 같았습니다. 그래서 지적 사항을 다 반영해서 내용을 포함해 봤습니다. '내 사업, 현업에 실제 적용 가능한 AI 도입 전략'에 대해서 말씀드리도록 하겠습니다.<br><br>오른쪽에 있는 인형은, 인형이 아니죠, 마스코트는 저희 회사 마스코트 블루빗입니다. 그래서 '블루빗과 함께하는 AIOps 통합관제 솔루션'이라고 제목을 정했고요. 저희 회사는 IT 서비스 회사입니다. 24시간 고객 사이트든 저희 관제실이든 아니면 클라우드 접속을 해서든, 고객의 IT 서비스를 설계·구축·운영·유지보수해 주는 걸 전문으로 하고 있고요. 고객이 본업에만 충실할 수 있도록 안정적인 서비스를 해드리고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">34:37</span></div>
+    <p>사업 분야는 AI 풀스택 인프라를 제공해 드리고 있고요. 클라우드, 전통적인 IT 인프라, 그다음에 AIoT, 공장의 IoT를 제공해 드리고 있습니다. 주요 파트너로는, 알고 계실 것 같은데 시스코·NVIDIA·델 같은 회사, AWS·구글 같은 회사들을 파트너로 일을 하고 있습니다.<br><br>저희가 고객이 원하는 걸 고민을 좀 해봤습니다. 고객이 원하는 게 어떤 것일까. 저렴하고 안정적인 서비스, 그다음에 신속한 문제 해결, 그리고 예전에는 그냥 IT 기술만 도입을 했는데요. 지금 고객들은 그 기술을 가지고 비즈니스 아웃컴을 꼭 도출해내는 걸 원하고 있습니다. 그럼 지금 문제점은, 인프라 규모가 엄청 많이 확대가 됐습니다. 복잡도도 엄청 증가했고요. 분산 관리 체계가 여전히 유지되고 있고, 장비 비용과 인건비가 기하급수적으로 상승하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">35:40</span></div>
+    <p>그래서 전문 인력이 부족하고, 거기에 따라서 수작업과 숙련자에게 의존할 수밖에 없는 구조가 되고 있었습니다. 그래서 저희는 네 가지 핵심 과제를 도출하고, 오늘은 그중에 AIOps 자동화에 대해서 집중해서 분석을 해봤습니다.<br><br>AIOps 시장은 조금 특이하더라고요. 보통 IT 시장은 하드웨어든 소프트웨어든 국내가 글로벌의 1% 정도 되거든요. 시장 조사를 해보니 2030년에 글로벌하게는 416억 달러 시장이라고 하는데 CAGR은 20에서 30% 정도 상승하고, 국내 시장 규모를 검색해 보니까 한 14억 불 정도 되더라고요. 보통 1%면 4억 불 내외가 돼야 되는데 한 3배 정도 되는 규모라서, 적지 않은 규모구나라는 걸 알 수 있었고요. 주요 경쟁 솔루션이라고 썼는데, 사실 저는 저 글로벌 벤더들하고 경쟁할 생각은 없습니다. 유수의 Dynatrace나 Datadog, Splunk 이런 데는 노하우가 굉장히 많은, 클라우드 네이티브화된 서비스들을 해주고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">36:53</span></div>
+    <p>그래서 저희는 포지셔닝을, 클라우드 네이티브보다는 온프레미스에 특화된, 온프레미스지만 하이브리드에 포커스된, IT 자산의 맥락을 이해하고 운영을 지원하는 AIOps 솔루션을 만들어서 제공해 드리자라고 타겟을 정했습니다. 왜냐하면 저희 고객들이, 요즘 주식이 제일 많이 오르는 2개 회사가 저희 메인 고객이거든요. 그리고 가장 큰 은행, 가장 큰 대학병원 이런 데가 저희 고객사입니다. 그래서 사실 거의 다 폐쇄망입니다. 보안이 굉장히 강해서, 아까 먼저 발표에서도 있었지만, 들어가면 전화기만 되고요. 카메라도 안 되고 녹취도 안 되고 아무것도 안 돼요. 그래서 이 온프레미스에 특화된, 그 대신 하이브리드도 수용하는 이런 AIOps 솔루션 시장을 해서, 지금 갖고 있는 고객들에게 만족감과 계속 서비스를 드리자라는 걸 타깃으로 잡았습니다. 그래서 가시성을 강화한다. AIOps로 자동화를 하려면 일단 내가 뭘 갖고 있는지를 알아야 되거든요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">38:03</span></div>
+    <p>어디에 있는지, 어떻게 숨어 있는지, 자산이 어떻게 분포돼 있는지를 알아야 되고, 그다음에 자동으로 디텍팅하고 운영을 해야 됩니다. 그래서 당사 제품에 기능 고도화 플러스 AI를 접목하는 걸 목표로 잡았습니다. 우측에 보시면 저희 자체 솔루션도 있습니다. 저희가 글로벌 벤더 파트너이긴 하지만 연구소가 있어서요. XpertViewer라는 네트워크 모니터링 솔루션을 갖고 있고, IMS라고 하는, 네트워크 모니터링에 산업 현장의 PLC까지 모니터링하는 솔루션을 갖고 있습니다. 그리고 CloudHub라고, 레이어 1에서 7까지, 서버에서 애플리케이션까지 풀스택 모니터링하면서 쿠버네티스 자동 배포 기능까지 갖고 있는 솔루션을 저희가 가지고 있습니다. 그래서 첫 번째 과제로 XpertViewer의 AI 적용 로드맵을 가져야 되겠다 했습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">39:00</span></div>
+    <p>사실 저도 이 과정이 너무 고마운 게, 저도 기술하고 세일즈하고 지금은 경영자지만, 이 과정을 배우면서 AI에 약간 눈을 떴고요. 눈을 떠서 사무실에 들어가서 보니까 직원들이 이미 하고들 있더라고요. 그래서 더욱 가속화시키는 좋은 계기가 된 것 같습니다. 네트워크 모니터링 솔루션인 저 XpertViewer에 SLM 기반의 AI 챗봇을 적용하고, RAG를 연계하고, 멀티모달, 최종적으로는 프로세스 자동화까지 연결해 봐야 되겠다는 목표를 잡았고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">39:33</span></div>
+    <p>서비스 구성도는 이렇습니다. 1단계 서비스 구성도인데요. 사실 저희 챗봇을 이미 트라이얼 버전으로 개발을 했습니다. 블루빗 AI라고 해서, 여기 들어가서 '어떤 장비를 설치하는 데 주의할 점이 뭐야', '어떤 로그가 나왔는데 이건 무슨 뜻이야' 이렇게 치면 자동으로 답변이 나옵니다. 아직까지는 하드웨어가 달려서 시간이 좀 걸리는데, 챗봇 개발을 완성하는 것과 RAG를 연계하는 것을 1단계로 보고 진행을 하고 있습니다. 두 번째는 풀스택 모니터링 기능을 가진 CloudHub의 모니터링 환경, 그다음에 애플리케이션 모니터링 및 실시간 분석, 3단계는 장애 예측과 RCA·조치 자동화까지 가는 3단계 프로세스로 계획을 잡고 진행 예정에 있습니다. 이 두 개만 하는 게 아니고요. 아까 말씀드렸던 IMS의 PLC까지 모니터링되는 것에, PLC 이상 트래픽을 감지하는 AI를 적용하는 것도 별도 트랙으로 진행 중에 있고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">40:50</span></div>
+    <p>제가 처음에 교수님께 배운 커서(Cursor)로 개발했던 툴박스 미팅 리포트인데요. 툴박스 미팅을 하면 조장들의 성향에 따라서 위험 작업 안내라든지 꼭 언급돼야 되는 것들이 안 되는 경우가 많습니다. 근데 저걸 앱을 켜고 녹음을 하면 자동 리포트를 만들어주고, 위험 요소라든지 작업자 안전에 대해서 체크했는지 품질 관리가 되더라고요. 많은 기능보다는 최소 수준을 넘어서게 관리하는 데 굉장히 잘 활용을 하고 있습니다. 단지 큰 사이트에서는 못하고 있습니다. MDM 때문에 녹음 기능이 안 되기 때문에 외부 사이트에서 진행을 하고 있고요. 리포팅까지 자동 제공을 해 주고 있습니다.<br><br>그래서 저희는 이걸 삼아서 운영 비용 절감, 장애 대응 시간 단축, 서비스 품질, 고객 만족도, 이렇게 하는데, 저는 개인적으로는 사실 비용 절감이나 장애 대응 시간은 크게 기대하지 않고요. 서비스 품질 향상하고 고객 만족도는 상당히 높아질 걸로 보고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">41:59</span></div>
+    <p>특히 서비스 품질은, 예전에 신규 입사자들이 들어오는 수준이 일정하지 않아서 품질 관리가 굉장히 힘들고 숙련자들한테 의존도가 굉장히 높아지는데, 완전 자동화까지는 힘들 수 있지만 어느 수준 이상으로 가이드를 해준다면 초보들이 굉장히 안정적으로 서비스를 고객들한테 제공해 주는 데 도움이 되지 않을까. 또한 그렇다면 고객도 만족도가 높아져서, 저희가 한 번 맺은 고객들은 최소한 10년, 20년 이상 진행되고 있는데요. 더 락인되는 효과를 가져갈 수 있을 거라고 생각하고 있습니다.<br><br>그래서 앞서 말씀드린 것처럼 26년 계획, 27년 계획, 28년 계획으로 해서 연구소하고 워크샵을 벌써 몇 차례 했고요. 순서대로 진행을 할 예정입니다. 사실 저도 이번 과정에, 교수님들하고 과정 자체에 너무 감사드립니다. 저희가 IT 서비스하는 회사인데도 불구하고 AI 접목에 조금 소홀했던 것 같아요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">43:10</span></div>
+    <p>근데 제가 이 과정을 들으면서, 사실 저희 직원들은 조금 피곤해졌지만, 이미 하고 있는 기존 제품에 AI를 적용하는 것들이 가속화가 좀 되게 됐고요. 그리고 직원들한테 써보게 하려고 연초부터 개별적으로 AI 라이선스를 쓰게 했습니다. 종류도 원하는 대로 쓰게 했는데, 문제점이 발생하더라고요. 보안이 강한 사이트에서는 어차피 AI 툴들을 못 쓰거든요. 근데 인터넷 접속이 자유롭고 출입이 자유로운 데는 얘네들이 뭘 제일 많이 쓰나 서베이를 해봤더니 장애 처리에 제일 많이 쓰더라고요. 그 얘기는, 예를 들어서 로그를 거기다 갖다 부으면 고객 정보가 오픈되는 거하고 똑같거든요. 굉장히 리스크해서, 아마 다음 주 정도 되면 엔터프라이즈 버전으로 다 바뀔 겁니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">44:04</span></div>
+    <p>제가 만약에 이 수업들을 안 들었으면 그냥 아무 생각 없이 계속 쓰게 했을 건데, 계속 서베이를 해서 아마 엔터프라이즈 버전으로 도입을 하게 될 거고요. 그다음에 AI 활용 TF를 구성했습니다. AI 활용 TF를 구성해서 직원 업무 도우미를 기획하고 개발하자 했는데, 트라이얼 버전은 이미 직원들이 했더라고요. 그래서 저걸로 신규 입사자 온보딩을 강화시키고, 수준 편차를 최소화시키고, AI를 자산화시키는 효과를 볼 수 있을 것 같고요. 그 TF가 전사 AI 교육을 하도록 했습니다. 그리고 AI 경진대회도 지금 준비 중에 있습니다.<br><br>이거는 저희 클라우드팀에서 업무 포탈을 자기들이 만들어서 쓰고 있는 겁니다. 그중에 역량 관리 버전인데, 자기 역량들을 입력하면 원하는 곳과 자기의 갭을 보여주고, 인력 배치도 추천하고요. RFP 같은 걸 넣으면 자동 파싱해서 적합한 인재를 추천도 하고, 그다음에 대화형 챗봇도 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (발표자)</span><span class="time">45:09</span></div>
+    <p>사실 이 직원들이 하고 있는 걸 제가 무심코 지나갈 수도 있었는데, 이런 것들을 받아서 잘 활용할 수 있는 계기가 된 것 같아서 너무 감사합니다. 발표는 여기서 마무리하도록 하겠습니다.</p>
+  </div>
+
+  <div class="section-title">질의응답 · 심사평</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문자 A</span><span class="time">45:43</span></div>
+    <p>챗봇 개발하신 거는 그러면 오픈된 LLM으로 하신 건가요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">45:48</span></div>
+    <p>아니요, 저희가 다운 받아서 로컬로 돌렸습니다. 로컬 LLM으로 했고요. 지금은 하드웨어가 부족하고 아직 정식 버전이 아니라서, 저희가 쓰는 데이터들은 어떻게 보면 좀 한계가 있습니다. 장비에 대한 매뉴얼도 있고요. 장애 케이스에 대한 데이터들이 있기 때문에 그걸 학습을 시키고 유사한 것들을 찾아서, 완전 해결보다는 해결 속도를 줄이는 것, 아니면 가지치기가 많이 안 되도록 좁혀주는 효과, 이런 걸 1차 목표로 잡고 있습니다. 로컬 LLM입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문자 A</span><span class="time">46:28</span></div>
+    <p>그러면 평가가 좀 있던가요? 그러니까 지금 답변이나 이런 거에 대한 신뢰도나.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">46:35</span></div>
+    <p>지금 조금씩 쓰고 있는 상황이라서요. 아마 데이터가 조금 쌓이면 그런 것들을 볼 수 있지 않을까 합니다. 여기가 채팅창인데, 지금은 인터넷으로도 해놨습니다. 이건 고객 사이트에 쓰는 게 아니고, 트라이얼로 엔지니어들한테 피드백을 받기 위해서 쓰고 있고요. 생각하는 데 시간이 좀 많이 걸려요. 한 3개월에서 6개월 정도 돌리면 어느 정도 속도도 나고 정식으로 쓸 수 있지 않을까 합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문자 A</span><span class="time">47:15</span></div>
+    <p>지금 보니까 답변 결과에 대한 평가를 할 수 있는 과정이 없어서요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">47:26</span></div>
+    <p>예, 알겠습니다. 그것도 반영해서, 개발하는 과정에서 중간 평가하는 것을 한번 넣도록 하겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">질문자 A</span><span class="time">47:33</span></div>
+    <p>그리고 한 가지, 로컬 LLM도 계속 업데이트가 되는데, 그때마다 결과가 달리 나올까 봐 우려됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">47:44</span></div>
+    <p>저희는 일반 오픈 LLM은 아예 쓸 수도 없고 로컬 LLM을 무조건 써야 되는데, 물어보니까 로컬 LLM으로 학습을 시킨 다음에 버전이 업데이트되면 그걸 다시 넣기만 하면 큰 이상은 없을 것 같다는 피드백은 받았습니다. 저희도 한번 해봐야 될 것 같습니다. 어찌 됐건 저희는 오픈된 LLM을 쓸 수는 없으니까, 로컬 LLM으로 쓸 수 있는 방법을 말씀대로 계속 찾아보도록 하겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 B</span><span class="time">48:17</span></div>
+    <p>발표하신 내용이, 회사 차원에서는 모니터링 서비스에 AI를 적용하는 것이고, 내부 직원들 사이에서는 아까 그 업무 포탈 같은 것을 각자 현업에서 만들어서 지금 쓰고 있다는 거죠?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">48:41</span></div>
+    <p>현업에서 쓰고 있길래, 전사 차원에서 팀을 만들어서 기획해서 개발하라고 제가 했고요. 그건 내부 업무입니다. 고객 서비스는 따로고요. 내부 서비스는 직원들이 하는 거고, 고객 서비스는 연구소에서 하는 겁니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 B</span><span class="time">49:00</span></div>
+    <p>그것도 아주 좋은 작품이라고 생각합니다. 크든 작든 현장에서 일하는 분들이 자기한테 필요한 기능들을 만들어서 써보는 것이 AI가 확산되는 최고의 계기가 되니까 좋은 것 같습니다. 이전 과정에서도 실제 현장에서 만들어 쓰신 노련한 사례들이 있었는데, 그런 것이 아주 훌륭한 사례라고 생각을 하고요.<br><br>그리고 지금 온프레미스 시장이 사실 되게 커질 거예요. 커질 건데, 제가 늘 궁금한 게, 온프레미스를 직접 구축해서 하는 것과 지금 애저나 구글이 제공하고 있는 매니지드 서비스하고 차이가 뭐가 있을까 되게 궁금한데, 혹시 그거 검토해 보셨습니까?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">50:04</span></div>
+    <p>예. 저희는 전통적으로 온프레미스에서 하드웨어를 설치하고 그 위에 서비스를 올려서 하는 것들을 한 30년간 해 왔었고요. 사실 구글이나 애저 같은 데는 국내에서 메가존이나 베스핀 이런 데서 클라우드 서비스를 해주고 있지 않습니까. 저희도 클라우드 프로바이더, CSP의 파트너이긴 한데, 고객들을 보시면 용도를 다르게 쓰시더라고요. 보안 때문에 자기 전산 센터에 두고 쓰시고 싶어 하는 데는 로컬에다 두고 쓰시고요. 여러 군데서 직원들이 액세스해야 되는 것들은 클라우드로 쓰고 있는데, 사실 클라우드 시장이 훨씬 더 커지고 있는 건 사실이지만 우리나라의 특성상 온프레미스를 버리지는 못할 것 같습니다. 특히 금융 데이터센터, 저희가 농협·신한·부산은행·미래에셋을 다 하는데요. 거기는 클라우드를 일부 쓰지, 클라우드로 다 갈 생각이 없어요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">51:12</span></div>
+    <p>그리고 제조업체라든지 전통적인 이런 데는 자체 데이터센터를 하고 계셔서, 사실 앞으로도 병행해서 쓰시지 않을까 합니다. 빅테크처럼 배달 서비스 같은 그런 서비스들은 다 클라우드로 가는 게 맞고요. 굳이 전산실에 둘 필요가 없습니다. 관리를 할 수가 없습니다. 이제는 시장에 전문가들이 그만큼 없습니다. 그렇기 때문에 클라우드로 무조건 가야 되고요. 장치 산업이나 굉장히 미션 크리티컬한 업무들은 자체 전산센터에 계속 머물러야 되는 거 아닌가, 이렇게 생각을 하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 B</span><span class="time">51:53</span></div>
+    <p>그러니까 온프레미스도 하고 클라우드도 하고, 이렇게 여러 군데를 쓰게 되면서 모니터링 시장을 점하려는 거죠.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">52:00</span></div>
+    <p>그렇죠. 그래서 저희는 온프레미스에 초점을 맞춰서 하이브리드까지 커버될 수 있는 쪽으로 진행을 하고 있고요. 글로벌 회사들은 다 클라우드 네이티브 환경에서 이렇게 온프레미스로 내려오려고 하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">52:22</span></div>
+    <p>예, 김형우 대표님께서 준비하신 내용을 보면 되게 의욕이 느껴집니다. 어떻게 해서든지 이걸 더 활용하는 부분을 찾아내시려고 준비하신 걸로 느껴지는데요. 지금도 말씀을 나눴지만, 전반적으로 드는 생각은, 말씀하신 대로 온프레미스 시장을 포기할 수 없고 오히려 가면 갈수록 이 부분이 별도의 영역을 구축하고 계속 발달이 될 것 같습니다. 그런데 이런 고민을 하고 있는 기업들이 수백 곳이지 않습니까. 그래서 통합관제 솔루션을 구축하시면서, 온프레미스 시스템 시장에 말하자면 진입을 하시는 별도 사업을 한번 생각해 보시는 게, 여러 가지 인프라도 돼 있으시니까, 사업의 영역을 확장하시는 계기가 되지 않을까 싶고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">53:30</span></div>
+    <p>그리고 아까 1차 연도, 2차 연도, 3차 연도 계획을 쭉 말씀하셨잖아요. 근데 이런 말씀드리면 좀 그렇지만, 속도가 좀 느린 것 같습니다. 지금 3년까지 하기로 한 것을 사실 1년 내에 다 할 수 있을 것 같습니다. 물론 지금 AI의 발전 속도상 사실 미래를 예측하기가 너무 어렵긴 하지만요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">54:05</span></div>
+    <p>과정 가이드에 충실하게 하다 보니 그렇게 됐는데, 원래 다 끝나야 되는 거 맞습니다. 원래 다 끝나야 되는 거 맞고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">54:09</span></div>
+    <p>이 내용은 그냥 1년 안에 다 끝내는 게, 사실 이 비즈니스 전장에서는 속도가 생명이잖아요. 그게 사실 적합하지 않을까 생각이 들고요. 아시다시피 에이전트 AI들이 도입되면서 지금 개발 속도가 너무 빨라졌어요. 그런 부분을 생각하셔서, 만족도 조사하고 사업 계획서 제출하실 때 말씀드린 포인트들을 수정해 주시면 좋겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">김형우 (답변)</span><span class="time">54:39</span></div>
+    <p>과정 RFP에 충실하다 보니까 그랬습니다. 3년을 단축시키겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">54:44</span></div>
+    <p>그래서 저는 지금 발표 들으면서 드는 생각이, 이 모델이 단순히 이 기업에만 해당되는 게 아니라, 우리나라 AI 인프라의 밑바탕이 되는 서비스들이 될 거거든요. 그래서 여기서 혁신이 일어나는 게 상당히 중요하다고 보고, 앞으로 많이 열심히 해 주시면 감사하겠습니다. 감사합니다.</p>
+  </div>
+
+</div>
+<script>
+if (window.self !== window.top || /[?&]embed=1/.test(location.search)) {
+  var b = document.querySelector('.back'); if (b) b.remove();
+}
+</script>
+</body>
+</html>

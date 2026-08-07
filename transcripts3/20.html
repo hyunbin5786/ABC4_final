@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속기록: 20. 전행진 · AI와 함께 책을 쓴다는 것</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 36px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+  .head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .head p { font-size: 14.5px; color: var(--ink-faint); }
+  .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--ink-faint);
+    margin: 44px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .block {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 14px;
+  }
+  .block .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .block .speaker { font-size: 13.5px; font-weight: 700; }
+  .block .speaker.presenter { color: var(--accent); }
+  .block .time { font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .block p { font-size: 15px; color: var(--ink-soft); }
+  .note {
+    font-size: 13px; color: var(--ink-faint); background: var(--accent-soft);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../archive3.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">TRANSCRIPT · NO. 20</div>
+    <h1>AI와 함께 책을 쓴다는 것 발표 속기록</h1>
+    <p>전행진 (아리랑TV미디어 · 상무(COO)) · 발표 및 질의응답 · 2026. 4. 30</p>
+  </div>
+
+  <div class="note">⚠️ 클로바노트 자동 속기록을 기반으로 하며, 발표 슬라이드와 대조해 명백한 음성인식 오류(클로드(Claude)·노션(Notion)·MCP·구글 드라이브·인터뷰 스킬·앵커 문장·리터러시·인세·버니바 부시 등)만 바로잡아 정리했습니다. 심사위원·질문자 성함은 속기록에 나오지 않아 익명으로 표기했습니다. 이 속기록은 발표 도입부(자기소개 앞부분)가 잘린 상태로 시작하며, 음성인식 품질이 낮아 일부 구간은 대의만 살려 정리했습니다.</div>
+
+  <div class="section-title">발표</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">00:00</span></div>
+    <p>(앞부분 누락) …중간에 회사를 만들게 됐는데, '피처링 컬처'라는 이름에서 나오다시피 미래와 문화를 잇는 것을 하는 회사고요. 저는 올해로 9년째 대학 진학 예정자 학생들하고 같이 공부하면서 이야기를 하고 있습니다. 굳이 제 소개를 드린 이유는, 제가 책을 쓰는 이 과제를 하려고 했을 때 그동안 생각해 왔던 것들이 여기에 녹아 있었고, 그동안 해왔던 과정들이 결코 제 작품 활동과 무관하지 않았구나 하는 말씀을 드리기 위해서고요. 책의 제목은, 오늘 발표 제목 그대로 'AI와 함께 책을 쓴다는 것'입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">01:06</span></div>
+    <p>지금 이 시대에 AI는 어떻게 인간과 비슷해질 것인가를 고민하고 있고, 가면 갈수록 AI가 인간을 인식하는 데까지 갈 텐데, 그러면 그 사이에서 우리는 무엇을 고민해야 할 것인가. 이것이 제가 고민하고 있는 중심이고, 이 책의 앵커 문장이 바로 이 내용입니다. 이 시기에 우리가 무엇을 고민하고 무엇을 생각해야 하는지가 이 책에 담겨 있습니다. 중간 과제 때도 말씀드렸지만 리터러시라는 건 이 시대에 정말 필요한 것이고요. 저는 방송이라는 백그라운드를 가지고, 이 사회에서 리터러시가 없을 때 사회가 얼마나 양극화되고 왜곡되는지, 여러 문제점이 나오는지를 현장에서 보고 있었습니다. 그랬을 때 AI가 들어온 지금, 우리가 여기에 대해 고민하고 공부하고 생각해야만 AI를 아주 현명하게, 그리고 친인간적으로 받아들일 수 있을 것입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">02:18</span></div>
+    <p>지난 중간 발표 때 심사위원님들께서 여러 말씀을 해 주셨는데요. 그중 가장 중요한 포인트는, "'AI가 쓰지 않았습니다'라고 말하는 게 이 책의 셀링 포인트가 되지 않을까"라는, 굉장히 강한 말씀이었습니다. 그전까지만 하더라도, 이 책을 처음 준비하던 2025년 6월 이전에는, 남들보다 빨리 이 AI 시대에 AI를 이용해 책을 쓰면 쉽게 쓰면서도 피칭할 수 있겠다, 빨리 써야지 하는 단순한 생각을 했고, 그렇게 책을 쓰고 있었죠. 그 당시의 수준은 지금에 비하면 굉장히 낮은 수준이었습니다. 그러다가 거의 탈고 단계에서 이 과정에 들어오게 됐습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">03:19</span></div>
+    <p>그런데 이 과정에 들어와 보니까, 그동안 내가 알고 있던 건 그냥 나무 하나였구나, 이 넓은 바다에서 조그마한 조각배를 타고 가고 있었구나 하는 생각을 하게 됐고, 굉장히 충격을 받아 한동안 책을 쓰지 못했습니다. 탈고해서 출판사에 넘겨주기만 하면 되는 단계였는데, 조금만 더 공부를 하고 책을 쓰자 하던 차에 중간 과제가 오니까, 그러면 이것을 이 과정 안에서 결론을 내보자 해서 중간 발표를 드렸고, 그때 아까 그 가장 강한 말씀이 나왔던 거죠. 그 뒤로 저는 생각을 완전히 바꿨습니다. 그러면 어떻게 하면 이 책을 잘 쓸 수 있을까. 설계를 다시 하고, 이 과정 마지막에 배웠던 AI 스킬을 가지고 준비를 했습니다. 가장 중요한 건 이겁니다. 처음의 설계는 내가 한다, 그리고 마지막 최종 아웃풋은 내가 한다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">04:16</span></div>
+    <p>그 중간에 집필되는 과정은 AI와 협업을 한다. 그래서 다섯 단계로 진행을 했습니다. AI한테는 역할을 이렇게 줬습니다. 일단 내가 뭔가를 할 때 비서가 필요합니다. "아니야, 다른 거 찾아줘, 이거 해줘" 하는 자료 조사를 하는 비서를 뒀고요. 그리고 내가 글을 쓸 때 교열자로서 문체나 이런 것을 봐 주고, 내가 앞에서 했던 말을 또 쓰면 중복을 찾아주고, 문체의 호흡이라든지 이런 걸 봐 주는 역할을 줬고요. 그리고 출판사의 기획자로서 내가 어떤 방향으로 책을 쓰고 있는지를 점검하고, 마지막으로 내가 준 가이드를 얼마나 따라가는지, 옆으로 비껴나가지 않는지 지키는 역할을 주는 거죠. 구체적으로는, AI를 저는 역할의 종류로 나눠 생각합니다. 저는 클로드(Claude)를 썼습니다. 대전제는 이런 전제이고, 앵커 문장, 즉 저의 생각은 아까 모두에 말씀드린 그 문장입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">05:21</span></div>
+    <p>그리고 편집과 기획과 점검, 이렇게 같이 하겠다는 지침을 뒀습니다. 그러기 위해서 이 과정 안에서 여러 기술을 획득하는 활동들이 있었습니다. MCP라는 개념을 알게 됐고요. AI 선정은 처음에 ChatGPT를 쓰다가 클로드로 정리를 했고, MCP로 노션(Notion)을 연동했습니다. 그리고 프로젝트와 메모리 기능을 썼고요. 그리고 제가 그동안 모아놨던 구글 드라이브. 그래서 클로드와 노션과 구글 드라이브가 연동되면서, 그동안 내가 모았던 여러 자료들, 그리고 내가 생산했던 자료들은 구글 드라이브에서 빼 오고, 새로 생산한 것들은 노션에 정리를 하는 것이고요. 그리고 클로드에는 스킬이라는 게 있습니다. 내가 책을 쓸 때 자동적으로 개입해서 비서가 들어오는 거죠. 저는 인터뷰 스킬을 주로 많이 썼는데, 내가 책을 쓸 때 클로드가 인터뷰 형식으로 같이 지원을 하면서 서로 대화하는 겁니다. 프롬프트도 계속해서 체계적으로 대화를 했고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">06:15</span></div>
+    <p>그래서 핵심은 이거죠. 놀랐던 게, 구글 드라이브를 MCP로 연동해서 "이 책 주제에 맞는 자료를 찾아줘" 했더니 구글 드라이브를 다 뒤져서 내 문장에 맞는 자료를 다 끌어왔고, 그러면서 클로드가 하는 말이 "대단하십니다. 당신은 이미 10년 전부터 이 책을 준비하고 있었군요"였습니다. 무슨 말인가 했더니, 그 안에는 제가 그동안 메모했던 것, 아이디어 노트, 대학에서 강의했던 자료들이 있었는데, 이 책 주제에 맞는 내용들이 거기 이미 다 들어가 있었던 겁니다. 예전에 미디어 리터러시를 다뤘던 것들이죠. 그 모든 자료들을 클로드가 정리를 다 해줬던 거고요. 그래서 구글 드라이브 연동과 스킬을 굉장히 유용하게 쓰고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">07:04</span></div>
+    <p>그렇게 6개월 동안 정리가 된 겁니다. 이 과정 중에 배웠던, "깊이 생각하는 일만은 기계에 맡길 수 없다"는 버니바 부시(Vannevar Bush)의 문장을 교수님께서 들려주셨는데, 이게 1945년에 했던 얘기라고는 믿을 수 없을 정도로 지금 현재에 맞는 거죠. 그래서 이 문장을 책에 인용을 했고, 과정에서 배운 여러 가지를 담았습니다. 지금 현재는 거의 완성 단계고, 원래는 오늘 이 자리에서 여러분들께 책을 선물하고 싶었는데 아직 시간이 좀 걸려서, 나중에 여러분께 선물로 드리는 것을 목표로 삼고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">07:53</span></div>
+    <p>마지막으로, 향후에 어떻게 될 것인가. 누군가 저한테 "너무 날로 먹는 거 아니야? 개인적으로 이 책을 써서 개인이 영위하는 거 아니야?"라고 하시더라고요. 그때 툭 튀어나온 말이, 이런 삶을 통해서 우리 대한민국 국민들, AI 시대를 살아가는 모든 사람들이 함께 잘 살 수 있도록 하는, 포 더 피스(Pour the Peace)의 마음으로 살겠다는 얘기가 나도 모르게 나왔어요. 앞으로 그게 제 목표가 되지 않을까 합니다. 지금까지 이 책이 문제를 봤다면, 앞으로는 방법을 좀 찾아보자. AI 시대에 살아남을 길은 무엇인가를 서로 같이 생각해 보는 두 번째 책을 준비할 계획입니다. 이 과정에서 배웠던 여러 가지를 이 책을 통해 담아낼 것이고, 계속 이어서 내년에도 그 후에도 AI 디지털 시대에 인간이 어떻게 살아가야 할지를 같이 고민해 보는 작업들을 계속 해보겠다는 말씀을 드립니다.</p>
+  </div>
+
+  <div class="section-title">질의응답 · 심사평</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">09:37</span></div>
+    <p>네 대표님, 발표 잘 들었고요. 책을 계속 쓰시는 것을 AI랑 협업하신다는 얘기잖아요. 제가 느끼기에는 원래 혼자 쓰셨을 때보다 더 빠르게 쓸 수 있다는 게 중요한 장점 같은데, 그걸 좀 설명해 주시면 좋을 것 같아요. 책을 집필하는 속도나 책의 조사에 어떤 도움을 줬는지, 만약 도움을 줬다면 이걸 쓰지 않았을 때에 대비해서 어느 정도 도움이 된 것 같은지. 죄송합니다, 제가 공대 교수라, 그래도 "어느 정도 좋아진 것 같다"라고 얘기를 해 주시면 더 도움이 되지 않을까 싶습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">10:41</span></div>
+    <p>네, 저는 문과적이기 때문에 숫자는 잘 모른다고 먼저 말씀드리고요. 일단 이렇습니다. 자료를 찾는 것에서는 제가 굉장히 좋은 노하우를 받았는데, 교수님께 '책을 썰어 넣어라'라는 노하우를 받아 재단기를 샀습니다. 그래서 이 책을 쓰면서 그동안 제가 읽었던 책들을 다 썰어서(스캔해서) 집어넣었고요. 그것으로 속도가 굉장히 빨라진 거죠. 그리고 지금 보시는 이게 제 노션인데, 이 안에 제가 직접 작성한 건 거의 없어요. 클로드가 다 정리를 해줬습니다. 여기 보시면 각 분야별로 제가 정리했던 내용들, "이거 클로드에 적용해줘", 수업 시간에 들은 것 중 반영하고 싶은 것, "출판사하고 상의하고 싶다"는 것, 그리고 각 부(部)별 소재 같은 것들이 있고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">11:50</span></div>
+    <p>예를 들어 '알고리즘은 중립적인가'에 대해 내가 생각한 것이 그때그때 바뀌고, 새로운 자료가 들어오면 또 노션이 업데이트되고, 그 내용이 전부 버전별로 다 들어가 있는 거죠. 이 도구가 없었다면 책에 시간이 굉장히 오래 걸렸을 겁니다. 그리고 매번 인터뷰 스킬로, 아니면 점검 스킬로 들어와서 "지금 원래 당신이 생각했던 방향과 다릅니다", "이 부분은 앞서 쓴 내용과 중복입니다" 하고 알려주니까 굉장히 체계적이고 정교하게 되고요. 그다음에 출판사하고 계약을 할 때도, 보통 6~7% 정도 인세를 준다고 해요. 그런데 초고를 넘겼더니 "이 정도면 출판사에서 할 일이 없다"며 자기들이 인심 쓰듯 10% 인세를 주겠다고 계약을 했습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">12:47</span></div>
+    <p>그래서 여러 분야에서 제가 계량화시킬 수는 없습니다만 굉장히 많은 도움을 받았고, 적절히 잘 쓰면 삶에 백 냥의 도움이 되겠다는 것이고요. 중간 발표 때도 말씀드렸지만 AI는 고급 도구죠. 누가 물어봅니다. "너 책 네가 썼어? AI를 쓴 거 아니야?" 그러면 "그럼 니가 써봐" 이렇게 나오는 거죠. 그게 무슨 얘기냐면, 포토샵도 똑같은 포토샵이지만 내가 그리는 그림과 상대방이 그린 그림과 전문가가 그리는 그림이 다 다르듯이, AI도 내가 어떻게 쓰느냐에 따라서 나오는 아웃풋이 다르다는 겁니다. 말 그대로 도구로서 활용을 하는 것. 적절한 답이 됐는지 모르겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">운영진 B</span><span class="time">13:45</span></div>
+    <p>챕터 2 v1, 챕터 2 v2, v2.1, 이렇게 여러 개가 있잖아요. 시트 축만 봐도 여러 개가 있는데, 그 하나하나가, 하다 하다가 클로드하고 얘기를 해보고, 클로드의 리스폰스를 리더에 넣어놓고, 새로운 게 나오면 또 물어보고, 업데이트된 리스폰스로 또 v3.1, 이렇게 정리하신 거죠?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">14:12</span></div>
+    <p>개념은 맞는데요. 제가 책을 쓰다가 "이렇게 이렇게 했는데 한번 점검해줘" 하면 "이 부분은 중복이 됩니다"라고 알려주고요. 그다음에 책을 쓰는 중간에 제가 어디서 신문을 읽거나 새로운 개념이 들어오면 그걸 다시 입력합니다. 그러면 "야, 이거를 내가 어디다 넣으면 좋을지"에 대해 제안을 해주고, 생각은 계속 바뀌는 거잖아요. 그때마다 계속 이 기록을 해주고 있는 거죠. 네, 제가 정리했던 것을 바탕으로 얘기를 해주는 겁니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">운영진 B</span><span class="time">14:50</span></div>
+    <p>제가 말씀드리고 싶은 게, 우리가 캠프 할 때가 한 4개월 됐나요? 4개월 됐죠. 그 사이에 또 많이 바뀌어서요. 우리가 LLM에서 AI 에이전트도 보고, 그다음 단계로 지금 자율 에이전트가 나와 있고, 자율 에이전트를 넘어서서 에이전트 네트워크가 나와 있고, 전혀 새로운 차원의 일이 벌어지고 있어요. 지금 이렇게 활용하시는 것도 좋아요, 환경에 잘 쓰시고 계신데, 저 같으면 지금 단계라면 앤트로픽의 에이전트, 그러니까 클로드를 세팅해 놓으시고, 클로드에 스킬을 가르칠 수가 있거든요. 스킬을 가르쳐요. 걔한테 "내가 이런 신(장면)을 쓴다, 너는 이 흐름을 점검해 주고 균형을 맞춰줘"라고 부여해 놓고 글을 쓰잖아요? 구글 드라이브에 글을 쓰고 계시면, 쓰고 있는 중에 라이브로 계속 알려줘요. "지금 빗나가고 있어요" 이렇게. 그런 일이 지금 벌어지고 있어요. 지금까지처럼 글을 다 쓰고 나서 클로드에 넣어 점검하고 다시 기록하는 게 아니라, 쓰는 과정 중에 계속 옆에서 지켜보고 있는 것과 마찬가지니까, 쓰는 중에 계속 제안도 하고요. 그걸 경험해 보시면 또 신세계가 아닐까. 저는 요즘 경악하고 있거든요. 클로드가 일을 가르치면 그대로 하는 것을 보고요. 글 쓸 때도 뭔가 놀라운, 두 명이서 같이 글을 쓰는 것과 마찬가지예요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">17:14</span></div>
+    <p>박사님께서 워크플로우 과외 수업을 한번 해주셨었죠. 네, 그런 아이템들이 있는데, 저한테는 아직 어려운 과정이었고요. 저도 그런 에이전트를 쓰면 그런 아웃풋이 나오고 굉장히 좋은 협업 툴로서 좋은 동반자일 수 있다고 생각을 하는데, 제가 아직까지는 전문가 실력이 안 돼서요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">운영진 B</span><span class="time">17:51</span></div>
+    <p>이게 실력의 문제가 아니라 경험의 문제고, 그냥 해보세요. 그리고 주제가 'AI 시대에 어떻게 할 것인가'라는 생각의 문제, 태도의 문제인 것은 다행인데, AI에 관련해서 글을 쓰실 때는, 누구든지 AI를 내가 설명하는 순간 AI는 전혀 새로운 세상을 열어놓고 너무 앞서가 버리니까 그런 점은 일단 조심해야 되겠다는 것이고요. 지금은 생각과 태도의 문제니까 좀 더 여유가 있다고 보시는 것 같아요. 아무튼 저는 그런 세션을 한번 경험해 보시고 쓰시면 내용이 더 좋아지지 않을까 생각합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">18:52</span></div>
+    <p>네, 그런 생각을 저도 했습니다. 출판사하고 약속한 것이 있어서 이 마감 안에서 결과를 내야 하는데, 원래는 오늘 여러분들께 책을 드리는 그림이었는데 그마저 늦어지니까 저도 고민을 했거든요. 그걸(에이전트를) 배워서 넣으면 좋은 줄은 아는데, 그거 배우다가 또 시간이 없어지는 딜레마가 있고요. 그리고 말씀드렸던 것처럼, 시간이 지나면 또 금방 바뀌니까. 그래서 제가 지침에 넣어놓은 게, 내가 쓴 주제가 2년 3년 뒤에도 유효한가를 항상 점검하는 겁니다. 당장 이런 것들(새 기술)이 나왔을 때 점검해서 "이건 시효가 있습니다, 이건 빼 주시면 좋겠고" 하는 거죠.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">19:49</span></div>
+    <p>중간 발표 때 저도 모르게 말씀을 한 번 드린 것을 이렇게 반영을 하셔서 하신다는 게 참 놀랍고요. 저는 발표하시는 걸 들으면서 무슨 생각이 들었냐면, 제가 2기나 4기 분들, 지금 5기 분들도 면접을 다 봤습니다. 면접을 보고 선발하는 과정에 참여를 했는데, 3기는 아쉽게도 그때 시간이 안 돼서 면접에 참여를 못했었어요. 그래서 그때 참여했으면 참 좋았겠다는 아쉬움이 있었거든요. 그런데 오늘 전행진 대표님 발표하시는 걸 보니까, 어느 분이신지 모르지만 면접을 해서 전행진 대표님을 선발해 주신 분께 참 감사드리고 싶다는 생각이 듭니다. 기억을 못 하시는데, 혹시 제가 했나요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">사회자</span><span class="time">20:55</span></div>
+    <p>기억력이 요즘 안 좋아지는 것 같습니다. (웃음)</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">21:01</span></div>
+    <p>아무튼 지금 그 책을 쓰시려고 하는 노력과 그 생각이 되게 와닿았고, 이렇게 한 번 더 되돌아보고 쓰신 책이니까 분명히 더 가치 있는 책이 되고, 말씀하신 대로 AI 시대에 범용적인 지침을 줄 수 있는 책이 되지 않을까 싶어 기대가 됩니다. 한 가지 말씀드리고 싶은 건, 아까 대표님(운영진)께서도 말씀하셨지만 AI 기술이 계속 발달하고 있기 때문에, 바로바로 투입해서 활용하시는 것도 좋지만 본질적인 부분에 초점을 맞춘다면 지금 랩업을 해서 한번 내시는 것도 좋을 것 같고요. 저는 이 책이 궁금한 게, AI에 대한 책임감, 인간에 대한 책임감, 이 책의 포커스가 어떤 부분에 초점을 맞춰 쓰신 것인지가 궁금하고, 이 책을 쓰실 때 AI를 활용해 도움을 받으심으로써 얼마나 더 좋은 책이 됐다고 본인이 느끼시는지 듣고 싶습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">22:06</span></div>
+    <p>그리고 10몇 년 전에 제가 옥스포드에 연구 프로젝트 때문에 가 있을 때, 카이스트에서 물리학을 연구하는 분이 오셔서 발표를 한 적이 있어요. 지난 200~300여 년 동안 사전에 있는 용어들의 수명을 분석한 겁니다. 사전에서 사라지면 그 단어는 수명이 다한 건데, 분석을 했더니 재미있게도 단어들의 수명이 두 그룹으로 나뉜다는 결과가 나왔습니다. 하나는 슬로우 그룹, 하나는 패스트 그룹인데, 패스트 그룹은 한 40~50년이 되면 사라집니다. 수명이 짧고요. 슬로우 그룹은 200년 이상, 300년이 돼도 남아 있는 단어죠. 패스트 그룹의 특징은 기술 용어들이었어요. 테크놀로지라든지 그 시대의 기술을 반영한 용어들은 빠르게 등장해서 급격히 성장하지만 빨리 사라진다. 하지만 200년 300년을 가는 용어들은 우리에게 아주 근본적으로 관련돼 있는 생활 속의 용어들, 되게 플레인한 용어들이었던 거죠. 그러니까 나중에 한번 생각해 보시면 좋을 게, 전행진 대표님께서 책을 쓰실 때 이 책이 앞으로 얼마나 수명을 가지고 사람들한테 영향을 끼칠 수 있는가, 그 부분을 한번 생각해 보시면, 빠른 책도 좋고 긴 책도 좋고, 그렇지 않을까요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">24:04</span></div>
+    <p>네, 감사합니다. 질문에 답을 드리면, 아까와 비슷한 얘기인데 굉장히 빨라졌습니다. 앞서도 말씀드렸지만 나 혼자 하면 그 많은 책을 다 읽고, 메모해놓은 걸 찾아다가 다시 옮겨놓고, 또 까먹고 다시 하고, 여러 번 반복하고, 출판사 교정을 또 거쳐야 하는데, 이 모든 걸 클로드가 할 수 있기 때문에 혼자서 다 할 수 있다는 것. 제가 책을 처음 써보는 것인데도 속도가 좀 빠르지 않았을까 생각을 합니다. 그만큼 기대보다 더 좋다고 생각을 하고요. 그리고 말씀 주신 것처럼, 이 책은 AI 책이 아니라고 생각합니다. 리터러시에 대한 질문이고, 시대의 변화에 있어서 우리가 어떤 마음가짐을 갖고 어떻게 현상을 받아들일 것인가라고 저는 생각하고, 그렇게 책을 쓰고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">24:55</span></div>
+    <p>이 책의 출발점은 리터러시입니다. 우리가 단지 AI 대전환 시기에 살고 있을 뿐인 거고요. 제가 여기에 대한 의문을 가졌던 건, 미디어 때문에 이 사회가 굉장히 안 좋게 변해가는 것에 대한 문제의식을 PD로서 가지고 있었기 때문이고, 책을 쓰면서 미디어보다도 인간으로 초점이 들어왔습니다. 그래서 저는 근본적으로 이 책은 인간에 대한 책이라고 생각합니다. 그렇게 책을 쓰고 있고요. 시대가 좀 지나가더라도, 인간의 본성에 대해서, 우리가 AI 시대에 어떻게 살아갈 것인지에 대한 고민은 앞으로도 쭉 해야 하지 않을까 생각합니다. 그래서 수명이 길었으면 좋겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">25:51</span></div>
+    <p>저는 바이브 코딩을 배우면서 공돌이로서 '문돌이의 시대가 왔다'라고 생각을 했는데, 문돌이로서 저렇게 활용을 잘하시는 걸 보니까 좀 대단하다는 생각이 듭니다. 하나 빠진 게, 3개년 계획이 빠졌잖아요. 그래서 다음 시간까지, 이를테면 1개년에 인쇄비 얼마, 2개년에 인쇄비 얼마, 3개년에 인쇄비 얼마, 예산을 제출하세요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">26:20</span></div>
+    <p>네, 여러분들이 많이 도와주시면 일단 뭐 3쇄는 할 것 같고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">운영진 B</span><span class="time">26:27</span></div>
+    <p>같은 선상인데요. 통상 6~7% 정도의 인세인데, 이 과정을 통해서 습득하신 이론과 이루신 것에 대해서 굉장히 존경심을 표하고요. 그로 인해서 10% 인세로 계약하셨다고 했는데, 그렇다면 한 1% 정도는 이 과정에 기부하실 생각은 있으신지요. (웃음)</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">26:49</span></div>
+    <p>아니, 네, 저는 이번에 계약을 처음 해봤기 때문에 제가 속았는지도 모르겠습니다. 그렇다고 하기엔 너무 적은데, 맞습니까?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">26:59</span></div>
+    <p>10 빼기 6은 4예요, 4. (웃음)</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">전행진 (발표자)</span><span class="time">27:01</span></div>
+    <p>보편적으로 인세라는 것도 책의 속성이나 작가의 네임밸류에 따라 달라지죠. 그래서 저한테는 큰 인심 쓰듯이 해주겠다고 해서 감사하게 받았는데요. (웃음)</p>
+  </div>
+
+</div>
+<script>
+if (window.self !== window.top || /[?&]embed=1/.test(location.search)) {
+  var b = document.querySelector('.back'); if (b) b.remove();
+}
+</script>
+</body>
+</html>

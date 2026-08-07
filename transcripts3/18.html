@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>속기록: 18. 이재관 · AI 계측 혁신 전략</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #fff; --ink: #1a1a1a; --ink-soft: #55554f;
+    --ink-faint: #8f8f86; --line: #e6e6e0; --accent: #2f5d50; --accent-soft: #e8f0ed;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 100px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 7px 16px; margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--accent); color: var(--accent); }
+  .head { margin-bottom: 36px; }
+  .head .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+  .head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .head p { font-size: 14.5px; color: var(--ink-faint); }
+  .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--ink-faint);
+    margin: 44px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .block {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 14px;
+  }
+  .block .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .block .speaker { font-size: 13.5px; font-weight: 700; }
+  .block .speaker.presenter { color: var(--accent); }
+  .block .time { font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .block p { font-size: 15px; color: var(--ink-soft); }
+  .note {
+    font-size: 13px; color: var(--ink-faint); background: var(--accent-soft);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../archive3.html">← 아카이브로 돌아가기</a>
+
+  <div class="head">
+    <div class="label">TRANSCRIPT · NO. 18</div>
+    <h1>AI 계측 혁신 전략 발표 속기록</h1>
+    <p>이재관 (사이텍 · 대표이사) · 발표 및 질의응답 · 2026. 5. 12</p>
+  </div>
+
+  <div class="note">클로바노트 자동 속기록을 기반으로 하며, 발표 슬라이드와 대조해 명백한 음성인식 오류(사이텍·텍트로닉스·계측기·오실로스코프·네트워크 애널라이저·LG이노텍·보스턴 다이내믹스·ADAS·GaN·SiC·바이브 코딩·Claude·Cursor·RAG·락인·해자 등)만 바로잡아 정리했습니다. 심사위원·질문자 성함은 속기록에 나오지 않아 익명으로 표기했으며, 일부 저품질 구간은 대의만 살려 정리했습니다.</div>
+
+  <div class="section-title">발표</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">00:00</span></div>
+    <p>여정을 마칠 때가 오니까 감회가 정말 새롭습니다. 좀 다른 이야기이긴 한데요, 저는 볼을 치기 전에 항상 두 가지를 생각합니다. 오늘은 원볼 플레이를 하자, 두 번째는 트리플 없는 게임을 하자. 그와 마찬가지로 이 과정을 시작할 때도 두 가지 생각을 가지고 있었습니다. 첫 번째는 개근을 하자, 두 번째는 친구를 사귀지 말자. 그래서 항상 앞에 앉으려고 노력했던 게 친구를 사귀지 않기 위해서였는데, 첫 번째는 제가 성공했고 두 번째는 실패했습니다. 실패해서 더 기쁩니다. 이 과정이 끝나더라도 좋은 친구들과 향후 삶을 더 풍요롭게 누릴 수 있을 것 같아서 행복합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">사회자</span><span class="time">01:10</span></div>
+    <p>생신 축하드립니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">01:12</span></div>
+    <p>감사합니다. 오늘이 제 생일인지도 진짜 몰랐습니다. 이 날짜를 정할 때 어쩌다 보니까 그렇게 됐는데요. 저는 사이텍이라는 회사를 이끌고 있습니다. 횟수로 10년 차니까, 서바이벌에서 여태까지 살아온 제 자신이 좀 자랑스럽습니다. 딱 10년 차입니다. 저희 회사는 좀 작습니다. 100억, 80억, 70억, 한 100억을 왔다 갔다 하는 작은 회사이긴 한데요. 두 가지 큰 틀에서 사업을 하고 있습니다. 첫 번째는 전기전자 계측기를 유통하고 솔루션을 제공하는 계측 전문 솔루션 회사고요, 여기서 사실은 돈을 법니다. 캐시카우고요. 두 번째 사업 카테고리는 제가 딥테크에 욕심이 있다 보니까 레이더 개발을 했습니다. 작년까지는 현대모비스, 한솔테크닉스, 저희 회사 이렇게 3자가 ADAS에 들어가는 레이더를 개발했는데, 여러 가지 상황으로 인해서 잘 안 됐어요. 그래서 올해는 LG이노텍하고 두 가지 개발 용역을 하고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">02:24</span></div>
+    <p>첫 번째는 LG이노텍이 하는 현대자동차 레이더와 관련해서 신호 처리 소프트웨어 개발 용역을 하고 있고요. 두 번째는 LG이노텍이 보스턴 다이내믹스의 아틀라스에 들어가는 인지 센싱, 그러니까 카메라 모듈·레이더·라이다에 들어가는 것을 하고 있는데, 거기에 레이더 관련된 것을 저희가 마찬가지로 용역을 하고 있습니다. 그래서 크게 두 가지 카테고리로 사업을 하고 있는데요. 이 딥테크와 관련해서는 AI를 적용시키기에는 보안적인 문제가 가장 크고, TI 칩을 쓰다 보니까 칩에 디펜던트한 소프트웨어 능력이 필요한 부분이라 AI 활용이 좀 힘든 상황입니다. 그래서 오늘은 계측 솔루션에 제가 배운 AI를 어떻게 적용할까, 여기에 중점적으로 말씀드리겠습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">03:36</span></div>
+    <p>일단 저희는 기본적으로 모든 계측기를 다 유통합니다. 그런데 텍트로닉스라는 글로벌 1위 계측기의 공식 파트너고요. 단순하게 박스 비즈니스만 하는 게 아니라, 엔지니어가 한 4명 있는데, 고객이 원하는 소프트웨어까지 같이 밸류애드해서 전체 솔루션으로 제공하고 있다고 생각하시면 되겠습니다. 연관된 이야기인데, 저희가 한국자동차연구원과 같이 산자부 과제도 7년짜리를 하고 있고 지금 6년 차입니다. 거기서 레이더 평가 시스템 관련 과제를 저희가 맡고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">04:34</span></div>
+    <p>그러면 계측기의 현주소는요. 반도체라는 게 현재 실리콘 베이스잖아요. 그런데 지금 GaN이나 실리콘 카바이드(SiC) 쪽으로 변화하는 추세입니다. 워낙 하이스피드, 그다음에 하이파워를 요구하는 시장의 니즈가 급증하기 때문에 이쪽으로 테스트 수요가 굉장히 올라가고 있고요. 테스트 자동화 수요도 급증하는데, 사실 현재도 반복적인 테스트는 소프트웨어로 구성이 가능합니다. 그런데 그게 소프트웨어 엔지니어가 붙어서 몇 개월을 작업해야 하는 부분이라는 거죠. 그래서 제가 지금 생각하는 부분은, 이 테스트 자동화 부분에 AI를 적용시키면 어떨까, 이게 저의 기본적인 베이스입니다. 사실 제가 이걸 가지고 엔지니어하고 이야기를 해봤어요. 커서(Cursor) 써봤냐. 다 쓰고 있더라고요. 따로 쓰고 있는데 그거를 저한테 이야기를 안 할 뿐이더라고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">05:47</span></div>
+    <p>그래서 일단 기본적인 베이스는 됐다, 그러면 이거를 커머셜라이징하는 데 같이 머리를 맞대보자, 이렇게 지금 시작을 하고 있습니다. 저희는 계측 장비를 기본적으로 오랫동안 해왔기 때문에 여기다가 바이브 코딩, 그다음에 저희 도메인 지식, 저는 사실 반도체 쪽에 오래 있었기 때문에 그쪽 지식도 있고 하니까, 충분히 계측 솔루션 프로바이더로 자리매김할 수 있다. 여기서부터 시작을 했습니다. 참고로 이 자료는 클로드(Claude)가 만들었어요. 저는 프롬프트만 넣었고 클로드가 예쁘게 잘 만들었습니다. 그래서 저희 엔지니어가 한번 해봤어요. 네트워크 애널라이저가 됐든 오실로스코프가 됐든 하나의 데이터를 클로드에 넣고 이렇게 물어봤습니다. 예를 들면 데이터 손실 그래프 그려줘, 제어 UI 만들어줘. 처음에는 사실 좀 힘들었습니다. 50몇 페이지 되는 PDF나 이런 것도 사실은 쉽지 않더라고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">07:03</span></div>
+    <p>그런데 어느 순간 지나니까 스텝 바이 스텝으로, 예를 들면 인터페이스는 USB 2.0이야 또는 3.0이야, 또는 PCI 익스프레스야, 이렇게 하나하나 지정해서 이야기를 하니까 이 선수들이 대열하고 거기에 맞는 API도 자기들이 찾아와서 다 하는 걸 제가 직접 봤습니다. 그래서 이거는 충분히 리소스를 확 줄일 수 있다. 지금은 어떤 상황이냐 하면, 고객이 이런 계측기를 활용해서 이런 데이터를 얻고 싶다, 이 데이터로 패스/페일을 때리고 싶다 이러면, 엔지니어가 온사이트에 한 달, 두 달 상주를 해서 원하는 소프트웨어를 만들어줘요. 그거는 고객은 고객대로 돈이 들고 우리는 엔지니어를 투입한 거기 때문에 사실 서로가 로스다. 그러면 이거를 AI를 활용하면 굉장히 빠르게 할 수 있지 않겠느냐, 여기서부터 시작됐습니다. 그래서 지금 1단계는 됐고요, 2단계 PoC는 내부적으로 하고 있다, 지금은 2단계라고 보시면 됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">08:15</span></div>
+    <p>그런데 하다 보니까 또 문제는 뭐냐 하면, 어찌 됐건 AI, LLM을 활용한 소프트웨어 생성이기 때문에 이 측정 데이터가 굉장히 민감한 고객들이 있습니다. 그러면 이 선수들한테는 결국 온사이트 서포트밖에 못하는 거고, 소프트웨어 엔지니어가 직접 붙어야 하고, 그래서 데이터 민감도가 떨어지는 고객들한테만 사용할 수밖에 없겠구나 하는 생각도 좀 들고요. 또 한 가지 문제는 고객마다 원하는 니즈가 너무너무 다양합니다. 측정 환경도 다양할 뿐만 아니라 측정해 달라는 요구 사항도 워낙 다양하기 때문에, 이거를 커스터마이징하는 데 과연 AI 에이전트가 내 생각대로 착착 맞게 할 수 있느냐, 이건 아직 퀘스천 마크입니다. 직접 한번 해봐야 될 것 같아요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">09:19</span></div>
+    <p>그래서 일단은 2단계가 어느 정도 되면 몇몇 고객들한테 이걸 한번 활용해 보는 게 어떠냐, 유료가 아니라 무료로 한번 해볼 생각이고, 그런 레퍼런스를 만들 생각입니다. 이게 된다면 상용화도 한번 해볼 생각이고요. 기대 성과는 개발 속도 향상 몇 배, 이건 사실 AI가 다 만들어준 얘기긴 한데 저는 10배보다 더 될 것 같아요. 지금 현재 한 500만 원짜리 소프트웨어 서포트를 하는 데 고급 인력, 중간 인력 2명이 붙어서 한 2주, 3주에 500만 원 이상 됩니다. 그런데 그거를 확 줄이고 하루 만에 끝낼 수 있다면 10배 이상의 효과가 되지 않을까 그런 생각을 하고 있고요. PoC 기간도 단축되고요. 그다음에 저희가 기본적으로 계측 솔루션을 제공하는 선수이기 때문에, 고객들의 락인(Lock-in) 효과를 만들기 위해서는, 저는 이제 '덤'이라고 생각해요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">10:42</span></div>
+    <p>덤. 그러니까 당신네들이 가려운 부분을 우리가 AI로 소프트웨어를 커스터마이징해서 주겠다, 이런 덤으로 한번 이야기를 할 생각입니다. 그다음에 1년 동안 한 10개 정도 레퍼런스 고객 확보를 하고요. 솔루션 매출 10%, 이거는 제가 그냥 집어넣은 건데, 이런 덤을 주다 보면 자연스럽게 물량(Q)이 따라오는 매출이 일어날 거다 이런 생각이 들었던 거고요. 그다음에 항상 하듯이 구독 서비스도 한번 생각해 볼 수 있지 않겠느냐, 장기 5년은 잘 되면 이렇게도 가야 되겠다 이런 생각을 하고 있습니다. 지금 사실 이 계측 쪽의 소프트웨어적인 부분은, 제가 직접 현장을 뛰다 보니까 느끼는 부분이, 의외로 굉장히 열악합니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">11:49</span></div>
+    <p>삼성전자 같은 경우는 직접적으로 들어가지 않고, SDI 같은 경우는 협력사 쪽으로 들어가는데, 대기업뿐이 아니라 중소기업들은 정말 소프트웨어 엔지니어를 체계적으로 갖춘 데가 생각보다 많이 없습니다. 그래서 이런 AI를 도입하는 데 굉장히 적극적이지 않다, 이렇게 보고 있습니다. 그래서 6개월, 6개월이죠. 제가 6개월에서 9개월을 생각했던 이유는, 6개월이 우리가 한 발짝 앞서 나갈 수 있는 마지막 시기다, 이렇게 느껴지는 거죠. 클로드, 커서, 여러 가지 말이 많지만 사람들이 직접적으로 쓰는 시점은 아직까지 아니다. 그런데 6개월 후면 에브리바디가 다 클로드를 써봤을 것 같아요. 그래서 한 발짝 앞서 나가려면 지금 해서 6개월 안에 뭔가 승부를, 커머셜라이징을 해야 된다, 이런 게 기본적인 제 생각입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (발표자)</span><span class="time">13:16</span></div>
+    <p>이상 사이텍의 계측 솔루션 관련해서 발표드렸습니다. 감사합니다.</p>
+  </div>
+
+  <div class="section-title">질의응답</div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">13:25</span></div>
+    <p>발표 잘 들었습니다. 계측에서 AI를 도입한 혁신 전략을 세우셨는데, 크게 중심은 바이브 코딩과 전기전자 계측 솔루션의 융합 전략이잖아요. 그런데 아까 6개월이라고 말씀하셨는데, 6개월 후에는 모든 사람들이 다 할 거라서 6개월 내에 일해야 된다는 건데, 뒤집어서 보면 이렇습니다. 지금까지는 계측 고객들이 이런 계측 장비로 이런 데이터를 어떻게 하면 좋겠냐고 하면 소프트웨어 엔지니어가 그걸 구축해 주고 시간도 걸리고 했는데, 그거를 바이브 코딩으로 해보니까 잘 해결이 되더라는 거잖아요. 역설적으로 고객들이 곧장 해버릴 수 있는 단계가 올 수 있다는 겁니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">14:27</span></div>
+    <p>사실 저희 같은 소프트웨어 업체들도 다 그런 걸 보고 있거든요. 클로드하고 제미나이가 점점 고도의 영역까지 할 수 있는 솔루션이나 에이전트 툴들을 다 제공할 거기 때문에, 누구나 할 수 있는 바이브 코딩과 그전에 하셨던 비즈니스에서 좀 더 나가셔서, 장벽을 쌓는 차별화 전략 같은 것들이 돼야 합니다. 고객들도 지금 다 접근 가능한 솔루션들이 다 공개되기 때문에, 제가 보기에는 굉장히 챌린지가 되는 상황입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (답변)</span><span class="time">15:10</span></div>
+    <p>맞습니다. 좋은 질문이시고요. 정말 똑같은 질문을 저희 엔지니어가 했었고, 저희도 그때 깊은 고민을 했었는데요. 말씀하신 포인트에 대한 답을 드리면 이런 거죠. 도메인 지식이라고 하면, 어차피 스펙은 계속적으로 올라가고 있거든요. USB 2.0을 쓰다가 지금 3.0을 쓰듯이, PCIe도 마찬가지로 3.0, 4.0이 올라가고 있는 상황입니다. 그런 스펙을 알고, 그 스펙에 따라서 어떻게 계측하느냐는 사실 일반적인 기업의 선수들은 잘 모릅니다. 저희같이 계측기를 다루는 선수들은 오히려 그런 스펙을 알고 접근을 하기 때문에, 단순하게 클로드를 활용했다고 해서 내가 원하는 거를 빨리빨리 얻을 수 있는 게 아니고, 기본적인 스펙을 알고 도메인을 알아야만 어느 정도 성과를 낼 수 있는 부분이 있기 때문에, 당분간은 그런 걸로 차별화를 해야 되지 않겠느냐 하는 생각입니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 B</span><span class="time">16:10</span></div>
+    <p>다루시는 계측의 종류는 어느 정도였나요? 굉장히 많죠, 수만 개죠?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 A</span><span class="time">16:16</span></div>
+    <p>그것들에 대해서 다 지금 전문 영역을 쌓고 계신 건가요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (답변)</span><span class="time">16:19</span></div>
+    <p>다 할 수는 없고요. 계측기가 여러 가지라, 센서도 계측기고 온갖 게 다 계측기잖아요. 그런데 저희가 전문적으로 하는 거는 전기전자 계측 솔루션이기 때문에, 아주 심플하게는 오실로스코프하고 네트워크 애널라이저, 그러니까 RF 테스트하는 거, 그다음에 일반적인 전기전자 회로를 테스트하는 것, 이게 가장 심플한 기본입니다. 하이스피드를 요구하는 부분들의 니즈가 계속 증가하기 때문에 그런 스펙들이 계속 올라가거든요. 그러다 보니까 그런 쪽에 저희는 계속 지식을 쌓고 있다, 이렇게 보시면 됩니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">17:00</span></div>
+    <p>제가 도메인을 잘 모르다 보니까 질문드립니다. 이게 지금 하드웨어하고 소프트웨어를 다 개발하셔야 되는 건가요? 커스텀 디자인 주문이 들어오면 그거에 맞춰서 하드웨어까지?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (답변)</span><span class="time">17:19</span></div>
+    <p>아니요, 하드웨어는 필요 없습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 C</span><span class="time">17:21</span></div>
+    <p>그러니까 지금 제가 말씀드리는 거는 소프트웨어적인 측면입니다. 커스터머마다 소프트웨어에 대한 리콰이어먼트는 결국 다를 거잖아요. 그러면 기존에 만들어 놓은 소프트웨어들을 일종의 데이터베이스에 집어넣어 놓고, 새로 들어오는 리콰이어먼트에 맞춰서 기존에 개발했던 거를 고쳐서 사용하는 것도 충분히 가능할 것 같은데요. 그런 부분에서 AI를 도입해서 일종의 RAG 같은 거를 생각할 수도 있을 것 같은데, 그런 식으로 지금 접근을 하시는 건지요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (답변)</span><span class="time">18:07</span></div>
+    <p>사실은 아까 말씀드렸다시피 계측기가 워낙 다양하기 때문에, 예를 들면 이런 거죠. 오실로스코프라는 하나의 계측기가 있는데, 얘가 100메가짜리를 측정하는 게 있고, 10기가짜리를 측정하는 게 있고, 23기가짜리를 측정하는 게 있고, 워낙 다양한 오실로스코프와 다양한 밴드위스의 계측 종류가 있기 때문에, 기본 플랫폼을 정해놓고 여기에 얹어서 하는 것도 사실 한계가 있습니다. 그런데 말씀하신 RAG 형태로 기본 데이터베이스를 저장하고 거기에 붙여 나가는 건 당연히 검토해야 될 사항이고요.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">심사위원 D</span><span class="time">18:52</span></div>
+    <p>아까 중간에 말씀하시면서 계측 민감도가 낮은 것들은 괜찮은데 높은 것들 말씀을 하셨는데요. 민감도 높은 보안 쪽에서 좀 나은 솔루션을 제시해서, 일반적으로 그냥 클로드나 이런 데 쓰는 사람들이 따라올 수 없는 해자를 만들 수 있을까요?</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker presenter">이재관 (답변)</span><span class="time">19:12</span></div>
+    <p>그러니까 예를 들면 이런 거죠. 계속 반복되는 테스트에 대해서 이런 이런 거 해달라고 하면, 저희 사이드에서 클로드를 이용해서 만들어놓고, 이걸 가지고 온사이트에서 서포트하면서 옵티마이징하는 것, 사실 이런 부분이 가장 잘 돌아가는 솔루션이고 가장 베스트라고 봅니다. 거기 가서 직접 AI를 돌리는 거는 쉽지 않다, 이렇게 보고 있습니다.</p>
+  </div>
+
+  <div class="block">
+    <div class="meta"><span class="speaker">사회자</span><span class="time">19:47</span></div>
+    <p>그러면 이상으로 마치겠습니다.</p>
+  </div>
+
+</div>
+<script>
+if (window.self !== window.top || /[?&]embed=1/.test(location.search)) {
+  var b = document.querySelector('.back'); if (b) b.remove();
+}
+</script>
+</body>
+</html>
