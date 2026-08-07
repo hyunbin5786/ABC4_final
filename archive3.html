@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC 3기 최종 발표 아카이브</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --ink: #1a1a1a;
+    --ink-soft: #55554f;
+    --ink-faint: #8f8f86;
+    --line: #e6e6e0;
+    --line-soft: #efefe9;
+    --accent: #2f5d50;
+    --accent-soft: #e8f0ed;
+    --hover: #fbfbf8;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  /* ---------- 헤더 ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247,247,245,.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    max-width: 1160px; margin: 0 auto;
+    padding: 16px 24px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .brand { display: flex; flex-direction: column; gap: 2px; margin-right: auto; }
+  .brand h1 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  .brand p  { font-size: 12.5px; color: var(--ink-faint); }
+  .easy-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; font-weight: 700; color: #fff; text-decoration: none;
+    background: var(--accent); border-radius: 999px; padding: 9px 18px;
+    white-space: nowrap; transition: opacity .12s;
+  }
+  .easy-btn:hover { opacity: .88; }
+  .search-box {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px; padding: 8px 16px; min-width: 260px;
+  }
+  .search-box svg { flex-shrink: 0; color: var(--ink-faint); }
+  .search-box input {
+    border: none; outline: none; background: transparent;
+    font: inherit; font-size: 14px; width: 100%;
+  }
+  .count-chip {
+    font-size: 12.5px; color: var(--ink-soft);
+    background: var(--accent-soft); border-radius: 999px; padding: 6px 12px;
+    white-space: nowrap;
+  }
+
+  /* ---------- 표 ---------- */
+  main { max-width: 1160px; margin: 0 auto; padding: 28px 24px 80px; }
+  .table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    text-align: left;
+    font-size: 12px; font-weight: 700; letter-spacing: .05em;
+    color: var(--ink-faint);
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--line);
+    background: #fcfcfa;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 15px 16px;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 14.5px;
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr { cursor: pointer; transition: background .12s ease; }
+  tbody tr:hover { background: var(--hover); }
+
+  td.col-no {
+    width: 52px; font-size: 13px; font-weight: 600;
+    color: var(--ink-faint); font-variant-numeric: tabular-nums;
+    padding-top: 17px;
+  }
+  td.col-name { width: 130px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+  td.col-name .sub { display: block; font-size: 12px; font-weight: 400; color: var(--ink-faint); margin-top: 1px; }
+  td.col-topic .t { font-weight: 500; }
+  td.col-topic .summary {
+    display: block; font-size: 13px; color: var(--ink-faint);
+    margin-top: 3px; line-height: 1.55;
+  }
+  td.col-tags { width: 190px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    font-size: 11.5px; color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px; padding: 2px 9px; white-space: nowrap;
+  }
+  .award-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: .02em;
+    color: #8a6d1d; background: #faf3dc; border: 1px solid #eddfae;
+    border-radius: 999px; padding: 1px 7px; margin-left: 6px;
+    vertical-align: 2px; white-space: nowrap;
+  }
+  .award-badge::before { content: "🏅"; font-size: 10px; }
+  #dName .award-badge { font-size: 12px; padding: 2px 10px; vertical-align: 4px; }
+  td.col-links { width: 150px; }
+  .mini-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 12.5px; color: var(--ink-soft); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 3px 10px; margin: 0 4px 4px 0;
+    transition: border-color .12s, color .12s;
+  }
+  .mini-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  tr.empty td { color: var(--ink-faint); }
+  tr.empty td.col-name { font-weight: 500; }
+  .badge-pending {
+    font-size: 11.5px; color: var(--ink-faint);
+    background: var(--line-soft); border-radius: 999px; padding: 2px 9px;
+  }
+  .no-result {
+    text-align: center; color: var(--ink-faint);
+    padding: 70px 0; font-size: 15px; display: none;
+  }
+
+  /* ---------- 상세(스토리보드) 뷰 ---------- */
+  .detail-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(20,20,18,.45);
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s ease;
+  }
+  .detail-overlay.open { opacity: 1; pointer-events: auto; }
+
+  /* 중앙 팝업 래퍼 */
+  .detail-modal-wrap {
+    position: fixed; inset: 0; z-index: 101;
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s ease;
+  }
+  .detail-modal-wrap.open { opacity: 1; pointer-events: auto; }
+
+  .detail-panel {
+    position: relative;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(0,0,0,.28);
+    display: flex; flex-direction: row;
+    width: min(880px, 100%);
+    max-height: calc(100vh - 64px);
+    overflow: hidden;
+    transform: scale(.96);
+    transition: transform .22s cubic-bezier(.32,.72,.28,1), width .28s ease;
+  }
+  .detail-modal-wrap.open .detail-panel { transform: scale(1); }
+  .detail-panel.viewer-open { width: min(1360px, 100%); }
+
+  .detail-main {
+    display: flex; flex-direction: column;
+    flex: 1 1 0; min-width: 0;
+    max-height: calc(100vh - 64px);
+  }
+
+  /* 옆에 열리는 뷰어 컬럼 */
+  .viewer-col {
+    flex: 0 0 0; width: 0;
+    border-left: 1px solid var(--line);
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .detail-panel.viewer-open .viewer-col { flex: 0 0 56%; width: 56%; }
+  .viewer-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 16px 13px 20px; border-bottom: 1px solid var(--line);
+    flex: 0 0 auto;
+  }
+  .viewer-head .vtitle {
+    font-size: 12px; font-weight: 700; letter-spacing: .06em;
+    color: var(--ink-faint); text-transform: uppercase;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .viewer-head .viewer-newtab {
+    margin-left: auto; text-decoration: none; color: var(--ink-soft);
+    font-size: 15px; line-height: 1; padding: 4px 6px; border-radius: 8px;
+  }
+  .viewer-head .viewer-newtab:hover { color: var(--accent); background: var(--line); }
+  .viewer-body { flex: 1 1 auto; min-height: 0; background: #525659; }
+  .viewer-body object, .viewer-body iframe {
+    width: 100%; height: 100%; border: 0; display: block;
+  }
+
+  .detail-top {
+    padding: 20px 32px 0;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .detail-top .no { font-size: 13px; font-weight: 600; color: var(--ink-faint); }
+  .btn-close {
+    margin-left: auto;
+    border: 1px solid var(--line); background: var(--bg);
+    border-radius: 999px; width: 36px; height: 36px;
+    font-size: 16px; cursor: pointer; color: var(--ink-soft);
+    display: grid; place-items: center;
+  }
+  .btn-close:hover { background: var(--line); }
+
+  .detail-scroll { overflow-y: auto; flex: 1; }
+  .detail-head { padding: 12px 32px 26px; border-bottom: 1px solid var(--line); }
+  .detail-head h2 { font-size: 25px; font-weight: 800; letter-spacing: -0.02em; }
+  .detail-head .affil { font-size: 13px; color: var(--ink-faint); margin: 2px 0 6px; }
+  .detail-head .topic { font-size: 16.5px; color: var(--ink-soft); margin-bottom: 16px; line-height: 1.5; }
+  .detail-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .link-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 14px; color: var(--ink-soft);
+    background: var(--surface); font-family: inherit; cursor: pointer;
+    transition: border-color .15s, color .15s, background .15s;
+  }
+  .link-pill:hover { border-color: var(--accent); color: var(--accent); }
+  .link-pill.active {
+    border-color: var(--accent); color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+  .viewer-head .btn-close { margin-left: 0; width: 30px; height: 30px; font-size: 14px; }
+
+  /* 한눈에 보기 */
+  .highlights {
+    margin: 18px 0 0;
+    background: var(--accent);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  .highlights .hl-title {
+    font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    color: rgba(255,255,255,.65); margin-bottom: 8px;
+  }
+  .highlights ul { list-style: none; }
+  .highlights li {
+    position: relative;
+    font-size: 14px; color: #fff; line-height: 1.65;
+    padding-left: 18px; margin-bottom: 4px;
+  }
+  .highlights li:last-child { margin-bottom: 0; }
+  .highlights li::before {
+    content: "";
+    position: absolute; left: 2px; top: 9px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,.55);
+  }
+
+  /* 스토리보드 */
+  .storyboard { padding: 32px; }
+  .sb-label {
+    font-size: 12px; font-weight: 700; letter-spacing: .08em;
+    color: var(--ink-faint); text-transform: uppercase; margin-bottom: 22px;
+  }
+  .scene {
+    position: relative;
+    padding: 0 0 40px 34px;
+    border-left: 2px solid var(--line);
+    margin-left: 8px;
+  }
+  .scene:last-child { border-left-color: transparent; padding-bottom: 8px; }
+  .scene::before {
+    content: "";
+    position: absolute; left: -8px; top: 4px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--surface);
+    border: 3px solid var(--accent);
+  }
+  .scene .scene-no {
+    font-size: 12px; font-weight: 700; color: var(--accent);
+    letter-spacing: .06em; margin-bottom: 4px;
+  }
+  .scene h3 { font-size: 17.5px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 9px; }
+  .scene p { font-size: 15px; color: var(--ink-soft); line-height: 1.85; white-space: pre-line; }
+  .scene .quote {
+    margin-top: 14px; padding: 13px 17px;
+    background: var(--accent-soft); border-radius: 10px;
+    font-size: 14px; color: var(--accent); line-height: 1.7;
+  }
+
+  /* 숫자 카드 */
+  .facts {
+    margin-top: 16px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+  }
+  .fact {
+    background: var(--bg); border: 1px solid var(--line-soft);
+    border-radius: 10px; padding: 12px 15px;
+  }
+  .fact b { display: block; font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+  .fact span { font-size: 12px; color: var(--ink-faint); line-height: 1.45; display: block; margin-top: 2px; }
+
+  /* 플로우 (단계 시각화) */
+  .flow {
+    margin-top: 16px;
+    display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px;
+  }
+  .flow-step {
+    flex: 1 1 0; min-width: 96px;
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 10px; padding: 11px 12px;
+    text-align: center; position: relative;
+  }
+  .flow-step .fs-num {
+    display: inline-grid; place-items: center;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    font-size: 11px; font-weight: 700; margin-bottom: 6px;
+  }
+  .flow-step .fs-title { display: block; font-size: 13px; font-weight: 700; line-height: 1.4; }
+  .flow-step .fs-sub { display: block; font-size: 11.5px; color: var(--ink-faint); line-height: 1.45; margin-top: 3px; }
+  .flow-arrow {
+    align-self: center; color: var(--ink-faint);
+    font-size: 14px; flex: 0 0 auto; padding: 0 1px;
+  }
+
+  /* 체크리스트 */
+  .check-list { margin-top: 14px; display: grid; gap: 7px; }
+  .check-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--bg); border: 1px solid var(--line-soft);
+    border-radius: 10px; padding: 11px 14px;
+    font-size: 14px; color: var(--ink-soft); line-height: 1.6;
+  }
+  .check-item::before {
+    content: "✓";
+    flex-shrink: 0;
+    width: 20px; height: 20px; border-radius: 6px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 12px; font-weight: 800;
+    display: grid; place-items: center;
+    margin-top: 2px;
+  }
+  .check-item b { color: var(--ink); font-weight: 700; }
+
+  /* 미니 테이블 */
+  .stable-wrap { margin-top: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  table.stable { width: 100%; border-collapse: collapse; }
+  .stable th {
+    text-align: left; font-size: 12px; font-weight: 700;
+    color: var(--ink-faint); background: #fcfcfa;
+    padding: 9px 14px; border-bottom: 1px solid var(--line);
+    letter-spacing: .03em; white-space: nowrap;
+  }
+  .stable td {
+    font-size: 13.5px; color: var(--ink-soft);
+    padding: 10px 14px; border-bottom: 1px solid var(--line-soft);
+    line-height: 1.6; vertical-align: top;
+  }
+  .stable tr:last-child td { border-bottom: none; }
+  .stable td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+  /* Q&A */
+  .qna { padding: 6px 32px 46px; }
+  .qna-label {
+    font-size: 12px; font-weight: 700; letter-spacing: .08em;
+    color: var(--ink-faint); text-transform: uppercase;
+    margin-bottom: 18px; padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .qa-item { margin-bottom: 24px; }
+  .qa-item .q {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 14.5px; font-weight: 600; line-height: 1.65;
+    margin-bottom: 9px;
+  }
+  .qa-item .a {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 14.5px; color: var(--ink-soft); line-height: 1.8;
+    white-space: pre-line;
+  }
+  .qa-mark {
+    flex-shrink: 0;
+    width: 22px; height: 22px; border-radius: 7px;
+    display: grid; place-items: center;
+    font-size: 11.5px; font-weight: 800;
+    margin-top: 2px;
+  }
+  .q .qa-mark { background: var(--ink); color: #fff; }
+  .a .qa-mark { background: var(--accent-soft); color: var(--accent); }
+
+  .empty-detail {
+    padding: 60px 32px; text-align: center; color: var(--ink-faint); font-size: 15px;
+  }
+
+  /* ---------- 반응형 ---------- */
+  @media (max-width: 760px) {
+    .header-inner { padding: 14px 16px; }
+    .search-box { min-width: 0; flex: 1; }
+    main { padding: 16px 12px 60px; }
+    thead { display: none; }
+    table:not(.stable), tbody, tr, td { display: block; width: 100%; }
+    table.stable, .stable tbody, .stable tr { display: table; }
+    table.stable { display: table; }
+    .stable tbody { display: table-row-group; }
+    .stable tr { display: table-row; }
+    .stable td, .stable th { display: table-cell; }
+    tbody tr { padding: 14px 16px; border-bottom: 1px solid var(--line-soft); }
+    tbody td { border: none; padding: 2px 0; }
+    td.col-no { width: auto; }
+    td.col-tags, td.col-links { width: auto; padding-top: 8px; }
+    .storyboard, .detail-head, .detail-top { padding-left: 20px; padding-right: 20px; }
+    .qna { padding-left: 20px; padding-right: 20px; }
+    .detail-modal-wrap { padding: 12px; }
+    .detail-panel, .detail-panel.viewer-open { flex-direction: column; width: 100%; }
+    .detail-panel.viewer-open .viewer-col { flex: 0 0 60vh; width: 100%; border-left: none; border-top: 1px solid var(--line); }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); align-self: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <h1>ABC 3기 최종 발표 아카이브</h1>
+      <p>25명의 발표를 한곳에 정리합니다</p>
+    </div>
+    <a class="easy-btn" href="archive.html">4기 아카이브 보기 →</a>
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="searchInput" type="text" placeholder="이름, 주제, 키워드 검색">
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>NO</th>
+          <th>발표자</th>
+          <th>발표 주제</th>
+          <th>키워드</th>
+          <th>자료</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="no-result" id="noResult">검색 결과가 없습니다.</div>
+  </div>
+</main>
+
+<!-- 상세 패널 -->
+<div class="detail-overlay" id="overlay"></div>
+<div class="detail-modal-wrap" id="modalWrap">
+  <aside class="detail-panel" id="panel" aria-hidden="true">
+    <div class="detail-main">
+      <div class="detail-top">
+        <span class="no" id="dNo"></span>
+        <button class="btn-close" id="btnClose" aria-label="닫기">✕</button>
+      </div>
+      <div class="detail-scroll" id="detailScroll">
+        <div class="detail-head">
+          <h2 id="dName"></h2>
+          <div class="affil" id="dAffil"></div>
+          <div class="topic" id="dTopic"></div>
+          <div class="detail-links" id="dLinks"></div>
+          <div id="dHighlights"></div>
+        </div>
+        <div id="dBody"></div>
+      </div>
+    </div>
+    <div class="viewer-col" id="viewerCol">
+      <div class="viewer-head">
+        <span class="vtitle" id="viewerTitle"></span>
+        <a class="viewer-newtab" id="viewerOpenNew" href="#" target="_blank" rel="noopener" title="새 탭에서 열기">↗</a>
+        <button class="btn-close" id="viewerClose" aria-label="뷰어 닫기">✕</button>
+      </div>
+      <div class="viewer-body" id="viewerBody"></div>
+    </div>
+  </aside>
+</div>
+
+<script>
+/* =========================================================
+   발표 데이터
+   - 이 배열만 수정하면 사이트 전체가 갱신됩니다.
+   - GitHub Pages 배포 시 자료 링크는 저장소 내 상대 경로 사용:
+       slides/01.pdf, transcripts/01.html ...
+   - 스토리보드 scene에 넣을 수 있는 요소:
+       title  : 소제목 (필수)
+       text   : 본문
+       quote  : 인상적인 발언 (인용 박스)
+       facts  : 숫자 카드 [{num, label}]
+       flow   : 단계 흐름 [{t: 제목, s: 부연(선택)}]
+       list   : 체크리스트 ["<b>제목</b>, 설명", ...]
+       table  : 미니 표 {head: [...], rows: [[...], ...]}
+   - highlights : 상세 상단 '한눈에 보기' 3~4줄
+   - qna        : 질의응답 [{q, a}]
+   ========================================================= */
+const PRESENTATIONS = [
+  {
+    no: 1,
+    name: "강신명",
+    affil: "핑거 · CFO",
+    topic: "Forest 3.0: 평가보다 먼저, 기여의 맥락을 만드는 AI 기반 조직운영 시스템",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/01.pdf" },
+      { label: "속기록", url: "transcripts3/01.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 2,
+    name: "김도영",
+    affil: "카카오인베스트먼트 · 대표이사",
+    topic: "Venture Capital AI Transformation",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/02.pdf" },
+      { label: "속기록", url: "transcripts3/02.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 3,
+    name: "김성준",
+    affil: "메가존클라우드 · 부사장",
+    topic: "MegazoneCloud AI Execution Infrastructure Strategy",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/03.pdf" },
+      { label: "속기록", url: "transcripts3/03.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 4,
+    name: "김영석",
+    affil: "피플앤스토리 · 부사장",
+    topic: "AI Powered 제작·업무 자동화 & More",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/04.pdf" },
+      { label: "속기록", url: "transcripts3/04.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 5,
+    name: "김재균",
+    affil: "클루닉스 · 공동대표",
+    topic: "AI가 운영하는 AI 인프라의 완성",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/05.pdf" },
+      { label: "속기록", url: "transcripts3/05.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 6,
+    name: "김학훈",
+    affil: "법률사무소 학훈 · 대표변호사",
+    topic: "AI 기반 법률 문서 처리 및 모의공방 서비스 개발",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/06.pdf" },
+      { label: "속기록", url: "transcripts3/06.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 7,
+    name: "김형우",
+    affil: "에스넷시스템 · 대표이사",
+    topic: "블루빗과 함께하는 AIOps 통합관제 솔루션",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/07.pdf" },
+      { label: "속기록", url: "transcripts3/07.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 8,
+    name: "김홍래",
+    affil: "휴플 · 대표",
+    topic: "휴플 AX",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/08.pdf" },
+      { label: "속기록", url: "transcripts3/08.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 9,
+    name: "남효승",
+    affil: "삼우종합건축사무소 · ENG팀 상무",
+    topic: "LLM Wiki 기반 건축 설계 지식 자산화 전략",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/09.pdf" },
+      { label: "속기록", url: "transcripts3/09.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 10,
+    name: "박세현",
+    affil: "남도마켓 · CPO",
+    topic: "End-to-End AI B2B SCM 시스템",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/10.pdf" },
+      { label: "속기록", url: "transcripts3/10.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 11,
+    name: "배승환",
+    affil: "파일러니어 · CEO",
+    topic: "AI 프로젝트와 AX 문화 도입",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/11.pdf" },
+      { label: "속기록", url: "transcripts3/11.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 12,
+    name: "서영진",
+    affil: "신한관세법인 · 부대표",
+    topic: "AI를 이용한 업무처리 사례",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/12.pdf" },
+      { label: "속기록", url: "transcripts3/12.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 13,
+    name: "유경선",
+    affil: "유진그룹 · 회장",
+    topic: "AI 기반 경영자 의사결정의 체험·실행과 고도화 방안",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/13.pdf" },
+      { label: "속기록", url: "transcripts3/13.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 14,
+    name: "유명호",
+    affil: "포스코기술투자 · Director",
+    topic: "글로벌 CVC 투자 AX 전략",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/14.pdf" },
+      { label: "속기록", url: "transcripts3/14.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 15,
+    name: "윤형섭",
+    affil: "하이매틱스 · 대표",
+    topic: "Net-zero 스마트 빌딩을 위한 AI 기반 실시간 원격 모니터링 시스템",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/15.pdf" },
+      { label: "속기록", url: "transcripts3/15.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 16,
+    name: "이근우",
+    affil: "베이스컴퍼니 · 사장",
+    topic: "PR Intelligence Platform 개념 설계와 구현 여정",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/16.pdf" },
+      { label: "속기록", url: "transcripts3/16.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 17,
+    name: "이용재",
+    affil: "국제금융센터 · 원장",
+    topic: "국제금융 보고서의 AI 전환 추진 전략",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/17.pdf" },
+      { label: "속기록", url: "transcripts3/17.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 18,
+    name: "이재관",
+    affil: "사이텍 · 대표이사",
+    topic: "AI 계측 혁신 전략",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/18.pdf" },
+      { label: "속기록", url: "transcripts3/18.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 19,
+    name: "이지학",
+    affil: "송알시스콤 · 대표이사",
+    topic: "분포형 음향센싱(DAS) 기반 AI 지중 굴착 감지시스템 개발",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/19.pdf" },
+      { label: "속기록", url: "transcripts3/19.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 20,
+    name: "전행진",
+    affil: "아리랑TV미디어 · 상무(COO)",
+    topic: "AI와 함께 책을 쓴다는 것",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/20.pdf" },
+      { label: "속기록", url: "transcripts3/20.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 21,
+    name: "정훈",
+    affil: "서울평가정보 · 부사장",
+    topic: "전사 AX 추진 및 성과",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/21.pdf" },
+      { label: "속기록", url: "transcripts3/21.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 22,
+    name: "조순진",
+    affil: "대덕전자 · 본부장",
+    topic: "AI 기반의 외관검사 혁신",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/22.pdf" },
+      { label: "속기록", url: "transcripts3/22.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 23,
+    name: "최우석",
+    affil: "NICE신용평가 · 기업평가본부장 상무",
+    topic: "AI를 활용한 신용평가사 업무 효율화",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/23.pdf" },
+      { label: "속기록", url: "transcripts3/23.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 24,
+    name: "최인욱",
+    affil: "중고나라 · CEO",
+    topic: "AI 기반 개인거래 Trust Infra 구축 전략",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/24.pdf" },
+      { label: "속기록", url: "transcripts3/24.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  },
+  {
+    no: 25,
+    name: "탁정미",
+    affil: "효성ITX · CS추진실 전무",
+    topic: "전력기기 제조 현장을 위한 지식그래프와 LLM의 융합 전략",
+    summary: "",
+    tags: [],
+    links: [
+      { label: "발표 슬라이드 (PDF)", url: "slides3/25.pdf" },
+      { label: "속기록", url: "transcripts3/25.html" }
+    ],
+    highlights: [],
+    scenes: [
+      { title: "정리 중", text: "이 발표의 상세 내용은 준비 중이다. 발표 슬라이드와 속기록이 곧 추가된다." }
+    ],
+    qna: []
+  }
+];
+
+
+/* ---------- 표 렌더링 ---------- */
+const tbody = document.getElementById("tbody");
+const noResult = document.getElementById("noResult");
+
+const LINK_ICON = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7L12.5 18.5"/></svg>`;
+
+function sortByName(list) {
+  return [...list].sort((a, b) => a.name.localeCompare(b.name, "ko"));
+}
+
+const DISPLAY_NO = {};
+sortByName(PRESENTATIONS).forEach((p, i) => { DISPLAY_NO[p.no] = i + 1; });
+
+function renderTable(list) {
+  tbody.innerHTML = list.map(p => {
+    if (p.placeholder) {
+      return `
+        <tr class="empty" data-no="${p.no}">
+          <td class="col-no">${String(DISPLAY_NO[p.no] || p.no).padStart(2, "0")}</td>
+          <td class="col-name">미정</td>
+          <td class="col-topic"><span class="badge-pending">등록 대기</span></td>
+          <td class="col-tags"></td>
+          <td class="col-links"></td>
+        </tr>`;
+    }
+    return `
+      <tr data-no="${p.no}">
+        <td class="col-no">${String(DISPLAY_NO[p.no] || p.no).padStart(2, "0")}</td>
+        <td class="col-name">${p.name}${p.award ? `<span class="award-badge">우수상</span>` : ""}${p.affil ? `<span class="sub">${p.affil}</span>` : ""}</td>
+        <td class="col-topic">
+          <span class="t">${p.topic}</span>
+          ${p.summary ? `<span class="summary">${p.summary}</span>` : ""}
+        </td>
+        <td class="col-tags"><div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div></td>
+        <td class="col-links">${p.links.map(l => `
+          <a class="mini-link" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${LINK_ICON}${l.label.replace(" (PDF)", "")}</a>`).join("")}
+        </td>
+      </tr>`;
+  }).join("");
+  noResult.style.display = list.length ? "none" : "block";
+}
+
+/* ---------- 검색 ---------- */
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", () => {
+  const q = searchInput.value.trim().toLowerCase();
+  if (!q) return renderTable(sortByName(PRESENTATIONS));
+  renderTable(sortByName(PRESENTATIONS).filter(p =>
+    p.name.toLowerCase().includes(q) ||
+    p.topic.toLowerCase().includes(q) ||
+    (p.summary || "").toLowerCase().includes(q) ||
+    p.tags.some(t => t.toLowerCase().includes(q))
+  ));
+});
+
+/* ---------- 상세 패널 ---------- */
+const overlay = document.getElementById("overlay");
+const modalWrap = document.getElementById("modalWrap");
+const panel = document.getElementById("panel");
+const detailScroll = document.getElementById("detailScroll");
+
+function renderScene(s, i) {
+  let inner = `
+    <div class="scene-no">SCENE ${i + 1}</div>
+    <h3>${s.title}</h3>
+    ${s.text ? `<p>${s.text}</p>` : ""}`;
+
+  if (s.flow) {
+    inner += `<div class="flow">${s.flow.map((f, idx) => `
+      ${idx > 0 ? `<span class="flow-arrow">→</span>` : ""}
+      <div class="flow-step">
+        <span class="fs-num">${idx + 1}</span>
+        <span class="fs-title">${f.t}</span>
+        ${f.s ? `<span class="fs-sub">${f.s}</span>` : ""}
+      </div>`).join("")}
+    </div>`;
+  }
+  if (s.facts) {
+    inner += `<div class="facts">${s.facts.map(f => `<div class="fact"><b>${f.num}</b><span>${f.label}</span></div>`).join("")}</div>`;
+  }
+  if (s.list) {
+    inner += `<div class="check-list">${s.list.map(item => `<div class="check-item"><span>${item}</span></div>`).join("")}</div>`;
+  }
+  if (s.table) {
+    inner += `
+      <div class="stable-wrap"><table class="stable">
+        <thead><tr>${s.table.head.map(h => `<th>${h}</th>`).join("")}</tr></thead>
+        <tbody>${s.table.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>
+      </table></div>`;
+  }
+  if (s.quote) {
+    inner += `<div class="quote">“${s.quote}”</div>`;
+  }
+  return `<div class="scene">${inner}</div>`;
+}
+
+function openDetail(no) {
+  const p = PRESENTATIONS.find(x => x.no === no);
+  if (!p) return;
+
+  document.getElementById("dNo").textContent = `NO. ${String(DISPLAY_NO[p.no] || p.no).padStart(2, "0")}`;
+  document.getElementById("dName").innerHTML = p.name + (p.award ? '<span class="award-badge">우수상</span>' : "");
+  document.getElementById("dAffil").textContent = p.affil || "";
+  document.getElementById("dTopic").textContent = p.topic;
+
+  document.getElementById("dLinks").innerHTML = p.links.map(l => {
+    const isPdf = /\.pdf(\?|#|$)/i.test(l.url);
+    return `<button class="link-pill" data-url="${l.url}" data-label="${l.label}" data-pdf="${isPdf}">${LINK_ICON}${l.label}</button>`;
+  }).join("");
+
+  document.getElementById("dHighlights").innerHTML = (p.highlights && p.highlights.length) ? `
+    <div class="highlights">
+      <div class="hl-title">한눈에 보기</div>
+      <ul>${p.highlights.map(h => `<li>${h}</li>`).join("")}</ul>
+    </div>` : "";
+
+  const body = document.getElementById("dBody");
+  let html = "";
+
+  if (p.scenes && p.scenes.length) {
+    html += `
+      <div class="storyboard">
+        <div class="sb-label">Storyboard</div>
+        ${p.scenes.map(renderScene).join("")}
+      </div>`;
+  }
+
+  if (p.qna && p.qna.length) {
+    html += `
+      <div class="qna">
+        <div class="qna-label">Q&amp;A, 질의응답</div>
+        ${p.qna.map(item => `
+          <div class="qa-item">
+            <div class="q"><span class="qa-mark">Q</span><span>${item.q}</span></div>
+            <div class="a"><span class="qa-mark">A</span><span>${item.a}</span></div>
+          </div>
+        `).join("")}
+      </div>`;
+  }
+
+  if (!html) html = `<div class="empty-detail">아직 정리된 발표 내용이 없습니다.</div>`;
+  body.innerHTML = html;
+
+  closeViewer();
+  detailScroll.scrollTop = 0;
+  overlay.classList.add("open");
+  modalWrap.classList.add("open");
+  panel.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeDetail() {
+  closeViewer();
+  overlay.classList.remove("open");
+  modalWrap.classList.remove("open");
+  panel.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+/* ---------- 옆에 열리는 뷰어 (토글) ---------- */
+let currentViewer = null;
+
+function toggleViewer(url, label, isPdf) {
+  if (currentViewer === url) { closeViewer(); return; }
+  currentViewer = url;
+  document.getElementById("viewerTitle").textContent = label;
+  document.getElementById("viewerOpenNew").href = url;
+  document.getElementById("viewerBody").innerHTML = isPdf
+    ? `<object data="${url}#toolbar=1&view=FitH" type="application/pdf"><iframe src="${url}" title="${label}"></iframe></object>`
+    : `<iframe src="${url}" title="${label}"></iframe>`;
+  panel.classList.add("viewer-open");
+  document.querySelectorAll("#dLinks .link-pill").forEach(b =>
+    b.classList.toggle("active", b.dataset.url === url));
+}
+
+function closeViewer() {
+  currentViewer = null;
+  panel.classList.remove("viewer-open");
+  document.getElementById("viewerBody").innerHTML = "";
+  document.querySelectorAll("#dLinks .link-pill").forEach(b => b.classList.remove("active"));
+}
+
+tbody.addEventListener("click", e => {
+  const row = e.target.closest("tr");
+  if (row) openDetail(Number(row.dataset.no));
+});
+document.getElementById("dLinks").addEventListener("click", e => {
+  const btn = e.target.closest(".link-pill");
+  if (!btn) return;
+  toggleViewer(btn.dataset.url, btn.dataset.label, btn.dataset.pdf === "true");
+});
+document.getElementById("viewerClose").addEventListener("click", closeViewer);
+overlay.addEventListener("click", closeDetail);
+document.getElementById("btnClose").addEventListener("click", closeDetail);
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeDetail(); });
+
+renderTable(sortByName(PRESENTATIONS));
+/* URL 해시로 상세 바로 열기 (예: archive.html#01) */
+(function () {
+  const m = location.hash.match(/^#p?(\d+)$/);
+  if (m) openDetail(Number(m[1]));
+})();
+</script>
+</body>
+</html>
